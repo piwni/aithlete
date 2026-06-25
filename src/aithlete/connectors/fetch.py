@@ -8,6 +8,7 @@ A normalized schema is written so the analysis layer never parses provider quirk
 from __future__ import annotations
 
 import datetime as dt
+import shutil
 
 import pandas as pd
 
@@ -39,7 +40,10 @@ def _normalize_activity(a: dict) -> dict:
         "start_time": start.isoformat(),
         "sport": sport,
         "type": a.get("type"),
+        "name": a.get("name"),
         "duration_s": int(a.get("moving_time") or a.get("elapsed_time") or 0),
+        "elapsed_s": int(a.get("elapsed_time") or a.get("moving_time") or 0),
+        "distance_m": float(a.get("distance") or 0.0),
         "tss": float(a.get("icu_training_load") or 0.0),
         "intensity_factor": round(intensity, 3) if intensity else None,
         "np_w": a.get("icu_weighted_avg_watts"),
@@ -54,15 +58,29 @@ def _normalize_activity(a: dict) -> dict:
     }
 
 
-def fetch_all(config: Config | None = None, *, full_resync: bool = False) -> dict:
+def fetch_all(
+    config: Config | None = None,
+    *,
+    full_resync: bool = False,
+    since: dt.date | None = None,
+    lookback_days: int = DEFAULT_LOOKBACK_DAYS,
+    reset: bool = False,
+) -> dict:
     config = config or get_config()
     intervals = IntervalsClient(config)
     ow = OpenWearablesClient(config)
 
+    # reset wipes the regenerable raw cache + watermark so the next fetch starts
+    # clean (e.g. to drop stale data or change the history window).
+    if reset:
+        shutil.rmtree(config.raw_dir / "intervals", ignore_errors=True)
+
     end = _today(config)
     wm = load_json(watermark_path("intervals"), default={})
-    if full_resync or not wm.get("last_synced"):
-        start = end - dt.timedelta(days=DEFAULT_LOOKBACK_DAYS)
+    if since is not None:
+        start = since
+    elif full_resync or reset or not wm.get("last_synced"):
+        start = end - dt.timedelta(days=lookback_days)
     else:
         # Re-pull a small overlap to catch late edits.
         start = dt.date.fromisoformat(wm["last_synced"]) - dt.timedelta(days=7)

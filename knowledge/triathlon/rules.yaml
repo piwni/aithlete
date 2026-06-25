@@ -8,12 +8,14 @@
 # they can be tuned per athlete in the profile (see `overrides` note at bottom).
 schema_version: 1
 
-# Distance buckets in the user's "1/8, 1/4, 1/2, full" mental model.
+# Distance buckets in the user's "1/8, 1/4, 1/2, full" Ironman-fraction model.
+# Canonical distances are the half/full Ironman scaled by the fraction; the race
+# detector classifies a finished triathlon to the nearest bucket by these.
 distances:
-  sprint:   { label: "Sprint (~1/8)",      swim_m: 750,  bike_km: 20,    run_km: 5 }
-  olympic:  { label: "Olympic (~1/4)",     swim_m: 1500, bike_km: 40,    run_km: 10 }
-  half:     { label: "Half / 70.3 (1/2)",  swim_m: 1900, bike_km: 90,    run_km: 21.1 }
-  full:     { label: "Full / Ironman",     swim_m: 3800, bike_km: 180,   run_km: 42.2 }
+  "1/8":  { label: "1/8 Ironman",  swim_m: 475,  bike_km: 22.5,  run_km: 5.3 }
+  "1/4":  { label: "1/4 Ironman",  swim_m: 950,  bike_km: 45,    run_km: 10.5 }
+  "1/2":  { label: "1/2 (70.3)",   swim_m: 1900, bike_km: 90,    run_km: 21.1 }
+  full:   { label: "Full Ironman", swim_m: 3800, bike_km: 180,   run_km: 42.2 }
 
 # Periodization phases (classic linear/block model; reverse periodization is an
 # allowed variant for long-course age-groupers — see notes.md).
@@ -60,10 +62,10 @@ recovery_week:
 # meta-analysis (2-week exponential taper, ~41-60% volume reduction is optimal).
 taper:
   duration_days_by_distance:
-    sprint:  [5, 7]
-    olympic: [7, 10]
-    half:    [10, 14]
-    full:    [14, 21]
+    "1/8":  [5, 7]
+    "1/4":  [7, 10]
+    "1/2":  [10, 14]
+    full:   [14, 21]
   volume_reduction_pct: [40, 60]
   hold_intensity: true            # keep race-pace touches; do NOT add new intensity
   frequency: "maintain (don't drop training frequency, drop duration)"

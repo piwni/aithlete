@@ -28,10 +28,10 @@ class TrainingAge(str, Enum):
 
 
 class DistanceBucket(str, Enum):
-    SPRINT = "sprint"     # ~1/8
-    OLYMPIC = "olympic"   # ~1/4
-    HALF = "half"         # 70.3, ~1/2
-    FULL = "full"         # Ironman
+    EIGHTH = "1/8"    # super-sprint / ~1/8 Ironman
+    QUARTER = "1/4"   # ~1/4 Ironman (quarter)
+    HALF = "1/2"      # 70.3 / half Ironman
+    FULL = "full"     # full Ironman
 
 
 class Anthropometrics(BaseModel):

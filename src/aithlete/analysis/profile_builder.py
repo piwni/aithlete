@@ -12,6 +12,7 @@ import datetime as dt
 import pandas as pd
 
 from aithlete.analysis import metrics
+from aithlete.analysis.races import detect_triathlon_results
 from aithlete.models.common import Sport, Tracked, Trend
 from aithlete.models.profile import (
     AthleteProfile,
@@ -124,5 +125,8 @@ def build_profile(
         resting_hr_trend=_trend(baselines.get("resting_hr_trend")),
         sleep_avg_hours=Tracked.estimated(baselines["sleep_avg_hours"], "wearable sleep", as_of) if baselines.get("sleep_avg_hours") else Tracked.unknown(),
     )
+
+    # Competition history: reconstruct finished triathlons from activities.
+    p.results = detect_triathlon_results(activities)
 
     return p.enforce_estimate_only()

@@ -117,7 +117,7 @@ def build_digest(
     for ev in calendar or []:
         rdate = dt.date.fromisoformat(ev["date"])
         digest.upcoming_races.append(UpcomingRace(
-            name=ev.get("name", "race"), date=rdate, bucket=ev.get("bucket", "olympic"),
+            name=ev.get("name", "race"), date=rdate, bucket=ev.get("bucket", "1/4"),
             priority=ev.get("priority", "A"), weeks_out=max(0, (rdate - as_of).days // 7),
         ))
 

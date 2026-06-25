@@ -11,6 +11,7 @@
 
 from __future__ import annotations
 
+import datetime as dt
 from pathlib import Path
 
 import typer
@@ -49,9 +50,21 @@ def _load_frames():
 
 
 @app.command()
-def fetch(full_resync: bool = typer.Option(False, help="Ignore watermark and refetch the lookback window.")):
+def fetch(
+    full_resync: bool = typer.Option(False, help="Ignore watermark and refetch the lookback window."),
+    since: str = typer.Option(None, help="Fetch from this date (YYYY-MM-DD), e.g. your first training. Overrides --days."),
+    days: int = typer.Option(180, help="Lookback window in days when --since is not given."),
+    reset: bool = typer.Option(False, help="Wipe the regenerable raw cache + watermark before fetching (clean slate)."),
+):
     """Pull data from sources, dedup, and persist to the partitioned raw store."""
-    res = fetch_all(full_resync=full_resync)
+    since_date = None
+    if since:
+        try:
+            since_date = dt.date.fromisoformat(since)
+        except ValueError as exc:
+            console.print(f"[red]Invalid --since date '{since}': {exc}. Use YYYY-MM-DD.[/]")
+            raise typer.Exit(2) from exc
+    res = fetch_all(full_resync=full_resync, since=since_date, lookback_days=days, reset=reset)
     mode = "offline (synthetic athlete)" if res["offline"] else "live"
     console.print(f"[bold green]Fetched[/] {res['activities']} activities, "
                   f"{res['wellness_days']} wellness days [{mode}] window={res['window']}")
@@ -115,10 +128,10 @@ def profile(athlete: str = typer.Option("athlete", help="Athlete id.")):
     as_of = data_as_of(acts, well)
     prof = profile_builder.build_profile(settings, acts, well, as_of, athlete_id=athlete)
     # Preserve agent-authored interpretive fields if a profile already exists.
+    # Race results are auto-detected from history on every run (not preserved).
     existing = load_json(profile_path(athlete))
     if existing:
         prev = AthleteProfile.model_validate(existing)
-        prof.results = prev.results or prof.results
         prof.strengths = prev.strengths
         prof.limiters = prev.limiters
         prof.injury_history = prev.injury_history
@@ -127,6 +140,15 @@ def profile(athlete: str = typer.Option("athlete", help="Athlete id.")):
         prof.notes = prev.notes
     save_json(profile_path(athlete), prof.model_dump(mode="json"))
     console.print(f"[green]Wrote baseline profile[/] {profile_path(athlete)}")
+    if prof.results:
+        bests = prof.best_times()
+        console.print(f"  Detected [bold]{len(prof.results)}[/] races; "
+                      f"PRs in {len(bests)} distance(s):")
+        for bucket, bt in sorted(bests.items(), key=lambda kv: kv[0].value):
+            h, rem = divmod(int(bt.total_time_s), 3600)
+            m, s = divmod(rem, 60)
+            console.print(f"    {bucket.value:>4} {h}:{m:02d}:{s:02d}  "
+                          f"{bt.event_name or '—'} ({bt.date})")
     console.print(f"  FTP {prof.bike.ftp_w.value} W ({prof.bike.ftp_w.provenance.value}), "
                   f"CTL {prof.load.combined.ctl.value}, VO2max {prof.bike.vo2max.value} (estimated)")
 
