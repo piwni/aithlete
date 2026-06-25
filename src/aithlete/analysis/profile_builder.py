@@ -90,8 +90,12 @@ def build_profile(
         css_s_per_100m=Tracked.estimated(swim["css_s_per_100m"], INTERVALS, as_of) if swim.get("css_s_per_100m") else Tracked.unknown(),
     )
 
-    # Load.
+    # Load. Prefer intervals' canonical CTL/ATL for combined when present (it
+    # carries full history); fall back to the local recompute.
     load = metrics.latest_load(activities)
+    fetched = metrics.fetched_combined_load(wellness, as_of)
+    if fetched:
+        load["combined"] = {**load.get("combined", {}), **fetched}
     p.load = TrainingLoad(
         combined=_load_state(load.get("combined"), as_of),
         swim=_load_state(load.get("swim"), as_of),

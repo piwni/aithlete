@@ -16,7 +16,7 @@ from aithlete.connectors import synthetic
 from aithlete.connectors.dedup import dedup_activities, merge_wellness
 from aithlete.connectors.intervals import IntervalsClient
 from aithlete.connectors.openwearables import OpenWearablesClient
-from aithlete.storage.io import load_json, save_json, write_csv
+from aithlete.storage.io import load_json, read_csv, save_json, write_csv
 from aithlete.storage.paths import raw_partition_path, watermark_path
 
 DEFAULT_LOOKBACK_DAYS = 180
@@ -68,6 +68,9 @@ def fetch_all(config: Config | None = None, *, full_resync: bool = False) -> dic
         start = dt.date.fromisoformat(wm["last_synced"]) - dt.timedelta(days=7)
 
     raw_acts = intervals.list_activities(start, end)
+    # Real intervals data can have events with no start time; skip them rather
+    # than crash on datetime.fromisoformat downstream.
+    raw_acts = [a for a in raw_acts if a.get("start_date_local")]
     for a in raw_acts:
         a.setdefault("_source", "intervals")
     deduped = dedup_activities(raw_acts)
@@ -93,6 +96,21 @@ def fetch_all(config: Config | None = None, *, full_resync: bool = False) -> dic
     }
 
 
+def _merge_into_partition(path, part: pd.DataFrame, key: str) -> None:
+    """Read-merge-write so incremental fetch never destroys history.
+
+    Existing rows are concatenated with the new slice and de-duplicated on
+    ``key`` keeping the latest (so a re-pulled overlap absorbs late edits).
+    """
+    existing = read_csv(path)
+    combined = pd.concat([existing, part], ignore_index=True) if not existing.empty else part
+    if key in combined.columns:
+        combined = combined.drop_duplicates(subset=[key], keep="last")
+    sort_col = "start_time" if "start_time" in combined.columns else "date"
+    combined = combined.sort_values(sort_col).reset_index(drop=True)
+    write_csv(path, combined)
+
+
 def _persist_activities(norm_acts: list[dict]) -> None:
     if not norm_acts:
         return
@@ -100,7 +118,7 @@ def _persist_activities(norm_acts: list[dict]) -> None:
     df["year"] = df["date"].str.slice(0, 4).astype(int)
     for (year, sport), part in df.groupby(["year", "sport"]):
         path = raw_partition_path("intervals", "activities", int(year), str(sport))
-        write_csv(path, part.drop(columns=["year"]))
+        _merge_into_partition(path, part.drop(columns=["year"]), key="id")
 
 
 def _persist_wellness(wellness: list[dict]) -> None:
@@ -110,4 +128,4 @@ def _persist_wellness(wellness: list[dict]) -> None:
     df["year"] = df["date"].str.slice(0, 4).astype(int)
     for year, part in df.groupby("year"):
         path = raw_partition_path("intervals", "wellness", int(year))
-        write_csv(path, part.drop(columns=["year"]))
+        _merge_into_partition(path, part.drop(columns=["year"]), key="date")

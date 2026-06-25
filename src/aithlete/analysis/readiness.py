@@ -142,10 +142,26 @@ def evaluate(
     return report
 
 
-def _acwr(activities: pd.DataFrame, as_of: dt.date) -> float | None:
+def _combined_to_asof(activities: pd.DataFrame, as_of: dt.date) -> pd.Series | None:
+    """Daily combined TSS padded with zeros out to ``as_of`` so rest days after
+    the last logged activity are counted (otherwise a layoff inflates monotony
+    and distorts the acute window)."""
     if activities.empty:
         return None
     tss = metrics.daily_tss(activities).set_index("date")["combined"]
+    if len(tss) == 0:
+        return None
+    start = min(tss.index)
+    if as_of < start:
+        return None
+    idx = pd.date_range(start, as_of, freq="D").date
+    return tss.reindex(idx, fill_value=0.0)
+
+
+def _acwr(activities: pd.DataFrame, as_of: dt.date) -> float | None:
+    tss = _combined_to_asof(activities, as_of)
+    if tss is None:
+        return None
     acute = tss[tss.index > as_of - dt.timedelta(days=7)].sum()
     chronic = tss[tss.index > as_of - dt.timedelta(days=28)].sum() / 4.0
     if chronic <= 0:
@@ -154,9 +170,9 @@ def _acwr(activities: pd.DataFrame, as_of: dt.date) -> float | None:
 
 
 def _monotony(activities: pd.DataFrame, as_of: dt.date) -> float | None:
-    if activities.empty:
+    tss = _combined_to_asof(activities, as_of)
+    if tss is None:
         return None
-    tss = metrics.daily_tss(activities).set_index("date")["combined"]
     last7 = tss[tss.index > as_of - dt.timedelta(days=7)]
     if len(last7) < 5 or last7.std(ddof=0) == 0:
         return None

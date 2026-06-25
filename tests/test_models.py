@@ -49,3 +49,26 @@ def test_enforce_estimate_only_on_profile():
     p.bike.vo2max = Tracked.measured(58.0, "Garmin")
     p.enforce_estimate_only()
     assert p.bike.vo2max.provenance is Provenance.ESTIMATED
+
+
+def test_enforce_estimate_only_covers_threshold_proxies():
+    """Regression (I5): LT/threshold/CSS/CP can't be 'measured' off a watch
+    either — only an explicit lab source escapes."""
+    p = AthleteProfile()
+    p.bike.lthr_bpm = Tracked.measured(165.0, "Garmin")
+    p.bike.cp_w = Tracked.measured(290.0, "intervals.icu")
+    p.run.threshold_pace_s_per_km = Tracked.measured(240.0, "Garmin")
+    p.run.lthr_bpm = Tracked.measured(170.0, "Garmin")
+    p.swim.css_s_per_100m = Tracked.measured(95.0, "Form")
+    p.enforce_estimate_only()
+    assert p.bike.lthr_bpm.provenance is Provenance.ESTIMATED
+    assert p.bike.cp_w.provenance is Provenance.ESTIMATED
+    assert p.run.threshold_pace_s_per_km.provenance is Provenance.ESTIMATED
+    assert p.run.lthr_bpm.provenance is Provenance.ESTIMATED
+    assert p.swim.css_s_per_100m.provenance is Provenance.ESTIMATED
+
+    # Lab-tested lactate threshold survives.
+    lab = AthleteProfile()
+    lab.bike.lthr_bpm = Tracked.measured(168.0, "lab test")
+    lab.enforce_estimate_only()
+    assert lab.bike.lthr_bpm.provenance is Provenance.MEASURED

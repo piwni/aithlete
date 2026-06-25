@@ -25,6 +25,23 @@ def test_fetch_persists_and_reloads(tmp_data_dir):
     assert wm.get("last_synced")
 
 
+def test_incremental_fetch_preserves_history(tmp_data_dir):
+    """Regression (C1): a re-run must merge partitions, not overwrite them, so
+    the 7-day incremental window can never delete older activities."""
+    fetch_all(full_resync=True)
+    full = load_activities()
+    assert not full.empty
+    n_full = len(full)
+
+    # Ordinary incremental re-run (watermark present -> only the recent tail).
+    res = fetch_all()
+    assert res["activities"] < n_full  # the incremental slice itself is small
+
+    after = load_activities()
+    assert len(after) == n_full, "incremental fetch dropped history"
+    assert after["id"].is_unique, "merge introduced duplicate activity ids"
+
+
 def test_offline_push_is_idempotent(tmp_data_dir):
     client = IntervalsClient()
     events = [

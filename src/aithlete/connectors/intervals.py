@@ -72,11 +72,16 @@ class IntervalsClient:
         )
 
     def get_sport_settings(self) -> dict:
-        """Anchors: FTP/eFTP, threshold pace, CSS, LTHR, VO2max estimate."""
+        """Anchors: FTP/eFTP, threshold pace, CSS, LTHR, VO2max estimate.
+
+        Returns the internal shape: {"weight_kg", "bike": {...}, "run": {...},
+        "swim": {...}, "vo2max_bike"}. Offline uses the synthetic athlete; live
+        maps the real intervals.icu athlete record.
+        """
         if self.offline:
             return synthetic.generate()["settings"]
-        # Real intervals exposes these on the athlete record / sport-settings.
-        return self._get(f"/athlete/{self.athlete_id}")
+        athlete = self._get(f"/athlete/{self.athlete_id}")
+        return _map_athlete_settings(athlete)
 
     # --- writes ------------------------------------------------------------
     def push_events(self, events: list[dict], upsert: bool = True) -> dict:
@@ -104,3 +109,50 @@ class IntervalsClient:
 
 def _date_of(start_date_local: str) -> dt.date:
     return dt.datetime.fromisoformat(start_date_local).date()
+
+
+_SPORT_GROUP = {
+    "Ride": "bike", "VirtualRide": "bike", "Run": "run", "VirtualRun": "run",
+    "Swim": "swim", "OpenWaterSwim": "swim",
+}
+
+
+def _map_athlete_settings(athlete: dict) -> dict:
+    """Map the real intervals.icu athlete record into Aithlete's internal shape.
+
+    intervals exposes per-sport anchors under ``sportSettings`` (a list whose
+    entries carry ``types`` and fields like ``ftp``, ``lthr``, ``threshold_pace``
+    or ``pace_zones`` anchor). Field names can vary by API version, so this is
+    defensive: anything missing simply stays absent and becomes ``unknown``
+    downstream rather than crashing.
+    """
+    if any(k in athlete for k in ("bike", "run", "swim")):
+        return athlete  # already internal shape (e.g. injected fixture)
+
+    out: dict = {"weight_kg": athlete.get("icu_weight") or athlete.get("weight"),
+                 "bike": {}, "run": {}, "swim": {}}
+
+    for s in athlete.get("sportSettings", []) or []:
+        types = s.get("types") or []
+        group = next((_SPORT_GROUP[t] for t in types if t in _SPORT_GROUP), None)
+        if group is None:
+            continue
+        bucket = out[group]
+        if s.get("ftp") is not None:
+            bucket["ftp_w"] = s["ftp"]
+            bucket["eftp_w"] = s.get("indoor_ftp") or s.get("ftp")
+        if s.get("lthr") is not None:
+            bucket["lthr_bpm"] = s["lthr"]
+        if s.get("max_hr") is not None:
+            bucket["max_hr_bpm"] = s["max_hr"]
+        # Threshold pace: intervals stores pace anchors per sport (m/s or s/km).
+        thr = s.get("threshold_pace") or s.get("pace_threshold")
+        if thr is not None:
+            if group == "run":
+                # Heuristic: values < 12 look like m/s -> convert to s/km.
+                bucket["threshold_pace_s_per_km"] = round(1000 / thr, 1) if thr < 12 else thr
+            elif group == "swim":
+                bucket["css_s_per_100m"] = round(100 / thr, 1) if thr < 5 else thr
+
+    out["vo2max_bike"] = athlete.get("icu_vo2max") or athlete.get("vo2max")
+    return out

@@ -30,13 +30,16 @@ def daily_tss(activities: pd.DataFrame) -> pd.DataFrame:
     if activities.empty:
         return pd.DataFrame(columns=["date", "combined", *SPORTS])
     g = activities.groupby(["date", "sport"])["tss"].sum().unstack(fill_value=0.0)
+    # Combined = total fatigue across ALL sports (incl. strength/'other'), so
+    # cross-training load is counted in CTL/ATL/ACWR/monotony.
+    all_sports_total = g.sum(axis=1)
     for s in SPORTS:
         if s not in g.columns:
             g[s] = 0.0
     g = g[SPORTS]
+    g["combined"] = all_sports_total
     idx = pd.date_range(min(activities["date"]), max(activities["date"]), freq="D").date
     g = g.reindex(idx, fill_value=0.0)
-    g["combined"] = g[SPORTS].sum(axis=1)
     g = g.reset_index(names="date")
     return g
 
@@ -92,6 +95,32 @@ def latest_load(activities: pd.DataFrame) -> dict:
             "trend": _trend(ls[f"{col}_ctl"]).value,
         }
     return result
+
+
+def fetched_combined_load(wellness: pd.DataFrame, as_of: dt.date | None = None) -> dict | None:
+    """Canonical combined CTL/ATL/TSB from intervals' wellness 'ctl'/'atl' series
+    when present. Preferred over the local recompute, which is cold-start seeded
+    over a bounded window and biases CTL low. Returns None if unavailable.
+    """
+    if wellness is None or wellness.empty or "ctl" not in wellness.columns:
+        return None
+    df = wellness.copy()
+    df = df[df["ctl"].notna()]
+    if as_of is not None and "date" in df.columns:
+        df = df[pd.to_datetime(df["date"]).dt.date <= as_of]
+    if df.empty:
+        return None
+    df = df.sort_values("date")
+    ctl = float(df["ctl"].iloc[-1])
+    atl = float(df["atl"].iloc[-1]) if "atl" in df.columns and not pd.isna(df["atl"].iloc[-1]) else None
+    tsb = round(ctl - atl, 1) if atl is not None else None
+    return {
+        "ctl": round(ctl, 1),
+        "atl": round(atl, 1) if atl is not None else None,
+        "tsb": tsb,
+        "trend": _trend(df["ctl"]).value,
+        "source": "intervals.icu (fetched)",
+    }
 
 
 def ctl_ramp_per_week(activities: pd.DataFrame, weeks: int = 4) -> float | None:

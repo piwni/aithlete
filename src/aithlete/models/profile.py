@@ -205,7 +205,16 @@ class AthleteProfile(BaseModel):
         return best
 
     def enforce_estimate_only(self) -> AthleteProfile:
-        """VO2max / lactate-threshold style fields can't be 'measured' off consumer data."""
+        """VO2max / lactate-threshold style fields can't be 'measured' off
+        consumer data. The only escape hatch is an explicit ``source == "lab test"``.
+        Covers VO2max plus the threshold/critical proxies (LTHR, threshold pace,
+        CSS, CP) the agent might otherwise overclaim as measured."""
         self.bike.vo2max = estimate_only("bike.vo2max", self.bike.vo2max)
         self.run.vo2max = estimate_only("run.vo2max", self.run.vo2max)
+        self.bike.lthr_bpm = estimate_only("bike.lthr_bpm", self.bike.lthr_bpm)
+        self.bike.cp_w = estimate_only("bike.cp_w", self.bike.cp_w)
+        self.run.lthr_bpm = estimate_only("run.lthr_bpm", self.run.lthr_bpm)
+        self.run.threshold_pace_s_per_km = estimate_only(
+            "run.threshold_pace_s_per_km", self.run.threshold_pace_s_per_km)
+        self.swim.css_s_per_100m = estimate_only("swim.css_s_per_100m", self.swim.css_s_per_100m)
         return self

@@ -17,6 +17,23 @@ def test_daily_tss_is_additive_across_sports(synth_frames):
     assert (tss["combined"] - recomputed).abs().max() < 1e-9
 
 
+def test_combined_load_includes_other_sports():
+    """Regression (M1): cross-training ('other', e.g. strength) must count toward
+    combined load, otherwise CTL/ATL/ACWR under-report real fatigue."""
+    import datetime as dt
+    acts = pd.DataFrame({
+        "date": [dt.date(2026, 1, 1), dt.date(2026, 1, 1)],
+        "sport": ["run", "other"],
+        "tss": [50.0, 30.0],
+        "duration_s": [1800, 1800],
+        "intensity_class": ["easy", "easy"],
+    })
+    tss = metrics.daily_tss(acts)
+    row = tss.iloc[0]
+    assert row["run"] == 50.0
+    assert row["combined"] == 80.0  # run + other
+
+
 def test_ctl_atl_converge_to_constant_load():
     # A constant daily TSS should drive CTL/ATL toward that value.
     days = pd.date_range("2026-01-01", periods=400, freq="D").date

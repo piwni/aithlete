@@ -59,6 +59,9 @@ def dedup_activities(activities: list[dict], priority: list[str] | None = None) 
         src = act.get("_source", "intervals")
         return priority.index(src) if src in priority else len(priority)
 
+    # Skip events with no parseable start time rather than crashing.
+    activities = [a for a in activities if a.get("start_date_local")]
+
     kept: list[dict] = []
     for act in sorted(activities, key=rank):
         s, d, sport = _start_of(act), _duration_of(act), _sport_of(act)
@@ -96,6 +99,10 @@ def merge_wellness(intervals_rows: list[dict], ow_rows: list[dict]) -> list[dict
             "resting_hr_bpm": r.get("restingHR"),
             "sleep_hours": round(r["sleepSecs"] / 3600, 2) if r.get("sleepSecs") else None,
             "weight_kg": r.get("weight"),
+            # intervals' canonical fitness series (carries full history). Captured
+            # so analysis can prefer it over the cold-start local recompute.
+            "ctl": r.get("ctl"),
+            "atl": r.get("atl"),
             "source": "intervals",
         }
 

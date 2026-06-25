@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
-from _helpers import good_plan, steep_plan
+import datetime as dt
+
+from _helpers import build_week, good_plan, steep_plan
+from aithlete.models.plan import Phase, TrainingPlan
 from aithlete.planning.validator import validate_plan
 
 
@@ -33,3 +36,32 @@ def test_projected_ctl_series_length_matches_weeks():
     plan = good_plan()
     rep = validate_plan(plan, starting_ctl=80.0)
     assert len(rep.projected_ctl_by_week) == len(plan.weeks)
+
+
+def test_fake_recovery_flag_cannot_bypass_ramp():
+    """Regression (C2): marking every week is_recovery=True must NOT let a load
+    ramp slip past the validator."""
+    start = dt.date(2026, 6, 22)
+    tss = [700, 1400, 2100, 2800]
+    weeks = [build_week(i + 1, start + dt.timedelta(weeks=i), Phase.BUILD, tss[i], recovery=True)
+             for i in range(4)]
+    plan = TrainingPlan(plan_id="fake-recovery", start_date=start, starting_ctl=40.0, weeks=weeks)
+    rep = validate_plan(plan, starting_ctl=40.0)
+    assert not rep.ok, "rising load disguised as recovery weeks must be blocked"
+    codes = {i.code for i in rep.errors}
+    assert codes & {"ramp_too_steep", "weekly_tss_jump", "fake_recovery_week", "projected_acwr_spike"}
+
+
+def test_taper_peak_without_goal_race_is_blocked():
+    """Regression (I2): a plan that tapers/peaks but omits goal_race can't have
+    its race-day form checked -> must be an error, not a silent pass."""
+    start = dt.date(2026, 6, 22)
+    weeks = [
+        build_week(1, start, Phase.BUILD, 480),
+        build_week(2, start + dt.timedelta(weeks=1), Phase.BUILD, 500),
+        build_week(3, start + dt.timedelta(weeks=2), Phase.TAPER, 300, recovery=True),
+    ]
+    plan = TrainingPlan(plan_id="no-race", start_date=start, starting_ctl=80.0, weeks=weeks)
+    rep = validate_plan(plan, starting_ctl=80.0)
+    assert not rep.ok
+    assert "missing_goal_race" in {i.code for i in rep.errors}
