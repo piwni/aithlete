@@ -1,0 +1,119 @@
+# Aithlete training rulebook — PARAMETERIZED, validator-enforceable.
+#
+# This file is the heart of the deterministic plan validator. Every threshold is
+# a concrete number so `planning/validator.py` can enforce a plan's *shape*
+# (ramp, recovery cadence, taper, intensity distribution, volume) WITHOUT an LLM.
+#
+# Sources are cited per block. Numbers are intentionally conservative defaults;
+# they can be tuned per athlete in the profile (see `overrides` note at bottom).
+schema_version: 1
+
+# Distance buckets in the user's "1/8, 1/4, 1/2, full" mental model.
+distances:
+  sprint:   { label: "Sprint (~1/8)",      swim_m: 750,  bike_km: 20,    run_km: 5 }
+  olympic:  { label: "Olympic (~1/4)",     swim_m: 1500, bike_km: 40,    run_km: 10 }
+  half:     { label: "Half / 70.3 (1/2)",  swim_m: 1900, bike_km: 90,    run_km: 21.1 }
+  full:     { label: "Full / Ironman",     swim_m: 3800, bike_km: 180,   run_km: 42.2 }
+
+# Periodization phases (classic linear/block model; reverse periodization is an
+# allowed variant for long-course age-groupers — see notes.md).
+# Ref: Bompa & Buzzicchelli, Periodization; Friel, The Triathlete's Bible.
+periodization:
+  phases:
+    base:       { typical_weeks: [4, 12], focus: "aerobic volume, technique, durability" }
+    build:      { typical_weeks: [4, 8],  focus: "race-specific intensity, threshold, brick" }
+    peak:       { typical_weeks: [1, 3],  focus: "sharpening, race pace, reduced volume" }
+    taper:      { typical_weeks: [1, 3],  focus: "shed fatigue, hold intensity" }
+    transition: { typical_weeks: [1, 4],  focus: "active recovery between macrocycles" }
+  order: [base, build, peak, taper, transition]
+
+# Loading pattern: ratio of load weeks to recovery weeks.
+# Ref: Friel; ACSM progression guidance.
+loading_pattern:
+  by_training_age:
+    novice:       { load_weeks: 2, recovery_weeks: 1 }   # 2:1
+    intermediate: { load_weeks: 3, recovery_weeks: 1 }   # 3:1
+    advanced:     { load_weeks: 3, recovery_weeks: 1 }   # 3:1, can extend to 4:1 in base
+  max_consecutive_load_weeks: 4   # never more than this without a recovery week
+
+# Ramp-rate caps — the single most important safety guardrail.
+# CTL ramp (a.k.a. "ramp rate" in intervals.icu) is the week-over-week change in
+# Chronic Training Load. Ref: Coggan/Allen (Training and Racing with a Power
+# Meter); intervals.icu fitness model. >~8 CTL/wk sharply raises injury/illness risk.
+ramp:
+  ctl_per_week_min: 3       # below this, build phase is too timid to drive adaptation
+  ctl_per_week_max: 7       # hard cap in build; validator flags > this
+  ctl_per_week_max_base: 5  # gentler cap during base phase
+  weekly_tss_increase_pct_max: 10   # max % increase in weekly TSS load week-to-week
+  weekly_hours_increase_pct_max: 10 # max % increase in weekly duration week-to-week
+  acwr_sweet_spot: [0.8, 1.3]       # acute:chronic workload ratio target band
+  acwr_hard_cap: 1.5                # validator flags any week projected above this
+
+# Recovery weeks: mandatory cadence and how much to back off.
+recovery_week:
+  volume_reduction_pct: [40, 60]  # reduce weekly volume by this range
+  intensity: "maintain some intensity (short, sharp) but cut total load"
+  ctl_should_not_rise: true       # CTL flat-to-slightly-down across a recovery week
+
+# Taper: by race distance + priority. Volume drops, intensity is largely held.
+# Ref: Mujika & Padilla, "Scientific bases for precompetition tapering"; Bosquet
+# meta-analysis (2-week exponential taper, ~41-60% volume reduction is optimal).
+taper:
+  duration_days_by_distance:
+    sprint:  [5, 7]
+    olympic: [7, 10]
+    half:    [10, 14]
+    full:    [14, 21]
+  volume_reduction_pct: [40, 60]
+  hold_intensity: true            # keep race-pace touches; do NOT add new intensity
+  frequency: "maintain (don't drop training frequency, drop duration)"
+  # Target race-day form (TSB = CTL - ATL) by race priority.
+  target_tsb_by_priority:
+    A: [10, 25]   # fully peaked
+    B: [5, 15]    # train through with a mini-taper
+    C: [-10, 10]  # no real taper; race as a workout
+
+# Intensity distribution targets (share of weekly training TIME, not sessions).
+# easy = below aerobic threshold (Z1-2), moderate = threshold-ish (Z3), hard = >threshold (Z4+).
+# Ref: Seiler (polarized training); Stoggl & Sperlich.
+intensity_distribution:
+  model_by_level:
+    novice:       { type: pyramidal, easy: [75, 85], moderate: [10, 20], hard: [3, 10] }
+    intermediate: { type: pyramidal, easy: [78, 85], moderate: [8, 15],  hard: [5, 12] }
+    advanced:     { type: polarized, easy: [78, 85], moderate: [0, 8],   hard: [12, 20] }
+  # Validator flags weeks whose easy share falls below this in any phase except peak.
+  min_easy_pct: 70
+
+# Race-specific session caps. Long sessions should not exceed this share of the
+# expected race duration for that discipline (prevents junk-mileage over-reach).
+long_session:
+  max_pct_of_race_duration:
+    sprint:  1.5   # training long can exceed the short race duration
+    olympic: 1.2
+    half:    0.9
+    full:    0.7   # never rehearse the full IM distance in training
+  brick_required_in_build: true   # at least one bike->run brick per build week
+
+# Weekly frequency minimums per discipline (sessions/week) to retain skill/fitness.
+frequency_min_per_week:
+  swim: 2
+  bike: 2
+  run: 2
+
+# Minimum recovery between hard (Z4+) sessions, in hours, per discipline.
+# Run is most injurious, so longest spacing.
+hard_session_spacing_hours:
+  swim: 24
+  bike: 24
+  run: 48
+
+# Absolute sanity bounds the validator always enforces regardless of phase.
+hard_limits:
+  max_single_session_hours: 8
+  max_weekly_hours: 25            # beyond this is pro-only; flag for amateurs
+  min_rest_days_per_week: 0       # 0 allowed but flagged if CTL rising fast
+  no_back_to_back_long_run_long_ride: true
+
+# Per-athlete overrides: the profile may set weekly_volume_tolerance and
+# training_age which the validator reads to pick the right band above.
+notes: "knowledge/triathlon/notes.md documents rationale, reverse periodization, and pro/amateur differences."

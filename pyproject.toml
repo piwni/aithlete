@@ -1,0 +1,56 @@
+[project]
+name = "aithlete"
+version = "0.1.0"
+description = "Open-source triathlete analysis and AI training planning. Python does the math, the agent does the judgment, JSON is the contract."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Aithlete contributors" }]
+keywords = ["triathlon", "training", "endurance", "intervals.icu", "cycling", "running", "swimming", "ai"]
+
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "pandas>=2.2",
+    "typer>=0.12",
+    "python-dotenv>=1.0",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-cov>=5.0",
+    "vcrpy>=6.0",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+aithlete = "aithlete.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/aithlete/aithlete"
+Repository = "https://github.com/aithlete/aithlete"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aithlete"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+# UP042: (str, Enum) is intentional for broad/readable JSON-serializable enums.
+# B008: Typer requires function calls (typer.Option/Argument) in arg defaults.
+ignore = ["E501", "UP042", "B008"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]

@@ -1,0 +1,56 @@
+# Training zone models per discipline. Each zone is [low, high] as a fraction of
+# the discipline anchor. Used by analysis to label intensity and by the validator
+# to compute intensity distribution.
+schema_version: 1
+
+# BIKE — Coggan 7-zone model, anchored on FTP (% of FTP, power).
+# Ref: Allen & Coggan, Training and Racing with a Power Meter.
+bike_power:
+  anchor: ftp_w
+  zones:
+    z1_active_recovery: [0.00, 0.55]
+    z2_endurance:       [0.56, 0.75]
+    z3_tempo:           [0.76, 0.90]
+    z4_threshold:       [0.91, 1.05]
+    z5_vo2max:          [1.06, 1.20]
+    z6_anaerobic:       [1.21, 1.50]
+    z7_neuromuscular:   [1.51, 3.00]
+  intensity_class: { z1: easy, z2: easy, z3: moderate, z4: hard, z5: hard, z6: hard, z7: hard }
+
+# RUN — pace zones anchored on threshold pace (sec/km). Faster pace = lower seconds,
+# so fractions are of threshold *speed* (boundaries given as % of threshold pace
+# expressed as speed multipliers). Ref: Daniels' Running Formula (VDOT); Friel HR zones.
+run_pace:
+  anchor: threshold_pace_s_per_km
+  # Expressed as % of threshold speed (1.00 = threshold). >1 = faster.
+  zones_speed_pct:
+    z1_easy:       [0.00, 0.82]
+    z2_endurance:  [0.82, 0.89]
+    z3_tempo:      [0.89, 0.96]
+    z4_threshold:  [0.96, 1.03]
+    z5_vo2max:     [1.03, 1.15]
+    z6_anaerobic:  [1.15, 3.00]
+  intensity_class: { z1: easy, z2: easy, z3: moderate, z4: hard, z5: hard, z6: hard }
+
+# RUN HR fallback when no pace/power, anchored on LTHR (% of LTHR). Ref: Friel.
+run_hr:
+  anchor: lthr_run_bpm
+  zones:
+    z1: [0.00, 0.85]
+    z2: [0.85, 0.89]
+    z3: [0.90, 0.94]
+    z4: [0.95, 1.00]
+    z5: [1.00, 1.06]
+  intensity_class: { z1: easy, z2: easy, z3: moderate, z4: hard, z5: hard }
+
+# SWIM — pace zones anchored on CSS (Critical Swim Speed) pace (sec/100m).
+# Expressed as % of CSS speed. Ref: Ginn (CSS); Swim Smooth.
+swim_pace:
+  anchor: css_s_per_100m
+  zones_speed_pct:
+    z1_recovery:   [0.00, 0.84]
+    z2_aerobic:    [0.84, 0.92]
+    z3_threshold:  [0.92, 1.00]
+    z4_vo2:        [1.00, 1.07]
+    z5_sprint:     [1.07, 3.00]
+  intensity_class: { z1: easy, z2: easy, z3: moderate, z4: hard, z5: hard }

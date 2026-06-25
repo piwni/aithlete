@@ -1,0 +1,284 @@
+{
+  "approx_token_budget": 1500,
+  "athlete_id": "athlete",
+  "css_s_per_100m": {
+    "date_from": null,
+    "date_to": "2026-06-14",
+    "provenance": "estimated",
+    "sample_count": 0,
+    "source": "intervals.icu sport settings",
+    "trend": "unknown",
+    "unit": "s/100m",
+    "value": 95.0
+  },
+  "decoupling_pct_by_sport": {
+    "bike": {
+      "date_from": null,
+      "date_to": "2026-06-14",
+      "provenance": "estimated",
+      "sample_count": 0,
+      "source": "computed Pw:Hr/Pa:Hr",
+      "trend": "unknown",
+      "unit": "%",
+      "value": 4.36
+    },
+    "run": {
+      "date_from": null,
+      "date_to": "2026-06-14",
+      "provenance": "estimated",
+      "sample_count": 0,
+      "source": "computed Pw:Hr/Pa:Hr",
+      "trend": "unknown",
+      "unit": "%",
+      "value": 5.22
+    }
+  },
+  "ftp_w": {
+    "date_from": null,
+    "date_to": "2026-06-14",
+    "provenance": "estimated",
+    "sample_count": 0,
+    "source": "intervals.icu sport settings",
+    "trend": "unknown",
+    "unit": "W",
+    "value": 268.0
+  },
+  "hrv_baseline_60d_ms": {
+    "date_from": "2026-04-15",
+    "date_to": "2026-06-14",
+    "provenance": "estimated",
+    "sample_count": 0,
+    "source": "computed 60d mean",
+    "trend": "up",
+    "unit": "ms",
+    "value": 64.4
+  },
+  "load_by_sport": {
+    "bike": {
+      "atl": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "up",
+        "unit": "TSS/day",
+        "value": 39.6
+      },
+      "ctl": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "up",
+        "unit": "TSS/day",
+        "value": 36.6
+      },
+      "tsb": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "up",
+        "unit": "TSB",
+        "value": -8.2
+      },
+      "weekly_hours_last_4": [],
+      "weekly_tss_last_4": [
+        354.8,
+        358.6,
+        368.1,
+        214.1
+      ]
+    },
+    "run": {
+      "atl": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "flat",
+        "unit": "TSS/day",
+        "value": 27.6
+      },
+      "ctl": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "flat",
+        "unit": "TSS/day",
+        "value": 26.1
+      },
+      "tsb": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "flat",
+        "unit": "TSB",
+        "value": 2.6
+      },
+      "weekly_hours_last_4": [],
+      "weekly_tss_last_4": [
+        233.3,
+        237.2,
+        259.9,
+        146.5
+      ]
+    },
+    "swim": {
+      "atl": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "flat",
+        "unit": "TSS/day",
+        "value": 14.7
+      },
+      "ctl": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "flat",
+        "unit": "TSS/day",
+        "value": 16.9
+      },
+      "tsb": {
+        "date_from": null,
+        "date_to": "2026-06-14",
+        "provenance": "estimated",
+        "sample_count": 0,
+        "source": "computed (Banister)",
+        "trend": "flat",
+        "unit": "TSB",
+        "value": 0.4
+      },
+      "weekly_hours_last_4": [],
+      "weekly_tss_last_4": [
+        87.3,
+        167.5,
+        175.9,
+        102.1
+      ]
+    }
+  },
+  "load_combined": {
+    "atl": {
+      "date_from": null,
+      "date_to": "2026-06-14",
+      "provenance": "estimated",
+      "sample_count": 0,
+      "source": "computed (Banister)",
+      "trend": "up",
+      "unit": "TSS/day",
+      "value": 81.9
+    },
+    "ctl": {
+      "date_from": null,
+      "date_to": "2026-06-14",
+      "provenance": "estimated",
+      "sample_count": 0,
+      "source": "computed (Banister)",
+      "trend": "up",
+      "unit": "TSS/day",
+      "value": 79.6
+    },
+    "tsb": {
+      "date_from": null,
+      "date_to": "2026-06-14",
+      "provenance": "estimated",
+      "sample_count": 0,
+      "source": "computed (Banister)",
+      "trend": "up",
+      "unit": "TSB",
+      "value": -5.3
+    },
+    "weekly_hours_last_4": [
+      10.14,
+      11.44,
+      11.52,
+      6.76
+    ],
+    "weekly_tss_last_4": [
+      675.4,
+      763.3,
+      803.9,
+      462.7
+    ]
+  },
+  "missing": [
+    "no race results on file"
+  ],
+  "personal_records": [],
+  "readiness_flag": "amber",
+  "readiness_notes": [
+    "acwr: ACWR 0.68 low (under-load/detraining)"
+  ],
+  "recent_compliance_pct": {
+    "date_from": null,
+    "date_to": null,
+    "provenance": "unknown",
+    "sample_count": 0,
+    "source": null,
+    "trend": "unknown",
+    "unit": "",
+    "value": null
+  },
+  "resting_hr_bpm": {
+    "date_from": null,
+    "date_to": "2026-06-14",
+    "provenance": "estimated",
+    "sample_count": 0,
+    "source": "computed 30d mean",
+    "trend": "down",
+    "unit": "bpm",
+    "value": 49.6
+  },
+  "run_threshold_pace_s_per_km": {
+    "date_from": null,
+    "date_to": "2026-06-14",
+    "provenance": "estimated",
+    "sample_count": 0,
+    "source": "intervals.icu sport settings",
+    "trend": "unknown",
+    "unit": "s/km",
+    "value": 246.0
+  },
+  "schema_version": 1,
+  "sessions_per_week_by_sport": {
+    "bike": 2.67,
+    "run": 3.0,
+    "swim": 1.83
+  },
+  "upcoming_races": [
+    {
+      "bucket": "half",
+      "date": "2026-08-09",
+      "name": "Demo 70.3",
+      "priority": "A",
+      "weeks_out": 8
+    }
+  ],
+  "vo2max_bike": {
+    "date_from": null,
+    "date_to": "2026-06-14",
+    "provenance": "estimated",
+    "sample_count": 0,
+    "source": "Firstbeat estimate",
+    "trend": "unknown",
+    "unit": "ml/kg/min",
+    "value": 58.0
+  },
+  "window_from": "2026-02-23",
+  "window_to": "2026-06-14"
+}

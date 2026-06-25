@@ -1,0 +1,36 @@
+# Athlete data is private health data — never commit it.
+/data/raw/*
+/data/profiles/*
+/data/plans/*
+/data/context/*
+/data/calendar-*.json
+!/data/**/.gitkeep
+
+# Keep curated, non-personal fixtures (synthetic athlete) but ignore real cassettes.
+/data/fixtures/private/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+*.swp
+
+# Vendored Open Wearables (added as submodule later)
+/third_party/open-wearables/
