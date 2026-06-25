@@ -1,0 +1,28 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160232335,2023-05-27,2023-05-27T10:37:03,openwaterswim,OpenWaterSwim,Multisport,2240,2301,1437.18,0.0,,,,,,,,,,intervals
+i160232246,2023-06-03,2023-06-03T06:31:42,openwaterswim,OpenWaterSwim,Open Water Swim,1315,1325,441.07,4.0,0.33,,,,,,,,,intervals
+i160231813,2023-07-06,2023-07-06T12:20:54,openwaterswim,OpenWaterSwim,Open Water Swim,793,884,245.02,7.0,0.534,,,,,,,,,intervals
+i160231779,2023-07-07,2023-07-07T05:54:59,openwaterswim,OpenWaterSwim,Open Water Swim,498,519,165.0,4.0,,,,,,,,,,intervals
+i160231756,2023-07-07,2023-07-07T12:49:12,openwaterswim,OpenWaterSwim,Open Water Swim,267,448,56.85,1.0,,,,,,,,,,intervals
+i160231739,2023-07-08,2023-07-08T15:25:30,openwaterswim,OpenWaterSwim,Open Water Swim,419,420,85.45,1.0,,,,,,,,,,intervals
+i160231717,2023-07-10,2023-07-10T12:46:42,openwaterswim,OpenWaterSwim,Open Water Swim,1494,1549,1005.67,4.0,0.305,,,,,,,,,intervals
+i160231630,2023-07-16,2023-07-16T13:48:09,openwaterswim,OpenWaterSwim,Open Water Swim,765,1007,98.97,2.0,0.268,,,,,,,,,intervals
+i160231628,2023-07-16,2023-07-16T17:41:50,openwaterswim,OpenWaterSwim,Open Water Swim,700,2316,193.52,2.0,0.278,,,,,,,,,intervals
+i160231333,2023-08-07,2023-08-07T08:50:34,openwaterswim,OpenWaterSwim,Open Water Swim,278,295,62.65,1.0,,,,,,,,,,intervals
+i160231274,2023-08-15,2023-08-15T06:58:04,openwaterswim,OpenWaterSwim,Open Water Swim,187,231,24.57,1.0,,,,,,,,,,intervals
+i160231058,2023-09-02,2023-09-02T06:54:23,openwaterswim,OpenWaterSwim,Open Water Swim,1859,1938,1077.3,4.0,0.273,,,,,,,,,intervals
+i160231039,2023-09-04,2023-09-04T14:03:38,openwaterswim,OpenWaterSwim,Open Water Swim,572,638,149.61,2.0,0.336,,,,,,,,,intervals
+i160231036,2023-09-05,2023-09-05T06:45:43,openwaterswim,OpenWaterSwim,Open Water Swim,1540,1608,447.31,5.0,0.335,,,,,,,,,intervals
+i160231003,2023-09-06,2023-09-06T07:32:15,openwaterswim,OpenWaterSwim,Open Water Swim,1815,2125,821.21,9.0,0.391,,,,,,,,,intervals
+i160230994,2023-09-07,2023-09-07T18:07:50,openwaterswim,OpenWaterSwim,Open Water Swim,1034,1134,241.38,1.0,0.178,,,,,,,,,intervals
+i160230973,2023-09-08,2023-09-08T14:45:58,openwaterswim,OpenWaterSwim,Open Water Swim,707,854,175.7,2.0,0.291,,,,,,,,,intervals
+i160230515,2023-10-21,2023-10-21T09:08:03,openwaterswim,OpenWaterSwim,Open Water Swim,1039,1049,1070.98,0.0,,,,,,,,,,intervals
+i160230440,2023-10-28,2023-10-28T17:08:30,openwaterswim,OpenWaterSwim,Open Water Swim,1666,1720,970.74,0.0,,,,,,,,,,intervals
+i160230407,2023-10-31,2023-10-31T14:38:30,openwaterswim,OpenWaterSwim,Open Water Swim,1482,1506,778.12,2.0,0.219,,,,,,,,,intervals
+i160230313,2023-11-11,2023-11-11T09:22:47,openwaterswim,OpenWaterSwim,Open Water Swim,974,996,668.79,15.0,0.737,,,,,,,,,intervals
+i160230216,2023-11-18,2023-11-18T12:19:21,openwaterswim,OpenWaterSwim,Open Water Swim,1002,1021,628.07,1.0,0.188,,,,,,,,,intervals
+i160229976,2023-12-16,2023-12-16T12:05:42,openwaterswim,OpenWaterSwim,Open Water Swim,454,485,225.37,7.0,,,,,,,,,,intervals
+i160229868,2023-12-23,2023-12-23T11:44:38,openwaterswim,OpenWaterSwim,Open Water Swim,500,561,148.5,4.0,,,,,,,,,,intervals
+i160229850,2023-12-26,2023-12-26T12:08:13,openwaterswim,OpenWaterSwim,Open Water Swim,359,364,59.77,2.0,,,,,,,,,,intervals
+i160229839,2023-12-27,2023-12-27T06:58:14,openwaterswim,OpenWaterSwim,Open Water Swim,131,132,19.5,1.0,,,,,,,,,,intervals
+i160229824,2023-12-30,2023-12-30T07:29:44,openwaterswim,OpenWaterSwim,Open Water Swim,199,200,33.85,1.0,,,,,,,,,,intervals

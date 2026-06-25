@@ -1,0 +1,330 @@
+<!doctype html><html><head><meta charset='utf-8'><style>
+:root { --ink:#14181f; --mut:#5b6675; --line:#d7dde6; --accent:#0b66c3;
+        --good:#127a3f; --warn:#9a6b00; --bad:#b00020; --code:#f3f5f8; }
+* { box-sizing: border-box; }
+body { font: 11.2px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0; }
+h1,h2,h3 { line-height: 1.18; }
+h1 { font-size: 25px; margin: 0 0 2px; letter-spacing: -0.3px; }
+h2 { font-size: 16px; margin: 26px 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--ink); }
+h3 { font-size: 12.5px; margin: 16px 0 5px; color: var(--accent); }
+p, li { margin: 5px 0; }
+.mono { font-family: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace; font-size: 10.2px; }
+.kpis { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.kpi { border: 1px solid var(--line); border-radius: 7px; padding: 7px 10px; min-width: 104px; }
+.kpi .v { font-size: 17px; font-weight: 700; }
+.kpi .l { color: var(--mut); font-size: 9.4px; text-transform: uppercase; letter-spacing: .4px; }
+table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 10.4px; }
+th, td { border: 1px solid var(--line); padding: 4px 7px; text-align: left; vertical-align: top; }
+th { background: #eef2f7; font-size: 9.6px; text-transform: uppercase; letter-spacing: .3px; }
+td.r, th.r { text-align: right; }
+tr.tot td { font-weight: 700; background: #f6f8fb; }
+.note { background: var(--code); border-left: 3px solid var(--accent); padding: 8px 11px;
+        border-radius: 0 6px 6px 0; margin: 10px 0; }
+.tag { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 9px;
+       font-weight: 700; text-transform: uppercase; }
+.t-easy { background: #e3f0ff; color: #0b66c3; }
+.t-moderate { background: #fff1d6; color: #9a6b00; }
+.t-hard { background: #ffe0e3; color: #b00020; }
+.t-race { background: #122; color: #fff; }
+.t-rec { background: #e6f4ea; color: #127a3f; }
+.good { color: var(--good); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+.small { font-size: 9.6px; color: var(--mut); }
+.cover { padding: 70px 0 14px; border-bottom: 3px solid var(--ink); margin-bottom: 8px; }
+.cover .sub { font-size: 13px; color: var(--mut); margin-top: 6px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
+ul { margin: 5px 0; padding-left: 18px; }
+@page { margin: 14mm 14mm 16mm; }
+h2 { break-after: avoid; } table, .note { break-inside: avoid; }
+.pb { break-before: page; }
+.wk { font-weight:700; } .day { color: var(--mut); width: 78px; }
+</style></head><body>
+<div class='cover'>
+<h1>Aithlete — Season Plan &amp; Analysis</h1>
+<div class='sub'>Syców 1/2 IM (12 Jul 2026) &middot; Malbork Castle Triathlon (Full IM) (06 Sep 2026)<br>Targets: 4:20 1/2 &middot; 9:30 full</div>
+<div class='small' style='margin-top:10px'>Generated 2026-06-25 from 1611 activities (2023-05-21 &rarr; 2026-06-25). Plan id <span class='mono'>goal-2026-malbork</span>. All figures computed from persisted data; physiology values are estimates (provenance tagged), not lab-measured.</div></div>
+<div class='kpis'>
+<div class='kpi'><div class='v'>280.0 W</div><div class='l'>FTP (3.89 W/kg)</div></div>
+<div class='kpi'><div class='v'>64.4</div><div class='l'>CTL (combined)</div></div>
+<div class='kpi'><div class='v'>76.1</div><div class='l'>ATL</div></div>
+<div class='kpi'><div class='v'>-11.8</div><div class='l'>TSB (form)</div></div>
+<div class='kpi'><div class='v'>95.0 ms</div><div class='l'>HRV (rMSSD)</div></div>
+<div class='kpi'><div class='v'>37.0 bpm</div><div class='l'>Resting HR</div></div>
+<div class='kpi'><div class='v'>1343 h</div><div class='l'>Logged</div></div>
+</div>
+<h2>1 &middot; Base assumptions &amp; method</h2>
+<div class='grid2'><div>
+<h3>Goals (athlete-confirmed)</h3><ul>
+<li><b>Syców 1/2 IM</b> &mdash; Sun 12 Jul 2026 &mdash; <b>B-race / tune-up</b>. Target <b>4:20</b>, swim 35-36&#x27;.</li>
+<li><b>Malbork Castle Triathlon (Full IM)</b> &mdash; Sun 06 Sep 2026 &mdash; <b>A-race</b>. Target <b>9:30</b>, swim ~75&#x27;.</li>
+<li>Volume ceiling: <b>14 h/wk</b> to first race, <b>17 h/wk</b> after.</li>
+</ul>
+<h3>Equipment</h3><p>New disc rear wheel on the TT bike (bought pre-2025 Castle). Athlete estimate 20-30 W saved at race speed. At IM power/speed that is ~+1.0-1.3 km/h, i.e. 6-9 min over 180 km (3-5 min over 90 km) or the same speed at lower normalized power — we spend part on speed, part on fresher legs for the run.
+</p>
+</div><div>
+<h3>Data sources</h3><ul><li>Activities, power, pace, load: <b>intervals.icu</b> (Garmin-synced), 1611 sessions 2023-05-21&rarr;2026-06-25.</li><li>CTL/ATL: intervals.icu wellness where present, else Banister (&tau;<sub>42</sub>/&tau;<sub>7</sub>) on local TSS.</li><li>Recovery (HRV/RHR/sleep): wearable wellness.</li></ul>
+<h3>Models &amp; guardrails</h3><ul><li>Load: Banister impulse-response (CTL/ATL/TSB).</li><li>Race detection: triathlons reconstructed from <span class='mono'>transition</span> activities; classified to nearest IM fraction.</li><li>The plan is gated by a <b>deterministic validator</b> (ramp caps, recovery cadence, ACWR, intensity distribution, taper window, race-day TSB). See &sect;8.</li></ul>
+</div></div>
+<div class='note small'>Decision-support, not medical or coaching advice. Physiology values are estimates with provenance tags. Validate paces/powers in training and adjust to in-session readiness.</div>
+<h2 class='pb'>2 &middot; Athlete profile</h2><div class='grid2'><div>
+<h3>Physiology (estimated)</h3><table><tr><th>Metric</th><th class='r'>Value</th><th>Source</th></tr>
+<tr><td>Weight</td><td class='r mono'>72.0 kg</td><td class='small'>intervals.icu wellness</td></tr>
+<tr><td>FTP (bike)</td><td class='r mono'>280.0 W (3.89 W/kg)</td><td class='small'>intervals settings</td></tr>
+<tr><td>LTHR</td><td class='r mono'>165.0 bpm</td><td class='small'>intervals settings</td></tr>
+<tr><td>Max HR</td><td class='r mono'>182.0 bpm</td><td class='small'>intervals settings</td></tr>
+<tr><td>Swim CSS</td><td class='r mono'>2:00/100m</td><td class='small'>intervals settings</td></tr>
+<tr><td>Bike decoupling</td><td class='r mono'>2.99 %</td><td class='small'>Pw:Hr</td></tr>
+</table>
+<h3>Health / readiness</h3><table><tr><th>Metric</th><th class='r'>Now</th><th class='r'>Baseline</th><th>Trend</th></tr><tr><td>HRV rMSSD</td><td class='r mono'>95.0</td><td class='r mono'>100.6 (7d)</td><td>up</td></tr><tr><td>Resting HR</td><td class='r mono'>37.0</td><td class='r mono'>45.0</td><td>down</td></tr><tr><td>Sleep</td><td class='r mono'>7.33 h</td><td class='r'>—</td><td>—</td></tr></table></div><div>
+<h3>Training load by discipline</h3><table><tr><th>Sport</th><th class='r'>CTL</th><th class='r'>ATL</th><th class='r'>TSB</th><th>Trend</th></tr>
+<tr><td>combined</td><td class='r mono'>64.4</td><td class='r mono'>76.1</td><td class='r mono'>-11.8</td><td>up</td></tr>
+<tr><td>swim</td><td class='r mono'>4.1</td><td class='r mono'>3.3</td><td class='r mono'>0.4</td><td>flat</td></tr>
+<tr><td>bike</td><td class='r mono'>28.7</td><td class='r mono'>29.7</td><td class='r mono'>-4.9</td><td>up</td></tr>
+<tr><td>run</td><td class='r mono'>30.4</td><td class='r mono'>37.4</td><td class='r mono'>-1.8</td><td>up</td></tr>
+</table>
+<div class='note'><b>The headline limiter: swim.</b> Swim CTL <b>4.1</b> vs bike 28.7 / run 30.4. Only ~25 h swimming logged in 2026. The swim costs little time on the clock but, untrained, it taxes the whole day. The plan holds <b>swim &ge; 3&times;/week</b> throughout &mdash; the single highest-leverage change.</div>
+<h3>Why the targets are plausible (YoY trajectory)</h3><ul>
+<li>Half: 5:50 (2023) -&gt; 4:46 (Sieraków 2026) = -64 min / 3 yr.</li>
+<li>Quarter: 2:51-2:53 (2024) -&gt; 2:18 (Mietków 2026) = -33 min.</li>
+<li>Full: 10:36 (2025) -&gt; target 9:30 = -66 min, in line with trend.</li>
+</ul>
+</div></div>
+<h2 class='pb'>3 &middot; Results history (auto-detected)</h2>
+<table><tr><th>Date</th><th>Event</th><th>Fmt</th><th class='r'>Total</th><th class='r'>Swim</th><th class='r'>Bike</th><th class='r'>Run</th><th>Notes</th></tr>
+<tr><td class='mono'>2023-05-27</td><td>—</td><td>1/2</td><td class='r mono'>5:50:28</td><td class='r mono'>38:21</td><td class='r mono'>2:55:31</td><td class='r mono'>2:04:27</td><td class='small'>2:01/100m · 30.8 km/h · 5:53/km</td></tr>
+<tr><td class='mono'>2024-06-08</td><td>—</td><td>1/4</td><td class='r mono'>2:51:07</td><td class='r mono'>19:01</td><td class='r mono'>1:24:57</td><td class='r mono'>1:00:26</td><td class='small'>2:00/100m · 31.8 km/h · 5:43/km</td></tr>
+<tr><td class='mono'>2024-09-29</td><td>—</td><td>1/4</td><td class='r mono'>2:53:02</td><td class='r mono'>19:45</td><td class='r mono'>1:28:17</td><td class='r mono'>49:26</td><td class='small'>2:04/100m · 30.6 km/h · 4:41/km</td></tr>
+<tr><td class='mono'>2025-09-07</td><td>Castle Triathlon Malbork</td><td>full</td><td class='r mono'>10:35:52</td><td class='r mono'>1:20:08</td><td class='r mono'>5:19:29</td><td class='r mono'>3:46:48</td><td class='small'>2:06/100m · 33.8 km/h · 5:22/km</td></tr>
+<tr><td class='mono'>2026-05-30</td><td>Sieraków 2026</td><td>1/2</td><td class='r mono'>4:45:50</td><td class='r mono'>35:56</td><td class='r mono'>2:30:09</td><td class='r mono'>1:28:50</td><td class='small'>1:53/100m · 36.0 km/h · 4:12/km</td></tr>
+<tr><td class='mono'>2026-06-13</td><td>Mietkow</td><td>1/4</td><td class='r mono'>2:18:07</td><td class='r mono'>19:34</td><td class='r mono'>1:15:07</td><td class='r mono'>38:59</td><td class='small'>2:03/100m · 35.9 km/h · 3:41/km</td></tr>
+</table><p class='small'>T1/T2 not shown; included in totals.</p>
+<h2 class='pb'>4 &middot; Training history</h2><div class='kpis'>
+<div class='kpi'><div class='v'>1611</div><div class='l'>Activities</div></div>
+<div class='kpi'><div class='v'>1343 h</div><div class='l'>Total time</div></div>
+<div class='kpi'><div class='v'>247 h</div><div class='l'>2026 YTD</div></div>
+<div class='kpi'><div class='v'>10.0 h</div><div class='l'>Avg last 16 wk</div></div>
+<div class='kpi'><div class='v'>16.0 h</div><div class='l'>Peak week (16wk)</div></div>
+</div><div class='grid2'><div>
+<h3>Volume by discipline (all-time)</h3><table><tr><th>Sport</th><th class='r'>Sess.</th><th class='r'>Hours</th><th class='r'>km</th></tr>
+<tr><td>workout</td><td class='r mono'>488</td><td class='r mono'>437</td><td class='r mono'>486</td></tr>
+<tr><td>run</td><td class='r mono'>363</td><td class='r mono'>314</td><td class='r mono'>3921</td></tr>
+<tr><td>bike</td><td class='r mono'>154</td><td class='r mono'>218</td><td class='r mono'>6675</td></tr>
+<tr><td>weighttraining</td><td class='r mono'>168</td><td class='r mono'>136</td><td class='r mono'>0</td></tr>
+<tr><td>swim</td><td class='r mono'>147</td><td class='r mono'>74</td><td class='r mono'>241</td></tr>
+<tr><td>yoga</td><td class='r mono'>98</td><td class='r mono'>60</td><td class='r mono'>0</td></tr>
+<tr><td>virtualride</td><td class='r mono'>41</td><td class='r mono'>49</td><td class='r mono'>322</td></tr>
+<tr><td>openwaterswim</td><td class='r mono'>74</td><td class='r mono'>23</td><td class='r mono'>46</td></tr>
+<tr><td>hike</td><td class='r mono'>55</td><td class='r mono'>23</td><td class='r mono'>89</td></tr>
+</table></div><div>
+<h3>Last 16 weeks (combined)</h3><table><tr><th>Week ending</th><th class='r'>h</th><th class='r'>TSS</th><th class='r'>#</th></tr>
+<tr><td class='mono'>2026-03-15</td><td class='r mono'>11.9</td><td class='r mono'>503</td><td class='r mono'>14</td></tr>
+<tr><td class='mono'>2026-03-22</td><td class='r mono'>9.2</td><td class='r mono'>416</td><td class='r mono'>11</td></tr>
+<tr><td class='mono'>2026-03-29</td><td class='r mono'>12.7</td><td class='r mono'>580</td><td class='r mono'>15</td></tr>
+<tr><td class='mono'>2026-04-05</td><td class='r mono'>9.2</td><td class='r mono'>396</td><td class='r mono'>11</td></tr>
+<tr><td class='mono'>2026-04-12</td><td class='r mono'>8.8</td><td class='r mono'>419</td><td class='r mono'>11</td></tr>
+<tr><td class='mono'>2026-04-19</td><td class='r mono'>10.7</td><td class='r mono'>597</td><td class='r mono'>12</td></tr>
+<tr><td class='mono'>2026-04-26</td><td class='r mono'>10.3</td><td class='r mono'>502</td><td class='r mono'>10</td></tr>
+<tr><td class='mono'>2026-05-03</td><td class='r mono'>9.7</td><td class='r mono'>378</td><td class='r mono'>12</td></tr>
+<tr><td class='mono'>2026-05-10</td><td class='r mono'>8.1</td><td class='r mono'>413</td><td class='r mono'>8</td></tr>
+<tr><td class='mono'>2026-05-17</td><td class='r mono'>16.0</td><td class='r mono'>627</td><td class='r mono'>14</td></tr>
+<tr><td class='mono'>2026-05-24</td><td class='r mono'>7.1</td><td class='r mono'>373</td><td class='r mono'>8</td></tr>
+<tr><td class='mono'>2026-05-31</td><td class='r mono'>11.0</td><td class='r mono'>550</td><td class='r mono'>14</td></tr>
+<tr><td class='mono'>2026-06-07</td><td class='r mono'>6.9</td><td class='r mono'>368</td><td class='r mono'>8</td></tr>
+<tr><td class='mono'>2026-06-14</td><td class='r mono'>9.7</td><td class='r mono'>397</td><td class='r mono'>13</td></tr>
+<tr><td class='mono'>2026-06-21</td><td class='r mono'>12.6</td><td class='r mono'>693</td><td class='r mono'>11</td></tr>
+<tr><td class='mono'>2026-06-28</td><td class='r mono'>5.4</td><td class='r mono'>277</td><td class='r mono'>6</td></tr>
+</table></div></div>
+<div class='note small'>Demonstrated capacity (last 16 wk peak above) frames the plan's peak weeks as an extension of proven load, not a step into the unknown.</div>
+<h2 class='pb'>5 &middot; Target race splits</h2><div class='grid2'>
+<div>
+<h3>Syców 1/2 IM &rarr; 4:20</h3>
+<table><tr><th>Leg</th><th class='r'>Target</th><th>Detail</th></tr><tr><td>Swim 1.9 km</td><td class='r mono'>36:00</td><td class='small'>1:54/100m (wetsuit/OW)</td></tr><tr><td>T1</td><td class='r mono'>2:00</td><td class='small'>tighten vs 4:28 in Sieraków</td></tr><tr><td>Bike 90 km</td><td class='r mono'>2:16:00</td><td class='small'>~39.7 km/h @ 250-262 W (disc/aero)</td></tr><tr><td>T2</td><td class='r mono'>1:30</td><td class='small'>tighten vs 6:27 in Sieraków</td></tr><tr><td>Run 21.1 km</td><td class='r mono'>1:24:30</td><td class='small'>4:00/km</td></tr><tr class='tot'><td>TOTAL</td><td class='r mono'>4:20</td><td></td></tr></table>
+<p class='small'>vs Sieraków 2026 (4:45:50): bike -14 min (wheels+fitness), transitions -7 min (T1+T2 were 10:55!), run -4 min, swim flat -&gt; ~-26 min.
+
+</p>
+</div>
+<div>
+<h3>Malbork Castle Triathlon (Full IM) &rarr; 9:30</h3>
+<table><tr><th>Leg</th><th class='r'>Target</th><th>Detail</th></tr><tr><td>Swim 3.8 km</td><td class='r mono'>1:15:00</td><td class='small'>1:58/100m -&gt; your 75&#x27; target</td></tr><tr><td>T1</td><td class='r mono'>3:30</td><td class='small'></td></tr><tr><td>Bike 180 km</td><td class='r mono'>5:02:00</td><td class='small'>~35.8 km/h @ 215-225 W (disc/aero)</td></tr><tr><td>T2</td><td class='r mono'>2:30</td><td class='small'></td></tr><tr><td>Run 42.2 km</td><td class='r mono'>3:07:00</td><td class='small'>4:26/km</td></tr><tr class='tot'><td>TOTAL</td><td class='r mono'>9:30</td><td></td></tr></table>
+<p class='small'>vs Malbork 2025 (10:35:52): run -40 min (the big, earned lever), bike -17 min (wheels+pacing), swim -5 min, T -3 min.
+
+ Stretch 9:20 = bike 4:57 + run 3:01.
+</p>
+</div>
+</div>
+<div class='note'>Risk ranking. (1) Run durability — the 2025 IM run faded to ~5:22/km; 4:26/km off the bike must be earned with long Z2 runs + race-pace bricks. (2) Swim base — held up by frequency. (3) Bike — the most bankable gain (equipment + position). Spend the wheel watts on a slightly easier bike to protect the run.
+</div>
+<h2 class='pb'>6 &middot; Periodization &amp; calendar</h2>
+<table><tr><th>Wk</th><th>Start</th><th>Phase</th><th class='r'>h</th><th class='r'>TSS</th><th class='r'>S/B/R</th><th>Focus</th></tr>
+<tr><td class='wk'>1</td><td class='mono'>2026-06-22</td><td>build</td><td class='r mono'>11.2</td><td class='r mono'>565</td><td class='r mono'>3/4/3</td><td class='small'>Sharpen; honor fixed sessions; re-seat swim 3x</td></tr>
+<tr><td class='wk'>2</td><td class='mono'>2026-06-29</td><td>build</td><td class='r mono'>11.4</td><td class='r mono'>586</td><td class='r mono'>3/4/4</td><td class='small'>Pre-Syców peak: half-IM race-pace brick</td></tr>
+<tr><td class='wk'>3</td><td class='mono'>2026-07-06</td><td>taper <span class='tag t-race'>race</span></td><td class='r mono'>8.8</td><td class='r mono'>534</td><td class='r mono'>3/2/3</td><td class='small'>Mini-taper -&gt; RACE Syców (Sun)</td></tr>
+<tr><td class='wk'>4</td><td class='mono'>2026-07-13</td><td>transition</td><td class='r mono'>8.7</td><td class='r mono'>409</td><td class='r mono'>2/3/3</td><td class='small'>Post-race reset / aerobic rebuild</td></tr>
+<tr><td class='wk'>5</td><td class='mono'>2026-07-20</td><td>build</td><td class='r mono'>13.0</td><td class='r mono'>631</td><td class='r mono'>3/3/3</td><td class='small'>IM build 1 — volume up, TT-bike aero</td></tr>
+<tr><td class='wk'>6</td><td class='mono'>2026-07-27</td><td>build</td><td class='r mono'>14.0</td><td class='r mono'>662</td><td class='r mono'>3/3/3</td><td class='small'>IM build 2 — longest ride grows</td></tr>
+<tr><td class='wk'>7</td><td class='mono'>2026-08-03</td><td>build <span class='tag t-rec'>rec</span></td><td class='r mono'>7.2</td><td class='r mono'>341</td><td class='r mono'>3/2/2</td><td class='small'>Recovery valley (absorb the block)</td></tr>
+<tr><td class='wk'>8</td><td class='mono'>2026-08-10</td><td>build</td><td class='r mono'>14.0</td><td class='r mono'>662</td><td class='r mono'>3/3/3</td><td class='small'>IM build 3 — race-power long rides</td></tr>
+<tr><td class='wk'>9</td><td class='mono'>2026-08-17</td><td>build</td><td class='r mono'>14.8</td><td class='r mono'>698</td><td class='r mono'>3/3/3</td><td class='small'>IM peak — biggest week, long bricks</td></tr>
+<tr><td class='wk'>10</td><td class='mono'>2026-08-24</td><td>taper</td><td class='r mono'>9.2</td><td class='r mono'>478</td><td class='r mono'>3/3/3</td><td class='small'>Taper 1 — volume down, keep sharpness</td></tr>
+<tr><td class='wk'>11</td><td class='mono'>2026-08-31</td><td>taper <span class='tag t-race'>race</span></td><td class='r mono'>13.3</td><td class='r mono'>663</td><td class='r mono'>3/3/2</td><td class='small'>Taper 2 -&gt; RACE Malbork (Sun)</td></tr>
+</table><p class='small'>S/B/R = swim/bike/run sessions. Recovery weeks drop load &ge;40% (derived, not just labelled).</p>
+<h3 class='pb'>Session detail</h3>
+<div style='margin-top:12px'><b class='wk'>Week 1</b> <span class='small'>2026-06-22 &middot; build</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 22.06</td><td>Easy spin (completed)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:15:00</td><td class='r mono'>58</td><td class='small'>Already logged.</td></tr>
+<tr><td class='day mono'>Tue 23.06</td><td>Swim (completed)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>45:00</td><td class='r mono'>24</td><td class='small'>Already logged.</td></tr>
+<tr><td class='day mono'>Tue 23.06</td><td>Run easy (completed)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>45:00</td><td class='r mono'>41</td><td class='small'>Already logged.</td></tr>
+<tr><td class='day mono'>Wed 24.06</td><td>Z2 ride (completed)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:15:00</td><td class='r mono'>58</td><td class='small'>Already logged.</td></tr>
+<tr><td class='day mono'>Thu 25.06</td><td>Swim aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>45:00</td><td class='r mono'>24</td><td class='small'>Establish the 3rd weekly swim immediately.</td></tr>
+<tr><td class='day mono'>Thu 25.06</td><td>Anaerobic bike (planned)</td><td><span class='tag t-hard'>hard</span></td><td class='r mono'>1:15:00</td><td class='r mono'>110</td><td class='small'>As scheduled: anaerobic intervals, e.g. 6-8x1-2&#x27; @ 120-150% FTP, full recoveries.</td></tr>
+<tr><td class='day mono'>Fri 26.06</td><td>Z2 brick ride (planned)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>2:00:00</td><td class='r mono'>92</td><td class='small'>As scheduled.</td></tr>
+<tr><td class='day mono'>Fri 26.06</td><td>Brick run (planned) <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:00:00</td><td class='r mono'>55</td><td class='small'>As scheduled, off the bike.</td></tr>
+<tr><td class='day mono'>Sat 27.06</td><td>Long run (planned)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:30:00</td><td class='r mono'>82</td><td class='small'>As scheduled, Saturday AM.</td></tr>
+<tr><td class='day mono'>Sat 27.06</td><td>Swim easy</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>40:00</td><td class='r mono'>21</td><td class='small'>Short aerobic swim, limiter volume.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 2</b> <span class='small'>2026-06-29 &middot; build</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 29.06</td><td>Swim technique + aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>43:22</td><td class='r mono'>23</td><td class='small'>Drills + 8-12x100 aerobic @ CSS+5s. Limiter focus: form under low fatigue.</td></tr>
+<tr><td class='day mono'>Mon 29.06</td><td>Strength (lower + core)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>39:02</td><td class='r mono'>14</td><td class='small'>Heavy-ish posterior chain + core; injury prevention, not fatigue.</td></tr>
+<tr><td class='day mono'>Tue 30.06</td><td>Bike key set</td><td><span class='tag t-hard'>hard</span></td><td class='r mono'>41:38</td><td class='r mono'>61</td><td class='small'>Half-IM race-power over/unders 3x10&#x27; @ 95-102% FTP</td></tr>
+<tr><td class='day mono'>Wed 01.07</td><td>Swim threshold</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>47:42</td><td class='r mono'>38</td><td class='small'>Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.</td></tr>
+<tr><td class='day mono'>Wed 01.07</td><td>Run easy + strides</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>39:02</td><td class='r mono'>36</td><td class='small'>Z2 aerobic + 6x20s strides. Off-feet recovery from bike key day.</td></tr>
+<tr><td class='day mono'>Thu 02.07</td><td>Bike tempo/sweet-spot</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>46:50</td><td class='r mono'>55</td><td class='small'>2-3x20&#x27; @ 88-94% FTP (sweet spot). Aerobic-power durability.</td></tr>
+<tr><td class='day mono'>Fri 03.07</td><td>Swim aerobic endurance</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>43:22</td><td class='r mono'>23</td><td class='small'>Continuous + pull/paddles; 2500-3000m steady. Third swim = the needle-mover.</td></tr>
+<tr><td class='day mono'>Fri 03.07</td><td>Mobility / core</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>26:01</td><td class='r mono'>10</td><td class='small'>Optional; keep easy.</td></tr>
+<tr><td class='day mono'>Sat 04.07</td><td>Long ride (Z2) + brick</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>2:45:00</td><td class='r mono'>126</td><td class='small'>On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -&gt; validate position + power-speed.</td></tr>
+<tr><td class='day mono'>Sat 04.07</td><td>Brick run off bike <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>28</td><td class='small'>First 10&#x27; @ IM/half race pace off the bike, then Z2. Trains the transition.</td></tr>
+<tr><td class='day mono'>Sun 05.07</td><td>Long run (Z2)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:30:00</td><td class='r mono'>82</td><td class='small'>Aerobic long run; last 15-20&#x27; @ race effort when fresh enough.</td></tr>
+<tr><td class='day mono'>Sun 05.07</td><td>Half-IM pace brick (bike)</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>50:00</td><td class='r mono'>58</td><td class='small'>50&#x27; with 2x15&#x27; @ 90-95% FTP (~252-266 W) = Syców target power.</td></tr>
+<tr><td class='day mono'>Sun 05.07</td><td>Half-IM pace brick (run) <span class='tag t-moderate'>brick</span></td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>25:00</td><td class='r mono'>31</td><td class='small'>25&#x27; off the bike @ 4:25-4:35/km = Syców target run pace.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 3</b> <span class='small'>2026-07-06 &middot; taper</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 06.07</td><td>Swim easy + 4x50 fast</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>40:00</td><td class='r mono'>21</td><td class='small'>Openers, stay sharp.</td></tr>
+<tr><td class='day mono'>Tue 07.07</td><td>Bike openers</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:00:00</td><td class='r mono'>70</td><td class='small'>3x3&#x27; @ race power + 3x30s fast.</td></tr>
+<tr><td class='day mono'>Tue 07.07</td><td>Brick run short <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>20:00</td><td class='r mono'>18</td><td class='small'>10&#x27; off bike @ race pace.</td></tr>
+<tr><td class='day mono'>Wed 08.07</td><td>Swim race-pace feel</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>35:00</td><td class='r mono'>28</td><td class='small'>6x100 @ race pace, long rests.</td></tr>
+<tr><td class='day mono'>Thu 09.07</td><td>Run easy + strides</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>35:00</td><td class='r mono'>32</td><td class='small'>4x20s strides; legs snappy.</td></tr>
+<tr><td class='day mono'>Fri 10.07</td><td>Spin + openers</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>40:00</td><td class='r mono'>31</td><td class='small'>Few 30s efforts, otherwise easy.</td></tr>
+<tr><td class='day mono'>Sat 11.07</td><td>Swim shakeout</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>20:00</td><td class='r mono'>11</td><td class='small'>Short, pre-race feel.</td></tr>
+<tr><td class='day mono'>Sat 11.07</td><td>Shakeout jog</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>20:00</td><td class='r mono'>18</td><td class='small'>15-20&#x27; easy + 3 strides.</td></tr>
+<tr><td class='day mono'>Sun 12.07</td><td>RACE: Syców 1/2 IM</td><td><span class='tag t-race'>race</span></td><td class='r mono'>4:20:00</td><td class='r mono'>305</td><td class='small'>Target 4:20. Swim 35-36&#x27; / T1 / bike ~2:20 @ 250-265 W / T2 / run ~1:25 @ 4:25-4:35/km.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 4</b> <span class='small'>2026-07-13 &middot; transition</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 13.07</td><td>Off / walk</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>11</td><td class='small'>Full recovery day after the race.</td></tr>
+<tr><td class='day mono'>Tue 14.07</td><td>Swim recovery</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>40:00</td><td class='r mono'>21</td><td class='small'>Loosen up, technique only.</td></tr>
+<tr><td class='day mono'>Wed 15.07</td><td>Easy spin</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:00:00</td><td class='r mono'>46</td><td class='small'>Z1-2 flush.</td></tr>
+<tr><td class='day mono'>Wed 15.07</td><td>Run easy</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>28</td><td class='small'>Short, easy.</td></tr>
+<tr><td class='day mono'>Thu 16.07</td><td>Swim aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>50:00</td><td class='r mono'>27</td><td class='small'>Back to swim volume.</td></tr>
+<tr><td class='day mono'>Fri 17.07</td><td>Bike tempo (light)</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:00:00</td><td class='r mono'>70</td><td class='small'>2x15&#x27; @ 85-90% FTP; re-engage.</td></tr>
+<tr><td class='day mono'>Sat 18.07</td><td>Long ride (Z2)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>2:30:00</td><td class='r mono'>115</td><td class='small'>Rebuild aerobic base on TT bike.</td></tr>
+<tr><td class='day mono'>Sat 18.07</td><td>Brick run <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>25:00</td><td class='r mono'>23</td><td class='small'>Short brick off the ride.</td></tr>
+<tr><td class='day mono'>Sun 19.07</td><td>Long run (Z2)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:15:00</td><td class='r mono'>69</td><td class='small'>Easy aerobic; no intensity.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 5</b> <span class='small'>2026-07-20 &middot; build</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 20.07</td><td>Swim technique + aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:01:40</td><td class='r mono'>33</td><td class='small'>Drills + 8-12x100 aerobic @ CSS+5s. Limiter focus: form under low fatigue.</td></tr>
+<tr><td class='day mono'>Mon 20.07</td><td>Strength (lower + core)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>55:30</td><td class='r mono'>20</td><td class='small'>Heavy-ish posterior chain + core; injury prevention, not fatigue.</td></tr>
+<tr><td class='day mono'>Tue 21.07</td><td>Bike key set</td><td><span class='tag t-hard'>hard</span></td><td class='r mono'>59:12</td><td class='r mono'>87</td><td class='small'>VO2/threshold 5x4&#x27; @ 110-118% FTP or 3x12&#x27; @ 95-100% FTP</td></tr>
+<tr><td class='day mono'>Wed 22.07</td><td>Swim threshold</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:07:50</td><td class='r mono'>54</td><td class='small'>Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.</td></tr>
+<tr><td class='day mono'>Wed 22.07</td><td>Run easy + strides</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>55:30</td><td class='r mono'>51</td><td class='small'>Z2 aerobic + 6x20s strides. Off-feet recovery from bike key day.</td></tr>
+<tr><td class='day mono'>Thu 23.07</td><td>Bike tempo/sweet-spot</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:06:36</td><td class='r mono'>78</td><td class='small'>2-3x20&#x27; @ 88-94% FTP (sweet spot). Aerobic-power durability.</td></tr>
+<tr><td class='day mono'>Fri 24.07</td><td>Swim aerobic endurance</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:01:40</td><td class='r mono'>33</td><td class='small'>Continuous + pull/paddles; 2500-3000m steady. Third swim = the needle-mover.</td></tr>
+<tr><td class='day mono'>Fri 24.07</td><td>Mobility / core</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>37:00</td><td class='r mono'>14</td><td class='small'>Optional; keep easy.</td></tr>
+<tr><td class='day mono'>Sat 25.07</td><td>Long ride (Z2) + brick</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>3:00:00</td><td class='r mono'>138</td><td class='small'>On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -&gt; validate position + power-speed.</td></tr>
+<tr><td class='day mono'>Sat 25.07</td><td>Brick run off bike <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>28</td><td class='small'>First 10&#x27; @ IM/half race pace off the bike, then Z2. Trains the transition.</td></tr>
+<tr><td class='day mono'>Sun 26.07</td><td>Long run (Z2)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:45:00</td><td class='r mono'>96</td><td class='small'>Aerobic long run; last 15-20&#x27; @ race effort when fresh enough.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 6</b> <span class='small'>2026-07-27 &middot; build</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 27.07</td><td>Swim technique + aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:01:40</td><td class='r mono'>33</td><td class='small'>Drills + 8-12x100 aerobic @ CSS+5s. Limiter focus: form under low fatigue.</td></tr>
+<tr><td class='day mono'>Mon 27.07</td><td>Strength (lower + core)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>55:30</td><td class='r mono'>20</td><td class='small'>Heavy-ish posterior chain + core; injury prevention, not fatigue.</td></tr>
+<tr><td class='day mono'>Tue 28.07</td><td>Bike key set</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>59:12</td><td class='r mono'>69</td><td class='small'>VO2/threshold 5x4&#x27; @ 110-118% FTP or 3x12&#x27; @ 95-100% FTP</td></tr>
+<tr><td class='day mono'>Wed 29.07</td><td>Swim threshold</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:07:50</td><td class='r mono'>54</td><td class='small'>Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.</td></tr>
+<tr><td class='day mono'>Wed 29.07</td><td>Run easy + strides</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>55:30</td><td class='r mono'>51</td><td class='small'>Z2 aerobic + 6x20s strides. Off-feet recovery from bike key day.</td></tr>
+<tr><td class='day mono'>Thu 30.07</td><td>Bike tempo/sweet-spot</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:06:36</td><td class='r mono'>78</td><td class='small'>2-3x20&#x27; @ 88-94% FTP (sweet spot). Aerobic-power durability.</td></tr>
+<tr><td class='day mono'>Fri 31.07</td><td>Swim aerobic endurance</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:01:40</td><td class='r mono'>33</td><td class='small'>Continuous + pull/paddles; 2500-3000m steady. Third swim = the needle-mover.</td></tr>
+<tr><td class='day mono'>Fri 31.07</td><td>Mobility / core</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>37:00</td><td class='r mono'>14</td><td class='small'>Optional; keep easy.</td></tr>
+<tr><td class='day mono'>Sat 01.08</td><td>Long ride (Z2) + brick</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>3:45:00</td><td class='r mono'>172</td><td class='small'>On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -&gt; validate position + power-speed.</td></tr>
+<tr><td class='day mono'>Sat 01.08</td><td>Brick run off bike <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>28</td><td class='small'>First 10&#x27; @ IM/half race pace off the bike, then Z2. Trains the transition.</td></tr>
+<tr><td class='day mono'>Sun 02.08</td><td>Long run (Z2)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>2:00:00</td><td class='r mono'>110</td><td class='small'>Aerobic long run; last 15-20&#x27; @ race effort when fresh enough.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 7</b> <span class='small'>2026-08-03 &middot; build</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 03.08</td><td>Swim technique</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>45:00</td><td class='r mono'>24</td><td class='small'>Easy, form.</td></tr>
+<tr><td class='day mono'>Tue 04.08</td><td>Bike short tempo</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:00:00</td><td class='r mono'>70</td><td class='small'>2x12&#x27; @ 88-92% FTP, otherwise easy.</td></tr>
+<tr><td class='day mono'>Wed 05.08</td><td>Swim aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>45:00</td><td class='r mono'>24</td><td class='small'>Steady.</td></tr>
+<tr><td class='day mono'>Wed 05.08</td><td>Run easy</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>40:00</td><td class='r mono'>37</td><td class='small'>Z2.</td></tr>
+<tr><td class='day mono'>Fri 07.08</td><td>Swim aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>40:00</td><td class='r mono'>21</td><td class='small'>Keep frequency.</td></tr>
+<tr><td class='day mono'>Sat 08.08</td><td>Ride moderate</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>2:00:00</td><td class='r mono'>92</td><td class='small'>Z2 only; absorb the block.</td></tr>
+<tr><td class='day mono'>Sun 09.08</td><td>Long run (easy)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:20:00</td><td class='r mono'>73</td><td class='small'>Cut volume; stay aerobic.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 8</b> <span class='small'>2026-08-10 &middot; build</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 10.08</td><td>Swim technique + aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>57:42</td><td class='r mono'>31</td><td class='small'>Drills + 8-12x100 aerobic @ CSS+5s. Limiter focus: form under low fatigue.</td></tr>
+<tr><td class='day mono'>Mon 10.08</td><td>Strength (lower + core)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>51:55</td><td class='r mono'>19</td><td class='small'>Heavy-ish posterior chain + core; injury prevention, not fatigue.</td></tr>
+<tr><td class='day mono'>Tue 11.08</td><td>Bike key set</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>55:23</td><td class='r mono'>65</td><td class='small'>VO2/threshold 5x4&#x27; @ 110-118% FTP or 3x12&#x27; @ 95-100% FTP</td></tr>
+<tr><td class='day mono'>Wed 12.08</td><td>Swim threshold</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:03:28</td><td class='r mono'>51</td><td class='small'>Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.</td></tr>
+<tr><td class='day mono'>Wed 12.08</td><td>Run easy + strides</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>51:55</td><td class='r mono'>48</td><td class='small'>Z2 aerobic + 6x20s strides. Off-feet recovery from bike key day.</td></tr>
+<tr><td class='day mono'>Thu 13.08</td><td>Bike tempo/sweet-spot</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:02:18</td><td class='r mono'>73</td><td class='small'>2-3x20&#x27; @ 88-94% FTP (sweet spot). Aerobic-power durability.</td></tr>
+<tr><td class='day mono'>Fri 14.08</td><td>Swim aerobic endurance</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>57:42</td><td class='r mono'>31</td><td class='small'>Continuous + pull/paddles; 2500-3000m steady. Third swim = the needle-mover.</td></tr>
+<tr><td class='day mono'>Fri 14.08</td><td>Mobility / core</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>34:37</td><td class='r mono'>13</td><td class='small'>Optional; keep easy.</td></tr>
+<tr><td class='day mono'>Sat 15.08</td><td>Long ride (Z2) + brick</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>4:15:00</td><td class='r mono'>196</td><td class='small'>On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -&gt; validate position + power-speed.</td></tr>
+<tr><td class='day mono'>Sat 15.08</td><td>Brick run off bike <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>28</td><td class='small'>First 10&#x27; @ IM/half race pace off the bike, then Z2. Trains the transition.</td></tr>
+<tr><td class='day mono'>Sun 16.08</td><td>Long run (Z2)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>2:00:00</td><td class='r mono'>110</td><td class='small'>Aerobic long run; last 15-20&#x27; @ race effort when fresh enough.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 9</b> <span class='small'>2026-08-17 &middot; build</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 17.08</td><td>Swim technique + aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:02:04</td><td class='r mono'>33</td><td class='small'>Drills + 8-12x100 aerobic @ CSS+5s. Limiter focus: form under low fatigue.</td></tr>
+<tr><td class='day mono'>Mon 17.08</td><td>Strength (lower + core)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>55:52</td><td class='r mono'>20</td><td class='small'>Heavy-ish posterior chain + core; injury prevention, not fatigue.</td></tr>
+<tr><td class='day mono'>Tue 18.08</td><td>Bike key set</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>59:35</td><td class='r mono'>70</td><td class='small'>VO2/threshold 5x4&#x27; @ 110-118% FTP or 3x12&#x27; @ 95-100% FTP</td></tr>
+<tr><td class='day mono'>Wed 19.08</td><td>Swim threshold</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:08:17</td><td class='r mono'>55</td><td class='small'>Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.</td></tr>
+<tr><td class='day mono'>Wed 19.08</td><td>Run easy + strides</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>55:52</td><td class='r mono'>51</td><td class='small'>Z2 aerobic + 6x20s strides. Off-feet recovery from bike key day.</td></tr>
+<tr><td class='day mono'>Thu 20.08</td><td>Bike tempo/sweet-spot</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:07:02</td><td class='r mono'>78</td><td class='small'>2-3x20&#x27; @ 88-94% FTP (sweet spot). Aerobic-power durability.</td></tr>
+<tr><td class='day mono'>Fri 21.08</td><td>Swim aerobic endurance</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:02:04</td><td class='r mono'>33</td><td class='small'>Continuous + pull/paddles; 2500-3000m steady. Third swim = the needle-mover.</td></tr>
+<tr><td class='day mono'>Fri 21.08</td><td>Mobility / core</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>37:14</td><td class='r mono'>14</td><td class='small'>Optional; keep easy.</td></tr>
+<tr><td class='day mono'>Sat 22.08</td><td>Long ride (Z2) + brick</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>4:30:00</td><td class='r mono'>207</td><td class='small'>On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -&gt; validate position + power-speed.</td></tr>
+<tr><td class='day mono'>Sat 22.08</td><td>Brick run off bike <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>28</td><td class='small'>First 10&#x27; @ IM/half race pace off the bike, then Z2. Trains the transition.</td></tr>
+<tr><td class='day mono'>Sun 23.08</td><td>Long run (Z2)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>2:00:00</td><td class='r mono'>110</td><td class='small'>Aerobic long run; last 15-20&#x27; @ race effort when fresh enough.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 10</b> <span class='small'>2026-08-24 &middot; taper</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 24.08</td><td>Swim aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>45:00</td><td class='r mono'>24</td><td class='small'>Volume coming down.</td></tr>
+<tr><td class='day mono'>Tue 25.08</td><td>Bike race-power touches</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:15:00</td><td class='r mono'>88</td><td class='small'>3x10&#x27; @ IM power (~215-230 W).</td></tr>
+<tr><td class='day mono'>Wed 26.08</td><td>Swim race-pace</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>40:00</td><td class='r mono'>32</td><td class='small'>IM swim pace feel.</td></tr>
+<tr><td class='day mono'>Wed 26.08</td><td>Run easy + strides</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>40:00</td><td class='r mono'>37</td><td class='small'>Sharpen.</td></tr>
+<tr><td class='day mono'>Thu 27.08</td><td>Bike tempo (light)</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>1:00:00</td><td class='r mono'>70</td><td class='small'>2x12&#x27; @ sweet spot.</td></tr>
+<tr><td class='day mono'>Fri 28.08</td><td>Swim aerobic</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>40:00</td><td class='r mono'>21</td><td class='small'>Keep feel.</td></tr>
+<tr><td class='day mono'>Sat 29.08</td><td>Last long ride</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>2:30:00</td><td class='r mono'>115</td><td class='small'>2.5h @ IM power, dress-rehearse fuel + position.</td></tr>
+<tr><td class='day mono'>Sat 29.08</td><td>Brick run <span class='tag t-moderate'>brick</span></td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>20:00</td><td class='r mono'>18</td><td class='small'>Short brick @ IM run pace.</td></tr>
+<tr><td class='day mono'>Sun 30.08</td><td>Long run (reduced)</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>1:20:00</td><td class='r mono'>73</td><td class='small'>Last longer run; easy.</td></tr>
+</table>
+<div style='margin-top:12px'><b class='wk'>Week 11</b> <span class='small'>2026-08-31 &middot; taper</span></div>
+<table><tr><th class='day'>Day</th><th>Session</th><th>Int.</th><th class='r'>Dur</th><th class='r'>TSS</th><th>Prescription</th></tr>
+<tr><td class='day mono'>Mon 31.08</td><td>Swim easy + pace</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>35:00</td><td class='r mono'>19</td><td class='small'>Short, 4x100 @ IM pace.</td></tr>
+<tr><td class='day mono'>Tue 01.09</td><td>Bike openers</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>50:00</td><td class='r mono'>58</td><td class='small'>3x5&#x27; @ IM power + 3x30s.</td></tr>
+<tr><td class='day mono'>Wed 02.09</td><td>Run easy + strides</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>28</td><td class='small'>4x20s strides.</td></tr>
+<tr><td class='day mono'>Thu 03.09</td><td>Swim shakeout</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>25:00</td><td class='r mono'>13</td><td class='small'>Feel for the water.</td></tr>
+<tr><td class='day mono'>Thu 03.09</td><td>Spin</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>30:00</td><td class='r mono'>23</td><td class='small'>Legs open.</td></tr>
+<tr><td class='day mono'>Fri 04.09</td><td>Pre-race openers</td><td><span class='tag t-moderate'>moderate</span></td><td class='r mono'>30:00</td><td class='r mono'>35</td><td class='small'>A few race-power touches.</td></tr>
+<tr><td class='day mono'>Fri 04.09</td><td>Shakeout</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>15:00</td><td class='r mono'>14</td><td class='small'>10-15&#x27; + strides.</td></tr>
+<tr><td class='day mono'>Sat 05.09</td><td>Swim shakeout</td><td><span class='tag t-easy'>easy</span></td><td class='r mono'>15:00</td><td class='r mono'>8</td><td class='small'>Pre-race; very short.</td></tr>
+<tr><td class='day mono'>Sun 06.09</td><td>RACE: Malbork Full IM</td><td><span class='tag t-race'>race</span></td><td class='r mono'>9:30:00</td><td class='r mono'>465</td><td class='small'>Target 9:30 (stretch 9:20). Swim 75&#x27; / bike ~5:00-5:10 @ 210-230 W (disc/aero) / run ~3:05-3:15.</td></tr>
+</table>
+<h2 class='pb'>7 &middot; Why this calendar</h2>
+<p>Two-peak season. Syców 1/2 IM (2026-07-12) is a B-race tune-up off a 5-day mini-taper; the A-race is Malbork full IM (2026-09-06). Block order: sharpen (W1-2) -&gt; Syców -&gt; reset (W4) -&gt; IM build (W5-9 with a recovery valley W7) -&gt; 2-week taper. Swim is the limiter (CTL 4.1, ~6h/8wk) so swim freq is held at &gt;=3/wk throughout. Bike volume is on the TT bike in race position to convert the new disc/aero setup (~20-30 W) into a free IM bike split.
+</p>
+<h3>Progressive overload, bounded</h3><p>Load grows peak-to-peak at &le;10% TSS/week between <i>load</i> weeks (recovery valleys excluded); projected CTL ramp stays under the 7/week cap. Starting CTL ~64.4. A recovery valley (W7) and the first-race deload keep ACWR under 1.5.</p>
+<h3>Swim, the limiter</h3><p>Three swims every week regardless of phase. Frequency &gt; duration for a thin swim base: it builds feel-for-water and durability without stealing the bike/run hours that move the clock more.</p>
+<h3>Bike: convert the watts</h3><p>Long rides are on the TT bike in race position so the new disc/aero setup becomes a real race split, not a dyno number. Race-power long rides rehearse IM pacing and fuelling (70-90 g carb/h).</p>
+<h3>Run: durability over speed</h3><p>The IM result lives or dies on the run. Volume is aerobic (Z2) with race-effort finishes and brick runs off long rides so the legs learn IM marathon pace under fatigue &mdash; never a full-distance run.</p>
+<h3>Taper &amp; race-day form</h3><p>Two-week taper holds intensity but cuts volume so fatigue (ATL) sheds faster than fitness (CTL). The validator projects race-day TSB in the +10..+25 band that maximizes A-race performance without going stale.</p>
+<h2 class='pb'>8 &middot; Guardrail report</h2>
+<p>Checked by the deterministic validator (<span class='mono'>aithlete validate</span>): <b class='good'>PASS</b> (0 errors).</p>
+<table><tr><th>Check</th><th>Result</th></tr><tr><td>Weekly TSS ramp (peak-to-peak ≤10%)</td><td class='good'>pass</td></tr><tr><td>CTL ramp ≤7/wk</td><td class='good'>pass</td></tr><tr><td>Recovery cadence (≤3 load wks)</td><td class='good'>pass</td></tr><tr><td>Projected ACWR ≤1.5</td><td class='good'>pass</td></tr><tr><td>Taper window</td><td class='good'>pass</td></tr><tr><td>Race-day TSB in A-band</td><td class='good'>pass</td></tr><tr><td>Swim/bike/run frequency mins</td><td class='good'>pass</td></tr><tr><td>Brick in every build week</td><td class='good'>pass</td></tr></table>
+<p class='small'><b>Advisory warnings (non-blocking):</b> (a) the post-first-race weekly-hours step into the bigger block (TSS ramp stays within cap); (b) race-specific and taper weeks dip below the 70% easy-time floor because short quality work is a larger fraction of low volume. Total stress stays easy-dominated.</p>
+<h2>9 &middot; Execute</h2><p>Publish planned workouts to intervals.icu (syncs to Garmin):</p>
+<pre class='mono note'>uv run aithlete validate data/plans/goal-2026-malbork.json
+uv run aithlete push     data/plans/goal-2026-malbork.json   # gated by the validator</pre>
+<p class='small'>Re-run <span class='mono'>aithlete profile</span> after the first race to refresh CTL/FTP/PRs, then <span class='mono'>adjust-plan</span> if readiness moves the targets.</p>
+</body></html>

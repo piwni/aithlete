@@ -1,0 +1,2 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160231728,2023-07-09,2023-07-09T16:24:13,sail,Sail,Sailing,6147,6147,0.0,8.0,0.258,,,,,,,,,intervals

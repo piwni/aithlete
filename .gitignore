@@ -1,8 +1,10 @@
 # Athlete data is private health data — never commit it.
+# (The committed, consented sample lives under examples/data/ instead.)
 /data/raw/*
 /data/profiles/*
 /data/plans/*
 /data/context/*
+/data/reports/*
 /data/calendar-*.json
 !/data/**/.gitkeep
 

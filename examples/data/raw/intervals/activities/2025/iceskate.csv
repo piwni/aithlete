@@ -1,0 +1,3 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160223552,2025-11-28,2025-11-28T20:32:42,iceskate,IceSkate,Evening Ice Skate,2645,2645,0.0,26.0,0.595,,,,,,,,,intervals
+i160223330,2025-12-20,2025-12-20T20:19:56,iceskate,IceSkate,Evening Ice Skate,3170,3170,0.0,30.0,0.584,,,,,,,,,intervals

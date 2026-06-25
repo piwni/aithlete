@@ -19,7 +19,7 @@ import pandas as pd
 from pydantic import BaseModel, ConfigDict, Field
 
 from aithlete.knowledge import load_rules
-from aithlete.models.plan import IntensityClass, Phase, TrainingPlan
+from aithlete.models.plan import EventCategory, IntensityClass, Phase, TrainingPlan
 
 TAU_CTL = 42
 TAU_ATL = 7
@@ -155,21 +155,33 @@ def _check_ramp(plan, weekly_ctl, starting_ctl, rules, report):
 def _check_weekly_progression(plan, rules, report):
     tss_cap = rules["ramp"]["weekly_tss_increase_pct_max"]
     hours_cap = rules["ramp"]["weekly_hours_increase_pct_max"]
-    prev_tss = prev_hours = None
-    for wk in plan.weeks:
+    red_lo = rules["recovery_week"]["volume_reduction_pct"][0]
+    # Ramp is measured PEAK-TO-PEAK: compare each load week to the previous *load*
+    # week, ignoring planned recovery valleys. Resuming normal load after a
+    # deliberate down week is not a reckless ramp. A week that claims recovery but
+    # doesn't actually drop load is treated as a load week (and flagged elsewhere).
+    last_load_tss = last_load_hours = None
+    weeks = plan.weeks
+    for i, wk in enumerate(weeks):
+        prev = weeks[i - 1] if i > 0 else None
+        # Taper/transition (deload + race) weeks are not part of the progressive-
+        # overload chain — same exclusion the recovery-cadence check applies.
+        if wk.phase in (Phase.TAPER, Phase.TRANSITION) or _is_effective_recovery(wk, prev, red_lo):
+            continue
         tss, hours = wk.planned_tss, wk.planned_hours
-        # Caps apply regardless of the recovery flag (an increase is an increase).
-        if prev_tss and prev_tss > 0:
-            inc = (tss - prev_tss) / prev_tss * 100
+        if last_load_tss and last_load_tss > 0:
+            inc = (tss - last_load_tss) / last_load_tss * 100
             if inc > tss_cap:
                 _add(report, "weekly_tss_jump", Severity.ERROR,
-                     f"Week {wk.week_index} TSS jumps {inc:.0f}% (cap {tss_cap}%)", wk.week_index)
-        if prev_hours and prev_hours > 0:
-            inc = (hours - prev_hours) / prev_hours * 100
+                     f"Week {wk.week_index} TSS jumps {inc:.0f}% vs prior load week (cap {tss_cap}%)",
+                     wk.week_index)
+        if last_load_hours and last_load_hours > 0:
+            inc = (hours - last_load_hours) / last_load_hours * 100
             if inc > hours_cap:
                 _add(report, "weekly_hours_jump", Severity.WARNING,
-                     f"Week {wk.week_index} hours jump {inc:.0f}% (cap {hours_cap}%)", wk.week_index)
-        prev_tss, prev_hours = tss, hours
+                     f"Week {wk.week_index} hours jump {inc:.0f}% vs prior load week (cap {hours_cap}%)",
+                     wk.week_index)
+        last_load_tss, last_load_hours = tss, hours
 
 
 def _check_recovery_cadence(plan, rules, report, training_age="intermediate"):
@@ -267,6 +279,9 @@ def _check_hard_limits(plan, rules, report):
     brick_required = rules["long_session"]["brick_required_in_build"]
     for wk in plan.weeks:
         for s in wk.sessions:
+            # The cap is for TRAINING sessions; you can't shorten an Ironman.
+            if s.category is EventCategory.RACE:
+                continue
             if s.planned_duration_s / 3600 > max_session_h:
                 _add(report, "session_too_long", Severity.ERROR,
                      f"Week {wk.week_index} '{s.name}' {s.planned_duration_s/3600:.1f}h exceeds {max_session_h}h",

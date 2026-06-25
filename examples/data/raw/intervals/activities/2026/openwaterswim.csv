@@ -1,0 +1,4 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160221024,2026-05-28,2026-05-28T15:30:51,openwaterswim,OpenWaterSwim,Afternoon Swim,808,1190,691.42,5.0,0.466,,,,,,,,,intervals
+i160220941,2026-05-30,2026-05-30T10:58:59,openwaterswim,OpenWaterSwim,Sieraków 2026 - Run,2155,2156,1877.55,13.0,0.466,,,,,,,,,intervals
+i156937289,2026-06-13,2026-06-13T10:33:51,openwaterswim,OpenWaterSwim,Mietkow Multisport,1173,1174,1020.9,8.0,0.496,,,,,,,,,intervals

@@ -1,0 +1,2 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160230235,2023-11-18,2023-11-18T11:06:48,surfing,Surfing,Surfing Sports,3327,4233,0.0,39.0,0.675,,,,,,,,,intervals

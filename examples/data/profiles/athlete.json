@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "athlete_id": "athlete",
+  "generated_at": "2026-06-25T13:00:51.690309Z",
+  "anthropometrics": {
+    "sex": "other",
+    "birthdate": null,
+    "weight_kg": {
+      "value": 72.0,
+      "provenance": "estimated",
+      "source": "intervals.icu wellness",
+      "as_of": "2026-06-25"
+    },
+    "height_cm": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    }
+  },
+  "health": {
+    "hrv_rmssd_ms": {
+      "value": 95.0,
+      "provenance": "estimated",
+      "source": "wearable rMSSD",
+      "as_of": "2026-06-25"
+    },
+    "hrv_baseline_7d_ms": {
+      "value": 100.6,
+      "provenance": "estimated",
+      "source": "computed 7d mean",
+      "as_of": "2026-06-25"
+    },
+    "hrv_baseline_60d_ms": {
+      "value": 70.5,
+      "provenance": "estimated",
+      "source": "computed 60d mean",
+      "as_of": "2026-06-25"
+    },
+    "hrv_swc_ms": {
+      "value": 7.26,
+      "provenance": "estimated",
+      "source": "computed 0.5*CV",
+      "as_of": "2026-06-25"
+    },
+    "hrv_trend": "up",
+    "resting_hr_bpm": {
+      "value": 37.0,
+      "provenance": "estimated",
+      "source": "wearable RHR",
+      "as_of": "2026-06-25"
+    },
+    "resting_hr_baseline_bpm": {
+      "value": 45.0,
+      "provenance": "estimated",
+      "source": "computed 30d mean",
+      "as_of": "2026-06-25"
+    },
+    "resting_hr_trend": "down",
+    "sleep_avg_hours": {
+      "value": 7.33,
+      "provenance": "estimated",
+      "source": "wearable sleep",
+      "as_of": "2026-06-25"
+    },
+    "recovery_score": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    }
+  },
+  "bike": {
+    "ftp_w": {
+      "value": 280.0,
+      "provenance": "estimated",
+      "source": "intervals.icu sport settings",
+      "as_of": "2026-06-25"
+    },
+    "ftp_w_per_kg": {
+      "value": 3.89,
+      "provenance": "estimated",
+      "source": "computed",
+      "as_of": "2026-06-25"
+    },
+    "eftp_w": {
+      "value": 280.0,
+      "provenance": "estimated",
+      "source": "intervals.icu eFTP",
+      "as_of": "2026-06-25"
+    },
+    "cp_w": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    },
+    "w_prime_kj": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    },
+    "vo2max": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    },
+    "lthr_bpm": {
+      "value": 165.0,
+      "provenance": "estimated",
+      "source": "intervals.icu sport settings",
+      "as_of": "2026-06-25"
+    },
+    "max_hr_bpm": {
+      "value": 182.0,
+      "provenance": "estimated",
+      "source": "intervals.icu sport settings",
+      "as_of": "2026-06-25"
+    }
+  },
+  "run": {
+    "threshold_pace_s_per_km": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    },
+    "critical_speed_m_per_s": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    },
+    "vo2max": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    },
+    "lthr_bpm": {
+      "value": 165.0,
+      "provenance": "estimated",
+      "source": "intervals.icu sport settings",
+      "as_of": "2026-06-25"
+    },
+    "max_hr_bpm": {
+      "value": 182.0,
+      "provenance": "estimated",
+      "source": "intervals.icu sport settings",
+      "as_of": "2026-06-25"
+    }
+  },
+  "swim": {
+    "css_s_per_100m": {
+      "value": 120.0,
+      "provenance": "estimated",
+      "source": "intervals.icu sport settings",
+      "as_of": "2026-06-25"
+    },
+    "threshold_pace_s_per_100m": {
+      "value": null,
+      "provenance": "unknown",
+      "source": null,
+      "as_of": null
+    }
+  },
+  "load": {
+    "combined": {
+      "ctl": {
+        "value": 64.4,
+        "provenance": "estimated",
+        "source": "computed (Banister tau42)",
+        "as_of": "2026-06-25"
+      },
+      "atl": {
+        "value": 76.1,
+        "provenance": "estimated",
+        "source": "computed (Banister tau7)",
+        "as_of": "2026-06-25"
+      },
+      "tsb": {
+        "value": -11.8,
+        "provenance": "estimated",
+        "source": "computed (CTL-ATL)",
+        "as_of": "2026-06-25"
+      },
+      "as_of": "2026-06-25",
+      "trend": "up"
+    },
+    "swim": {
+      "ctl": {
+        "value": 4.1,
+        "provenance": "estimated",
+        "source": "computed (Banister tau42)",
+        "as_of": "2026-06-25"
+      },
+      "atl": {
+        "value": 3.3,
+        "provenance": "estimated",
+        "source": "computed (Banister tau7)",
+        "as_of": "2026-06-25"
+      },
+      "tsb": {
+        "value": 0.4,
+        "provenance": "estimated",
+        "source": "computed (CTL-ATL)",
+        "as_of": "2026-06-25"
+      },
+      "as_of": "2026-06-25",
+      "trend": "flat"
+    },
+    "bike": {
+      "ctl": {
+        "value": 28.7,
+        "provenance": "estimated",
+        "source": "computed (Banister tau42)",
+        "as_of": "2026-06-25"
+      },
+      "atl": {
+        "value": 29.7,
+        "provenance": "estimated",
+        "source": "computed (Banister tau7)",
+        "as_of": "2026-06-25"
+      },
+      "tsb": {
+        "value": -4.9,
+        "provenance": "estimated",
+        "source": "computed (CTL-ATL)",
+        "as_of": "2026-06-25"
+      },
+      "as_of": "2026-06-25",
+      "trend": "up"
+    },
+    "run": {
+      "ctl": {
+        "value": 30.4,
+        "provenance": "estimated",
+        "source": "computed (Banister tau42)",
+        "as_of": "2026-06-25"
+      },
+      "atl": {
+        "value": 37.4,
+        "provenance": "estimated",
+        "source": "computed (Banister tau7)",
+        "as_of": "2026-06-25"
+      },
+      "tsb": {
+        "value": -1.8,
+        "provenance": "estimated",
+        "source": "computed (CTL-ATL)",
+        "as_of": "2026-06-25"
+      },
+      "as_of": "2026-06-25",
+      "trend": "up"
+    }
+  },
+  "durability": {
+    "swim": {
+      "decoupling_pct": {
+        "value": null,
+        "provenance": "unknown",
+        "source": null,
+        "as_of": null
+      },
+      "efficiency_factor": {
+        "value": null,
+        "provenance": "unknown",
+        "source": null,
+        "as_of": null
+      }
+    },
+    "bike": {
+      "decoupling_pct": {
+        "value": 2.99,
+        "provenance": "estimated",
+        "source": "computed Pw:Hr/Pa:Hr",
+        "as_of": "2026-06-25"
+      },
+      "efficiency_factor": {
+        "value": null,
+        "provenance": "unknown",
+        "source": null,
+        "as_of": null
+      }
+    },
+    "run": {
+      "decoupling_pct": {
+        "value": null,
+        "provenance": "unknown",
+        "source": null,
+        "as_of": null
+      },
+      "efficiency_factor": {
+        "value": null,
+        "provenance": "unknown",
+        "source": null,
+        "as_of": null
+      }
+    }
+  },
+  "results": [
+    {
+      "bucket": "1/2",
+      "date": "2023-05-27",
+      "total_time_s": 21028.0,
+      "swim_time_s": 2301.0,
+      "t1_s": 718.0,
+      "bike_time_s": 10531.0,
+      "t2_s": 11.0,
+      "run_time_s": 7467.0,
+      "conditions": {
+        "swim_type": null,
+        "wetsuit": null,
+        "terrain": null,
+        "heat_c": null,
+        "modified_distance": false,
+        "notes": null
+      },
+      "dnf": false,
+      "relay": false,
+      "aquabike": false,
+      "event_name": null
+    },
+    {
+      "bucket": "1/4",
+      "date": "2024-06-08",
+      "total_time_s": 10267.0,
+      "swim_time_s": 1141.0,
+      "t1_s": 318.0,
+      "bike_time_s": 5097.0,
+      "t2_s": 85.0,
+      "run_time_s": 3626.0,
+      "conditions": {
+        "swim_type": null,
+        "wetsuit": null,
+        "terrain": null,
+        "heat_c": null,
+        "modified_distance": false,
+        "notes": null
+      },
+      "dnf": false,
+      "relay": false,
+      "aquabike": false,
+      "event_name": null
+    },
+    {
+      "bucket": "1/4",
+      "date": "2024-09-29",
+      "total_time_s": 10382.0,
+      "swim_time_s": 1185.0,
+      "t1_s": 716.0,
+      "bike_time_s": 5297.0,
+      "t2_s": 218.0,
+      "run_time_s": 2966.0,
+      "conditions": {
+        "swim_type": null,
+        "wetsuit": null,
+        "terrain": null,
+        "heat_c": null,
+        "modified_distance": false,
+        "notes": null
+      },
+      "dnf": false,
+      "relay": false,
+      "aquabike": false,
+      "event_name": null
+    },
+    {
+      "bucket": "full",
+      "date": "2025-09-07",
+      "total_time_s": 38152.0,
+      "swim_time_s": 4808.0,
+      "t1_s": 265.0,
+      "bike_time_s": 19169.0,
+      "t2_s": 302.0,
+      "run_time_s": 13608.0,
+      "conditions": {
+        "swim_type": null,
+        "wetsuit": null,
+        "terrain": null,
+        "heat_c": null,
+        "modified_distance": false,
+        "notes": null
+      },
+      "dnf": false,
+      "relay": false,
+      "aquabike": false,
+      "event_name": "Castle Triathlon Malbork"
+    },
+    {
+      "bucket": "1/2",
+      "date": "2026-05-30",
+      "total_time_s": 17150.0,
+      "swim_time_s": 2156.0,
+      "t1_s": 268.0,
+      "bike_time_s": 9009.0,
+      "t2_s": 387.0,
+      "run_time_s": 5330.0,
+      "conditions": {
+        "swim_type": null,
+        "wetsuit": null,
+        "terrain": null,
+        "heat_c": null,
+        "modified_distance": false,
+        "notes": null
+      },
+      "dnf": false,
+      "relay": false,
+      "aquabike": false,
+      "event_name": "Sieraków 2026"
+    },
+    {
+      "bucket": "1/4",
+      "date": "2026-06-13",
+      "total_time_s": 8287.0,
+      "swim_time_s": 1174.0,
+      "t1_s": 207.0,
+      "bike_time_s": 4507.0,
+      "t2_s": 60.0,
+      "run_time_s": 2339.0,
+      "conditions": {
+        "swim_type": null,
+        "wetsuit": null,
+        "terrain": null,
+        "heat_c": null,
+        "modified_distance": false,
+        "notes": null
+      },
+      "dnf": false,
+      "relay": false,
+      "aquabike": false,
+      "event_name": "Mietkow"
+    }
+  ],
+  "training_age": "intermediate",
+  "training_age_years": null,
+  "weekly_volume_tolerance_hours": null,
+  "weekly_volume_tolerance_by_sport_hours": {},
+  "strengths": [],
+  "limiters": [],
+  "injury_history": [],
+  "notes": null
+}

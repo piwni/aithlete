@@ -1,0 +1,38 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160223171,2026-01-02,2026-01-02T14:16:55,weighttraining,WeightTraining,Afternoon Weight Training,1873,1873,0.0,15.0,0.537,,,,,,,,,intervals
+i160223111,2026-01-07,2026-01-07T16:09:32,weighttraining,WeightTraining,Afternoon Weight Training,2497,2497,0.0,29.0,0.647,,,,,,,,,intervals
+i160223050,2026-01-11,2026-01-11T12:10:23,weighttraining,WeightTraining,Lunch Weight Training,3272,3272,0.0,25.0,0.525,,,,,,,,,intervals
+i160222997,2026-01-16,2026-01-16T06:14:50,weighttraining,WeightTraining,Morning Weight Training,6988,6988,0.0,31.0,0.4,,,,,,,,,intervals
+i160222983,2026-01-17,2026-01-17T07:14:55,weighttraining,WeightTraining,Morning Weight Training,3037,3037,0.0,32.0,0.616,,,,,,,,,intervals
+i160222891,2026-01-23,2026-01-23T05:54:10,weighttraining,WeightTraining,Morning Weight Training,3543,3543,0.0,32.0,0.57,,,,,,,,,intervals
+i160222885,2026-01-24,2026-01-24T14:59:58,weighttraining,WeightTraining,Afternoon Weight Training,3627,3627,0.0,16.0,0.399,,,,,,,,,intervals
+i160222819,2026-01-28,2026-01-28T17:12:58,weighttraining,WeightTraining,Afternoon Weight Training,2361,2361,0.0,31.0,0.688,,,,,,,,,intervals
+i160222789,2026-01-30,2026-01-30T06:14:04,weighttraining,WeightTraining,Morning Weight Training,2813,2813,0.0,30.0,0.62,,,,,,,,,intervals
+i160222669,2026-02-06,2026-02-06T05:13:09,weighttraining,WeightTraining,Morning Weight Training,7387,7387,0.0,52.0,0.503,,,,,,,,,intervals
+i160222664,2026-02-07,2026-02-07T07:24:30,weighttraining,WeightTraining,Morning Weight Training,2798,2798,0.0,34.0,0.662,,,,,,,,,intervals
+i160222608,2026-02-11,2026-02-11T14:41:04,weighttraining,WeightTraining,Afternoon Weight Training,2162,2162,0.0,28.0,0.683,,,,,,,,,intervals
+i160222535,2026-02-17,2026-02-17T13:55:26,weighttraining,WeightTraining,Afternoon Weight Training,2410,2410,0.0,25.0,0.611,,,,,,,,,intervals
+i160222468,2026-02-22,2026-02-22T09:05:32,weighttraining,WeightTraining,Morning Weight Training,2241,2241,0.0,24.0,0.621,,,,,,,,,intervals
+i160222356,2026-03-03,2026-03-03T11:51:37,weighttraining,WeightTraining,Lunch Weight Training,2858,2858,0.0,40.0,0.71,,,,,,,,,intervals
+i160222318,2026-03-06,2026-03-06T06:20:47,weighttraining,WeightTraining,Morning Weight Training,2446,2446,0.0,38.0,0.748,,,,,,,,,intervals
+i160222259,2026-03-10,2026-03-10T11:43:13,weighttraining,WeightTraining,Lunch Weight Training,2581,2581,0.0,26.0,0.602,,,,,,,,,intervals
+i160222208,2026-03-13,2026-03-13T06:02:06,weighttraining,WeightTraining,Morning Weight Training,3529,3529,0.0,24.0,0.495,,,,,,,,,intervals
+i160222138,2026-03-19,2026-03-19T14:27:48,weighttraining,WeightTraining,Afternoon Weight Training,3020,3029,0.0,29.0,0.587,,,,,,,,,intervals
+i160222038,2026-03-24,2026-03-24T12:05:05,weighttraining,WeightTraining,Lunch Weight Training,2867,2867,0.0,31.0,0.624,,,,,,,,,intervals
+i160222008,2026-03-27,2026-03-27T05:55:00,weighttraining,WeightTraining,Morning Weight Training,3807,3811,0.0,34.0,0.567,,,,,,,,,intervals
+i160221963,2026-03-28,2026-03-28T08:48:43,weighttraining,WeightTraining,Morning Weight Training,2788,2788,0.0,25.0,0.569,,,,,,,,,intervals
+i160221889,2026-04-03,2026-04-03T15:43:03,weighttraining,WeightTraining,Afternoon Weight Training,3138,3138,0.0,20.0,0.479,,,,,,,,,intervals
+i160221772,2026-04-10,2026-04-10T06:43:50,weighttraining,WeightTraining,Morning Weight Training,3133,3133,0.0,14.0,0.401,,,,,,,,,intervals
+i160221768,2026-04-11,2026-04-11T07:58:43,weighttraining,WeightTraining,Morning Weight Training,2955,2955,0.0,18.0,0.468,,,,,,,,,intervals
+i160221663,2026-04-16,2026-04-16T15:24:04,weighttraining,WeightTraining,Afternoon Weight Training,2237,2237,0.0,28.0,0.671,,,,,,,,,intervals
+i160221594,2026-04-21,2026-04-21T16:52:05,weighttraining,WeightTraining,Afternoon Weight Training,3781,3781,0.0,19.0,0.425,,,,,,,,,intervals
+i160221515,2026-04-24,2026-04-24T13:48:19,weighttraining,WeightTraining,Afternoon Weight Training,2691,2691,0.0,25.0,0.579,,,,,,,,,intervals
+i160221450,2026-04-28,2026-04-28T12:35:35,weighttraining,WeightTraining,Lunch Weight Training,3011,3011,0.0,25.0,0.547,,,,,,,,,intervals
+i160221351,2026-05-08,2026-05-08T06:06:24,weighttraining,WeightTraining,Morning Weight Training,3485,3485,0.0,34.0,0.593,,,,,,,,,intervals
+i160221268,2026-05-12,2026-05-12T13:28:25,weighttraining,WeightTraining,Afternoon Weight Training,2921,2921,0.0,15.0,0.43,,,,,,,,,intervals
+i160221258,2026-05-14,2026-05-14T06:10:49,weighttraining,WeightTraining,Morning Weight Training,5617,5617,0.0,40.0,0.507,,,,,,,,,intervals
+i160221138,2026-05-20,2026-05-20T19:05:34,weighttraining,WeightTraining,Evening Weight Training,2400,2400,0.0,22.0,0.575,,,,,,,,,intervals
+i155244378,2026-06-07,2026-06-07T13:53:11,weighttraining,WeightTraining,Strength,3270,3270,0.0,28.0,0.556,,,,,,,,,intervals
+i156166988,2026-06-10,2026-06-10T19:57:26,weighttraining,WeightTraining,Strength,2768,2768,0.0,7.0,0.302,,,,,,,,,intervals
+i158243965,2026-06-18,2026-06-18T06:07:34,weighttraining,WeightTraining,Strength,3405,3405,0.0,37.0,0.626,,,,,,,,,intervals
+i159980503,2026-06-24,2026-06-24T14:50:54,weighttraining,WeightTraining,Strength,2865,2865,0.0,25.0,0.561,,,,,,,,,intervals

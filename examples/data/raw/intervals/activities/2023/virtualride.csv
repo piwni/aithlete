@@ -1,0 +1,9 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160232141,2023-06-09,2023-06-09T06:29:08,virtualride,VirtualRide,Indoor Cycling,9772,9772,0.0,164.0,0.777,,,280.0,,,,,,intervals
+i160232009,2023-06-17,2023-06-17T11:04:49,virtualride,VirtualRide,Indoor Cycling,3837,3837,0.0,70.0,0.811,,,280.0,,,,,,intervals
+i160231831,2023-07-04,2023-07-04T17:26:32,virtualride,VirtualRide,Indoor Cycling,3923,3923,0.0,76.0,0.835,,,280.0,,,,,,intervals
+i160231589,2023-07-22,2023-07-22T09:07:06,virtualride,VirtualRide,Indoor Cycling,3756,3756,0.0,74.0,0.842,,,280.0,,,,,,intervals
+i160231506,2023-07-30,2023-07-30T07:10:36,virtualride,VirtualRide,Indoor Cycling,3919,3919,0.0,77.0,0.841,,,280.0,,,,,,intervals
+i160230955,2023-09-10,2023-09-10T08:49:41,virtualride,VirtualRide,Indoor Cycling,2418,2418,0.0,56.0,0.913,,,280.0,,,,,,intervals
+i160230363,2023-11-07,2023-11-07T06:11:35,virtualride,VirtualRide,Indoor Cycling,5925,5925,0.0,91.0,0.748,,,280.0,,,,,,intervals
+i160230171,2023-11-22,2023-11-22T12:31:50,virtualride,VirtualRide,Indoor Cycling,2600,2622,0.0,40.0,0.748,,,280.0,,,,,,intervals

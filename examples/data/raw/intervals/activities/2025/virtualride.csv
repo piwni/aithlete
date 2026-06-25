@@ -1,0 +1,25 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160227057,2025-01-02,2025-01-02T14:33:50,virtualride,VirtualRide,Indoor Cycling,4373,4373,0.0,89.0,0.86,,,280.0,,,,,,intervals
+i160226875,2025-02-01,2025-02-01T08:12:08,virtualride,VirtualRide,Indoor Cycling,5054,5054,0.0,104.0,0.861,,,280.0,,,,,,intervals
+i160226696,2025-02-19,2025-02-19T15:53:49,virtualride,VirtualRide,Indoor Cycling,3254,3254,0.0,69.0,0.874,,,280.0,,,,,,intervals
+i160226573,2025-03-05,2025-03-05T14:58:15,virtualride,VirtualRide,Indoor Cycling,2482,2482,0.0,62.0,0.948,,,280.0,,,,,,intervals
+i160226517,2025-03-12,2025-03-12T14:54:04,virtualride,VirtualRide,Indoor Cycling,3154,3154,0.0,57.0,0.817,,,280.0,,,,,,intervals
+i160226368,2025-04-06,2025-04-06T07:45:18,virtualride,VirtualRide,Indoor Cycling,2656,2656,0.0,48.0,0.807,,,280.0,,,,,,intervals
+i160226322,2025-04-09,2025-04-09T14:40:41,virtualride,VirtualRide,Indoor Cycling,2483,2483,0.0,47.0,0.826,,,280.0,,,,,,intervals
+i160226102,2025-04-23,2025-04-23T15:56:23,virtualride,VirtualRide,Indoor Cycling,2536,2536,0.0,37.0,0.725,,,280.0,,,,,,intervals
+i160225857,2025-05-07,2025-05-07T15:24:15,virtualride,VirtualRide,Indoor Cycling,2401,2401,0.0,30.0,0.671,,,280.0,,,,,,intervals
+i160225599,2025-05-28,2025-05-28T14:35:39,virtualride,VirtualRide,Indoor Cycling,2461,2461,0.0,41.0,0.784,,,280.0,,,,,,intervals
+i160225523,2025-06-04,2025-06-04T19:08:54,virtualride,VirtualRide,Indoor Cycling,2450,2450,0.0,46.0,0.822,,,280.0,,,,,,intervals
+i160225419,2025-06-11,2025-06-11T15:51:18,virtualride,VirtualRide,Indoor Cycling,2561,2561,0.0,45.0,0.815,,,280.0,,,,,,intervals
+i160225269,2025-06-23,2025-06-23T16:10:02,virtualride,VirtualRide,Afternoon Ride,3093,3093,0.0,69.0,0.897,,,280.0,,,,,,intervals
+i160225190,2025-07-01,2025-07-01T15:20:37,virtualride,VirtualRide,Afternoon Ride,2704,2704,0.0,43.0,0.762,,,280.0,,,,,,intervals
+i160224987,2025-07-23,2025-07-23T16:10:00,virtualride,VirtualRide,Afternoon Ride,3105,3105,0.0,40.0,0.681,,,280.0,,,,,,intervals
+i160224881,2025-07-29,2025-07-29T17:41:03,virtualride,VirtualRide,Afternoon Ride,10997,10997,77779.3,71.0,0.484,,,280.0,,,,,,intervals
+i160224878,2025-07-30,2025-07-30T16:13:29,virtualride,VirtualRide,Afternoon Ride,3011,3011,0.0,39.0,0.684,,,280.0,,,,,,intervals
+i160224659,2025-08-14,2025-08-14T12:54:22,virtualride,VirtualRide,Lunch Ride,7811,7811,44306.1,65.0,0.569,,,280.0,,,,,,intervals
+i160224528,2025-08-21,2025-08-21T05:30:27,virtualride,VirtualRide,Morning Ride,5228,5228,40185.0,56.0,0.621,,,280.0,,,,,,intervals
+i160224474,2025-08-23,2025-08-23T09:38:57,virtualride,VirtualRide,Morning Ride,19320,19320,108960.0,245.0,0.693,,,280.0,,,,,,intervals
+i160224413,2025-08-24,2025-08-24T09:53:58,virtualride,VirtualRide,Morning Ride,7420,7420,50901.8,47.0,0.575,,,280.0,,,,,,intervals
+i160223706,2025-11-12,2025-11-12T17:10:22,virtualride,VirtualRide,Afternoon Ride,3122,3122,0.0,54.0,0.789,,,280.0,,,,,,intervals
+i160223631,2025-11-18,2025-11-18T13:40:18,virtualride,VirtualRide,Afternoon Ride,3230,3230,0.0,51.0,0.754,,,280.0,,,,,,intervals
+i160223563,2025-11-27,2025-11-27T14:57:33,virtualride,VirtualRide,Afternoon Ride,3199,3199,0.0,55.0,0.787,,,280.0,,,,,,intervals

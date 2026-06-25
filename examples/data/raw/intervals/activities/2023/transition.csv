@@ -1,0 +1,3 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160232339,2023-05-27,2023-05-27T11:15:24,transition,Transition,Multisport,708,718,1066.22,3.0,0.388,,,,,,,,,intervals
+i160232348,2023-05-27,2023-05-27T14:22:52,transition,Transition,Multisport,10,11,22.37,0.0,,,,,,,,,,intervals

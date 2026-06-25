@@ -1,0 +1,46 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160229784,2024-01-03,2024-01-03T17:04:07,weighttraining,WeightTraining,Strength Training,2658,2658,0.0,14.0,0.479,,,,,,,,,intervals
+i160229770,2024-01-05,2024-01-05T06:22:30,weighttraining,WeightTraining,Functional Strength Training,3021,3021,0.0,9.0,0.331,,,,,,,,,intervals
+i160229707,2024-01-11,2024-01-11T05:39:33,weighttraining,WeightTraining,Functional Strength Training,2305,2305,0.0,22.0,0.591,,,,,,,,,intervals
+i160229688,2024-01-19,2024-01-19T16:16:17,weighttraining,WeightTraining,Functional Strength Training,1511,1511,0.0,9.0,0.463,,,,,,,,,intervals
+i160229606,2024-01-25,2024-01-25T06:55:40,weighttraining,WeightTraining,Functional Strength Training,831,831,0.0,5.0,,,,,,,,,,intervals
+i160229448,2024-02-07,2024-02-07T15:33:16,weighttraining,WeightTraining,Strength Training,2688,2688,0.0,26.0,0.616,,,,,,,,,intervals
+i160229195,2024-03-11,2024-03-11T15:58:51,weighttraining,WeightTraining,Strength Training,2944,2944,0.0,27.0,0.578,,,,,,,,,intervals
+i160228993,2024-04-13,2024-04-13T08:33:13,weighttraining,WeightTraining,Functional Strength Training,2717,2717,0.0,15.0,0.462,,,,,,,,,intervals
+i160228889,2024-04-27,2024-04-27T12:27:06,weighttraining,WeightTraining,Functional Strength Training,2844,2844,0.0,18.0,0.477,,,,,,,,,intervals
+i160228860,2024-05-06,2024-05-06T13:15:46,weighttraining,WeightTraining,Strength Training,2954,2954,0.0,26.0,0.58,,,,,,,,,intervals
+i160228853,2024-05-09,2024-05-09T14:29:50,weighttraining,WeightTraining,Functional Strength Training,2425,2425,0.0,6.0,0.313,,,,,,,,,intervals
+i160228667,2024-06-05,2024-06-05T07:45:04,weighttraining,WeightTraining,Functional Strength Training,1795,1795,0.0,9.0,0.437,,,,,,,,,intervals
+i160228631,2024-06-11,2024-06-11T10:10:51,weighttraining,WeightTraining,Strength Training,3249,3249,0.0,26.0,0.563,,,,,,,,,intervals
+i160228594,2024-06-18,2024-06-18T14:35:50,weighttraining,WeightTraining,Functional Strength Training,2457,2457,0.0,6.0,0.32,,,,,,,,,intervals
+i160228557,2024-06-25,2024-06-25T17:30:09,weighttraining,WeightTraining,Functional Strength Training,2401,2401,0.0,6.0,0.348,,,,,,,,,intervals
+i160228420,2024-07-09,2024-07-09T13:12:22,weighttraining,WeightTraining,Strength Training,3445,3445,0.0,28.0,0.556,,,,,,,,,intervals
+i160228352,2024-07-19,2024-07-19T15:38:15,weighttraining,WeightTraining,Functional Strength Training,2435,2435,0.0,7.0,0.327,,,,,,,,,intervals
+i160228239,2024-07-30,2024-07-30T12:25:57,weighttraining,WeightTraining,Strength Training,3253,3253,0.0,35.0,0.626,,,,,,,,,intervals
+i160228181,2024-08-04,2024-08-04T14:04:53,weighttraining,WeightTraining,Functional Strength Training,2803,2803,0.0,6.0,0.299,,,,,,,,,intervals
+i160228177,2024-08-06,2024-08-06T12:37:22,weighttraining,WeightTraining,Functional Strength Training,2558,2558,0.0,8.0,0.338,,,,,,,,,intervals
+i160228106,2024-08-16,2024-08-16T10:41:02,weighttraining,WeightTraining,Functional Strength Training,2770,2770,0.0,27.0,0.592,,,,,,,,,intervals
+i160228088,2024-08-19,2024-08-19T15:14:07,weighttraining,WeightTraining,Strength Training,3858,3858,0.0,14.0,0.378,,,,,,,,,intervals
+i160228061,2024-08-25,2024-08-25T14:10:51,weighttraining,WeightTraining,Strength Training,3454,3454,0.0,8.0,0.289,,,,,,,,,intervals
+i160228015,2024-08-31,2024-08-31T10:25:45,weighttraining,WeightTraining,Functional Strength Training,1904,1904,0.0,5.0,0.315,,,,,,,,,intervals
+i160227995,2024-09-04,2024-09-04T05:59:19,weighttraining,WeightTraining,Functional Strength Training,77,77,0.0,0.0,,,,,,,,,,intervals
+i160227952,2024-09-11,2024-09-11T16:11:57,weighttraining,WeightTraining,Functional Strength Training,1858,1858,0.0,5.0,0.336,,,,,,,,,intervals
+i160227719,2024-10-05,2024-10-05T15:30:58,weighttraining,WeightTraining,Strength Training,2996,2996,0.0,18.0,0.501,,,,,,,,,intervals
+i160227612,2024-10-18,2024-10-18T10:34:32,weighttraining,WeightTraining,Strength Training,2682,2682,0.0,26.0,0.646,,,,,,,,,intervals
+i160227609,2024-10-19,2024-10-19T11:35:25,weighttraining,WeightTraining,Functional Strength Training,2551,2551,0.0,8.0,0.342,,,,,,,,,intervals
+i160227560,2024-10-28,2024-10-28T15:01:08,weighttraining,WeightTraining,Functional Strength Training,2446,2446,0.0,5.0,0.285,,,,,,,,,intervals
+i160227516,2024-11-04,2024-11-04T15:06:02,weighttraining,WeightTraining,Strength Training,3625,3625,0.0,19.0,0.463,,,,,,,,,intervals
+i160227486,2024-11-07,2024-11-07T17:31:57,weighttraining,WeightTraining,Functional Strength Training,2278,2278,0.0,5.0,0.296,,,,,,,,,intervals
+i160227394,2024-11-16,2024-11-16T11:36:33,weighttraining,WeightTraining,Functional Strength Training,3021,3021,0.0,10.0,0.345,,,,,,,,,intervals
+i160227392,2024-11-17,2024-11-17T17:20:33,weighttraining,WeightTraining,Strength Training,3625,3625,0.0,21.0,0.472,,,,,,,,,intervals
+i160227383,2024-11-21,2024-11-21T17:52:32,weighttraining,WeightTraining,Functional Strength Training,2923,2923,0.0,16.0,0.474,,,,,,,,,intervals
+i160227335,2024-11-23,2024-11-23T15:49:31,weighttraining,WeightTraining,Functional Strength Training,2621,2621,0.0,8.0,0.35,,,,,,,,,intervals
+i160227334,2024-11-24,2024-11-24T13:03:02,weighttraining,WeightTraining,Strength Training,4034,4034,0.0,33.0,0.551,,,,,,,,,intervals
+i160227328,2024-11-26,2024-11-26T17:51:43,weighttraining,WeightTraining,Functional Strength Training,1827,1827,0.0,5.0,0.332,,,,,,,,,intervals
+i160227310,2024-11-29,2024-11-29T15:35:00,weighttraining,WeightTraining,Functional Strength Training,3405,3405,0.0,7.0,0.287,,,,,,,,,intervals
+i160227296,2024-12-02,2024-12-02T15:39:02,weighttraining,WeightTraining,Functional Strength Training,2495,2495,0.0,11.0,0.425,,,,,,,,,intervals
+i160227240,2024-12-09,2024-12-09T15:21:48,weighttraining,WeightTraining,Functional Strength Training,2469,2469,0.0,6.0,0.324,,,,,,,,,intervals
+i160227226,2024-12-12,2024-12-12T15:43:21,weighttraining,WeightTraining,Strength Training,3846,3846,0.0,17.0,0.415,,,,,,,,,intervals
+i160227200,2024-12-16,2024-12-16T12:42:56,weighttraining,WeightTraining,Functional Strength Training,2999,2999,0.0,9.0,0.366,,,,,,,,,intervals
+i160227181,2024-12-18,2024-12-18T18:15:52,weighttraining,WeightTraining,Strength Training,2401,2401,0.0,27.0,0.65,,,,,,,,,intervals
+i160227124,2024-12-23,2024-12-23T12:08:41,weighttraining,WeightTraining,Strength Training,3422,3422,0.0,31.0,0.599,,,,,,,,,intervals

@@ -1,0 +1,20 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160232451,2023-05-21,2023-05-21T06:41:21,bike,Ride,Outdoor Cycling,2639,2855,17318.28,36.0,0.697,,,280.0,,,,,,intervals
+i160232342,2023-05-27,2023-05-27T11:27:21,bike,Ride,Multisport,10495,10531,85500.06,206.0,0.84,,,280.0,,,,,,intervals
+i160232284,2023-06-01,2023-06-01T20:33:21,bike,Ride,Outdoor Cycling,992,1062,3494.22,6.0,0.451,,,280.0,,,,,,intervals
+i160231421,2023-08-02,2023-08-02T16:34:41,bike,Ride,Outdoor Cycling,8686,8769,61599.05,92.0,0.615,,,280.0,,,,,,intervals
+i160231376,2023-08-06,2023-08-06T10:19:20,bike,Ride,Outdoor Cycling,10398,10399,88273.2,216.0,0.865,,,280.0,,,,,,intervals
+i160231277,2023-08-15,2023-08-15T05:50:37,bike,Ride,Outdoor Cycling,3367,3891,19133.19,26.0,0.518,,,280.0,,,,,,intervals
+i160231263,2023-08-15,2023-08-15T07:07:21,bike,Ride,Outdoor Cycling,736,1482,2507.45,1.0,0.215,,,280.0,,,,,,intervals
+i160231244,2023-08-15,2023-08-15T07:34:41,bike,Ride,Outdoor Cycling,2263,2358,18541.19,33.0,0.718,,,280.0,,,,,,intervals
+i160230964,2023-09-10,2023-09-10T06:47:42,bike,Ride,Outdoor Cycling,300,844,1677.38,2.0,,,,280.0,,,,,,intervals
+i160230931,2023-09-12,2023-09-12T05:21:03,bike,Ride,Outdoor Cycling,3173,3276,25301.69,55.0,0.789,,,280.0,,,,,,intervals
+i160230884,2023-09-16,2023-09-16T05:38:55,bike,Ride,Outdoor Cycling,4908,5013,38508.58,80.0,0.766,,,280.0,,,,,,intervals
+i160230836,2023-09-23,2023-09-23T05:50:29,bike,Ride,Outdoor Cycling,4056,4357,32112.52,79.0,0.831,,,280.0,,,,,,intervals
+i160230803,2023-09-26,2023-09-26T16:01:14,bike,Ride,Outdoor Cycling,333,336,2201.04,3.0,,,,280.0,,,,,,intervals
+i160230772,2023-09-26,2023-09-26T17:06:53,bike,Ride,Outdoor Cycling,8096,8313,60253.47,70.0,0.556,,,280.0,,,,,,intervals
+i160230745,2023-09-30,2023-09-30T05:43:57,bike,Ride,Outdoor Cycling,4745,4894,38756.58,96.0,0.852,,,280.0,,,,,,intervals
+i160230605,2023-10-12,2023-10-12T13:00:29,bike,Ride,Outdoor Cycling,4619,4728,37409.8,45.0,0.591,,,280.0,,,,,,intervals
+i160230536,2023-10-21,2023-10-21T05:46:03,bike,Ride,Outdoor Cycling,5203,5286,39201.18,88.0,0.78,,,280.0,,,,,,intervals
+i160230465,2023-10-28,2023-10-28T13:13:08,bike,Ride,Outdoor Cycling,5259,5557,39716.48,64.0,0.656,,,280.0,,,,,,intervals
+i160230331,2023-11-11,2023-11-11T06:07:57,bike,Ride,Outdoor Cycling,4840,4953,35175.61,46.0,0.583,,,280.0,,,,,,intervals

@@ -1,0 +1,157 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160232447,2023-05-21,2023-05-21T11:16:15,workout,Workout,Core Training,387,387,0.0,3.0,,,,,,,,,,intervals
+i160232441,2023-05-21,2023-05-21T11:23:17,workout,Workout,HIIT,1410,1410,0.0,27.0,0.831,,,,,,,,,intervals
+i160232398,2023-05-24,2023-05-24T07:23:04,workout,Workout,Core Training,295,295,0.0,1.0,,,,,,,,,,intervals
+i160232381,2023-05-25,2023-05-25T22:36:54,workout,Workout,Cooldown,1077,1077,0.0,3.0,0.336,,,,,,,,,intervals
+i160232378,2023-05-26,2023-05-26T21:45:51,workout,Workout,Core Training,560,560,0.0,2.0,,,,,,,,,,intervals
+i160232330,2023-05-28,2023-05-28T08:05:38,workout,Workout,Core Training,1285,1540,0.0,4.0,0.337,,,,,,,,,intervals
+i160232316,2023-05-31,2023-05-31T16:57:14,workout,Workout,Volleyball,7413,9227,3633.31,50.0,0.493,,,,,,,,,intervals
+i160232277,2023-06-01,2023-06-01T21:09:23,workout,Workout,Cardio Dance,2404,2404,0.0,17.0,0.518,,,,,,,,,intervals
+i160232228,2023-06-04,2023-06-04T00:19:54,workout,Workout,Cardio Dance,995,995,0.0,2.0,0.269,,,,,,,,,intervals
+i160232180,2023-06-06,2023-06-06T15:15:16,workout,Workout,Cross Training,1808,1809,596.04,30.0,0.773,,,,,,,,,intervals
+i160232093,2023-06-11,2023-06-11T12:38:21,workout,Workout,Cross Training,3333,3334,1108.38,21.0,0.476,,,,,,,,,intervals
+i160232063,2023-06-13,2023-06-13T12:15:54,workout,Workout,Cross Training,3240,3241,785.74,15.0,0.408,,,,,,,,,intervals
+i160232036,2023-06-15,2023-06-15T19:48:09,workout,Workout,Cardio Dance,1656,1656,0.0,24.0,0.723,,,,,,,,,intervals
+i160232030,2023-06-16,2023-06-16T06:14:04,workout,Workout,Cross Training,4772,4773,1508.67,50.0,0.614,,,,,,,,,intervals
+i160232022,2023-06-16,2023-06-16T17:05:07,workout,Workout,Volleyball,5845,5846,3142.72,46.0,0.532,,,,,,,,,intervals
+i160231973,2023-06-20,2023-06-20T13:10:04,workout,Workout,Cross Training,3234,3235,1018.45,26.0,0.538,,,,,,,,,intervals
+i160231955,2023-06-22,2023-06-22T15:00:43,workout,Workout,Volleyball,3825,3826,1654.73,37.0,0.59,,,,,,,,,intervals
+i160231942,2023-06-22,2023-06-22T19:49:51,workout,Workout,Cardio Dance,1204,1204,0.0,19.0,0.754,,,,,,,,,intervals
+i160231920,2023-06-25,2023-06-25T13:15:49,workout,Workout,Cross Training,3056,3057,1021.9,35.0,0.642,,,,,,,,,intervals
+i160231911,2023-06-25,2023-06-25T18:07:33,workout,Workout,Other,2809,2809,0.0,13.0,0.408,,,,,,,,,intervals
+i160231905,2023-06-27,2023-06-27T11:41:22,workout,Workout,Cross Training,2160,2161,608.3,17.0,0.532,,,,,,,,,intervals
+i160231869,2023-06-29,2023-06-29T17:53:48,workout,Workout,Cross Training,3324,3325,901.52,24.0,0.51,,,,,,,,,intervals
+i160231863,2023-06-30,2023-06-30T10:35:35,workout,Workout,Water Sports,13235,13235,0.0,29.0,0.301,,,,,,,,,intervals
+i160231852,2023-06-30,2023-06-30T17:07:27,workout,Workout,Volleyball,617,618,219.04,3.0,0.418,,,,,,,,,intervals
+i160231844,2023-07-01,2023-07-01T10:33:03,workout,Workout,Cross Training,3172,3173,1018.97,32.0,0.603,,,,,,,,,intervals
+i160231841,2023-07-01,2023-07-01T16:17:11,workout,Workout,Other,3561,3561,0.0,12.0,0.348,,,,,,,,,intervals
+i160231838,2023-07-02,2023-07-02T10:43:12,workout,Workout,Core Training,2671,3483,0.0,9.0,0.353,,,,,,,,,intervals
+i160231836,2023-07-03,2023-07-03T16:04:03,workout,Workout,Cross Training,3309,3310,1071.7,25.0,0.522,,,,,,,,,intervals
+i160231828,2023-07-05,2023-07-05T05:56:19,workout,Workout,Cross Training,3650,3651,501.1,23.0,0.476,,,,,,,,,intervals
+i160231706,2023-07-11,2023-07-11T16:20:28,workout,Workout,Core Training,663,663,0.0,2.0,,,,,,,,,,intervals
+i160231705,2023-07-11,2023-07-11T16:31:48,workout,Workout,Cross Training,1917,1918,874.91,26.0,0.699,,,,,,,,,intervals
+i160231677,2023-07-13,2023-07-13T15:44:50,workout,Workout,Core Training,760,760,0.0,3.0,0.377,,,,,,,,,intervals
+i160231655,2023-07-13,2023-07-13T20:08:51,workout,Workout,Cardio Dance,2242,2242,0.0,12.0,0.453,,,,,,,,,intervals
+i160231650,2023-07-14,2023-07-14T06:12:06,workout,Workout,Cross Training,3336,3337,1261.23,51.0,0.742,,,,,,,,,intervals
+i160231643,2023-07-14,2023-07-14T15:59:48,workout,Workout,Tennis,5457,5458,3428.23,42.0,0.526,,,,,,,,,intervals
+i160231635,2023-07-15,2023-07-15T19:05:09,workout,Workout,Water Polo,2429,2429,0.0,2.0,0.227,,,,,,,,,intervals
+i160231632,2023-07-15,2023-07-15T21:04:46,workout,Workout,Badminton,1977,1978,907.34,11.0,0.448,,,,,,,,,intervals
+i160231626,2023-07-17,2023-07-17T06:02:13,workout,Workout,Core Training,1546,1546,0.0,5.0,0.373,,,,,,,,,intervals
+i160231624,2023-07-17,2023-07-17T16:33:46,workout,Workout,Cross Training,1242,1243,584.61,17.0,0.702,,,,,,,,,intervals
+i160231620,2023-07-18,2023-07-18T16:14:27,workout,Workout,Volleyball,4426,4427,2425.18,38.0,0.556,,,,,,,,,intervals
+i160231618,2023-07-18,2023-07-18T21:02:29,workout,Workout,Cardio Dance,2912,2912,0.0,19.0,0.491,,,,,,,,,intervals
+i160231605,2023-07-19,2023-07-19T16:58:23,workout,Workout,Cross Training,2579,2580,733.17,23.0,0.567,,,,,,,,,intervals
+i160231592,2023-07-21,2023-07-21T06:07:22,workout,Workout,Cross Training,3230,3231,1581.23,31.0,0.588,,,,,,,,,intervals
+i160231562,2023-07-24,2023-07-24T17:01:55,workout,Workout,Cross Training,2791,2792,926.51,17.0,0.468,,,,,,,,,intervals
+i160231557,2023-07-25,2023-07-25T16:14:52,workout,Workout,Cardio Dance,2627,2627,0.0,11.0,0.394,,,,,,,,,intervals
+i160231553,2023-07-26,2023-07-26T15:54:59,workout,Workout,Cross Training,2825,2826,1046.65,18.0,0.479,,,,,,,,,intervals
+i160231520,2023-07-28,2023-07-28T06:21:30,workout,Workout,Cross Training,4392,4397,1202.02,40.0,0.572,,,,,,,,,intervals
+i160231493,2023-07-31,2023-07-31T17:52:15,workout,Workout,Cross Training,3413,3414,793.56,8.0,0.29,,,,,,,,,intervals
+i160231474,2023-08-01,2023-08-01T16:17:39,workout,Workout,Cardio Dance,2428,2428,0.0,9.0,0.365,,,,,,,,,intervals
+i160231312,2023-08-08,2023-08-08T19:09:51,workout,Workout,Cross Training,1927,1928,802.19,26.0,0.697,,,,,,,,,intervals
+i160231304,2023-08-10,2023-08-10T16:01:47,workout,Workout,Cardio Dance,3289,3289,0.0,10.0,0.347,,,,,,,,,intervals
+i160231299,2023-08-11,2023-08-11T06:02:56,workout,Workout,Cross Training,3756,3757,1115.06,12.0,0.339,,,,,,,,,intervals
+i160231297,2023-08-12,2023-08-12T21:06:03,workout,Workout,Bowling,1681,1682,151.19,4.0,0.293,,,,,,,,,intervals
+i160231282,2023-08-14,2023-08-14T20:18:30,workout,Workout,Volleyball,5666,6409,4383.2,60.0,0.581,,,,,,,,,intervals
+i160231234,2023-08-16,2023-08-16T16:18:59,workout,Workout,Cross Training,3000,3001,935.61,15.0,0.424,,,,,,,,,intervals
+i160231229,2023-08-17,2023-08-17T17:00:58,workout,Workout,Cardio Dance,2909,3005,0.0,10.0,0.374,,,,,,,,,intervals
+i160231225,2023-08-18,2023-08-18T05:58:36,workout,Workout,Cross Training,3951,3952,1736.0,28.0,0.505,,,,,,,,,intervals
+i160231219,2023-08-19,2023-08-19T09:31:37,workout,Workout,Cross Training,2681,2682,1081.27,37.0,0.705,,,,,,,,,intervals
+i160231175,2023-08-21,2023-08-21T20:19:07,workout,Workout,Volleyball,6289,6290,3598.02,16.0,0.303,,,,,,,,,intervals
+i160231169,2023-08-22,2023-08-22T16:09:07,workout,Workout,Cardio Dance,2704,2704,0.0,6.0,0.284,,,,,,,,,intervals
+i160231166,2023-08-23,2023-08-23T17:40:56,workout,Workout,Cross Training,2828,2829,1083.71,30.0,0.618,,,,,,,,,intervals
+i160231144,2023-08-25,2023-08-25T05:56:16,workout,Workout,Cross Training,4207,4496,1779.49,35.0,0.544,,,,,,,,,intervals
+i160231094,2023-08-26,2023-08-26T14:11:22,workout,Workout,Volleyball,6195,6196,3138.63,75.0,0.66,,,,,,,,,intervals
+i160231093,2023-08-27,2023-08-27T07:11:51,workout,Workout,Core Training,3001,3001,0.0,7.0,0.29,,,,,,,,,intervals
+i160231082,2023-08-29,2023-08-29T16:06:26,workout,Workout,Cardio Dance,2628,2628,0.0,8.0,0.357,,,,,,,,,intervals
+i160231079,2023-08-31,2023-08-31T16:31:19,workout,Workout,Cross Training,1709,1710,962.1,24.0,0.711,,,,,,,,,intervals
+i160231056,2023-09-02,2023-09-02T07:42:44,workout,Workout,Cross Training,2518,2519,1031.23,17.0,0.493,,,,,,,,,intervals
+i160231048,2023-09-04,2023-09-04T07:13:35,workout,Workout,Cross Training,2375,2376,784.26,27.0,0.64,,,,,,,,,intervals
+i160231032,2023-09-05,2023-09-05T07:13:16,workout,Workout,Core Training,882,882,0.0,6.0,0.507,,,,,,,,,intervals
+i160231023,2023-09-05,2023-09-05T15:01:18,workout,Workout,Cross Training,1300,1301,1579.9,21.0,0.763,,,,,,,,,intervals
+i160230999,2023-09-06,2023-09-06T08:23:44,workout,Workout,Cross Training,1683,1892,673.93,13.0,0.527,,,,,,,,,intervals
+i160230997,2023-09-07,2023-09-07T11:04:17,workout,Workout,Pilates,2727,2727,0.0,7.0,0.304,,,,,,,,,intervals
+i160230995,2023-09-07,2023-09-07T12:12:37,workout,Workout,Tennis,1807,1952,1607.54,18.0,0.576,,,,,,,,,intervals
+i160230970,2023-09-09,2023-09-09T13:13:30,workout,Workout,Cross Training,2913,2914,743.95,31.0,0.619,,,,,,,,,intervals
+i160230948,2023-09-10,2023-09-10T10:09:57,workout,Workout,Cooldown,1070,1070,0.0,6.0,0.45,,,,,,,,,intervals
+i160230941,2023-09-10,2023-09-10T10:29:48,workout,Workout,Cross Training,3128,3129,935.68,43.0,0.703,,,,,,,,,intervals
+i160230909,2023-09-13,2023-09-13T06:24:29,workout,Workout,Core Training,1758,1758,0.0,20.0,0.656,,,,,,,,,intervals
+i160230889,2023-09-15,2023-09-15T16:57:23,workout,Workout,Cross Training,3228,3229,1107.02,32.0,0.597,,,,,,,,,intervals
+i160230867,2023-09-18,2023-09-18T14:36:52,workout,Workout,Cross Training,3203,3204,1082.83,23.0,0.508,,,,,,,,,intervals
+i160230864,2023-09-19,2023-09-19T16:20:05,workout,Workout,Cardio Dance,2189,2189,0.0,18.0,0.566,,,,,,,,,intervals
+i160230859,2023-09-19,2023-09-19T19:23:15,workout,Workout,Cross Training,1828,1829,436.56,14.0,0.525,,,,,,,,,intervals
+i160230858,2023-09-20,2023-09-20T16:44:16,workout,Workout,Cross Training,2433,2482,958.11,38.0,0.75,,,,,,,,,intervals
+i160230839,2023-09-22,2023-09-22T06:03:11,workout,Workout,Cross Training,3642,3643,1132.28,20.0,0.445,,,,,,,,,intervals
+i160230812,2023-09-25,2023-09-25T16:05:53,workout,Workout,Cross Training,3158,3159,812.17,11.0,0.354,,,,,,,,,intervals
+i160230801,2023-09-26,2023-09-26T16:14:00,workout,Workout,Cardio Dance,2631,2631,0.0,19.0,0.53,,,,,,,,,intervals
+i160230755,2023-09-28,2023-09-28T18:36:27,workout,Workout,Cross Training,4259,4260,1306.61,56.0,0.688,,,,,,,,,intervals
+i160230749,2023-09-29,2023-09-29T18:14:05,workout,Workout,Cross Training,2412,2413,1070.93,17.0,0.504,,,,,,,,,intervals
+i160230697,2023-10-03,2023-10-03T11:40:27,workout,Workout,Cross Training,2279,2280,1249.26,36.0,0.754,,,,,,,,,intervals
+i160230693,2023-10-03,2023-10-03T16:15:10,workout,Workout,Cardio Dance,2566,2566,0.0,22.0,0.576,,,,,,,,,intervals
+i160230689,2023-10-04,2023-10-04T18:32:35,workout,Workout,Cross Training,2431,2432,776.43,18.0,0.516,,,,,,,,,intervals
+i160230686,2023-10-04,2023-10-04T20:10:41,workout,Workout,Volleyball,6516,6517,2634.07,28.0,0.393,,,,,,,,,intervals
+i160230669,2023-10-06,2023-10-06T06:05:03,workout,Workout,Cross Training,3457,3458,1396.73,35.0,0.604,,,,,,,,,intervals
+i160230665,2023-10-06,2023-10-06T13:57:28,workout,Workout,Cross Training,3716,3717,923.56,27.0,0.511,,,,,,,,,intervals
+i160230627,2023-10-09,2023-10-09T14:05:25,workout,Workout,Cross Training,2668,2669,957.67,40.0,0.735,,,,,,,,,intervals
+i160230623,2023-10-09,2023-10-09T20:36:12,workout,Workout,Volleyball,6200,6201,2842.62,35.0,0.451,,,,,,,,,intervals
+i160230620,2023-10-10,2023-10-10T16:03:45,workout,Workout,Cardio Dance,2557,2557,0.0,13.0,0.468,,,,,,,,,intervals
+i160230618,2023-10-10,2023-10-10T20:52:51,workout,Workout,Other,1865,1865,0.0,4.0,0.281,,,,,,,,,intervals
+i160230615,2023-10-11,2023-10-11T15:43:22,workout,Workout,Cross Training,2554,2555,944.15,31.0,0.661,,,,,,,,,intervals
+i160230612,2023-10-11,2023-10-11T20:15:17,workout,Workout,Volleyball,6505,6506,3827.48,58.0,0.567,,,,,,,,,intervals
+i160230592,2023-10-13,2023-10-13T06:13:17,workout,Workout,Rolling,3359,3359,0.0,8.0,0.317,,,,,,,,,intervals
+i160230588,2023-10-13,2023-10-13T16:20:55,workout,Workout,Core Training,2478,2478,0.0,16.0,0.506,,,,,,,,,intervals
+i160230581,2023-10-16,2023-10-16T14:51:08,workout,Workout,Cross Training,3085,3086,1578.98,33.0,0.621,,,,,,,,,intervals
+i160230578,2023-10-16,2023-10-16T20:15:35,workout,Workout,Volleyball,7098,7099,4183.43,48.0,0.493,,,,,,,,,intervals
+i160230576,2023-10-17,2023-10-17T16:09:33,workout,Workout,Cardio Dance,2705,2705,0.0,13.0,0.437,,,,,,,,,intervals
+i160230573,2023-10-18,2023-10-18T12:11:12,workout,Workout,Cross Training,3139,3140,1328.51,41.0,0.686,,,,,,,,,intervals
+i160230548,2023-10-20,2023-10-20T05:58:27,workout,Workout,Cross Training,4407,4408,2278.86,61.0,0.706,,,,,,,,,intervals
+i160230506,2023-10-23,2023-10-23T14:45:29,workout,Workout,Cross Training,3249,3250,1435.53,23.0,0.505,,,,,,,,,intervals
+i160230504,2023-10-23,2023-10-23T20:09:31,workout,Workout,Volleyball,5776,5777,2948.28,37.0,0.48,,,,,,,,,intervals
+i160230492,2023-10-25,2023-10-25T17:15:33,workout,Workout,Cardio Dance,2277,2277,0.0,12.0,0.47,,,,,,,,,intervals
+i160230477,2023-10-27,2023-10-27T06:07:20,workout,Workout,Cross Training,4417,4418,1660.11,33.0,0.519,,,,,,,,,intervals
+i160230476,2023-10-27,2023-10-27T17:32:08,workout,Workout,Cross Training,2622,2623,940.64,24.0,0.574,,,,,,,,,intervals
+i160230420,2023-10-30,2023-10-30T16:44:51,workout,Workout,Cross Training,2770,2771,650.77,21.0,0.522,,,,,,,,,intervals
+i160230393,2023-11-02,2023-11-02T17:48:37,workout,Workout,Cross Training,3377,3378,1713.0,55.0,0.766,,,,,,,,,intervals
+i160230391,2023-11-03,2023-11-03T06:10:10,workout,Workout,Cross Training,3106,3107,1262.59,48.0,0.746,,,,,,,,,intervals
+i160230386,2023-11-03,2023-11-03T16:33:52,workout,Workout,Cross Training,2525,2526,695.09,20.0,0.534,,,,,,,,,intervals
+i160230376,2023-11-04,2023-11-04T14:18:11,workout,Workout,Other,5076,5652,0.0,14.0,0.344,,,,,,,,,intervals
+i160230373,2023-11-05,2023-11-05T15:24:34,workout,Workout,Other,8896,9210,0.0,43.0,0.441,,,,,,,,,intervals
+i160230372,2023-11-06,2023-11-06T16:05:11,workout,Workout,Cross Training,2529,2530,1053.02,30.0,0.653,,,,,,,,,intervals
+i160230358,2023-11-08,2023-11-08T20:17:05,workout,Workout,Volleyball,6337,6339,2871.57,15.0,0.292,,,,,,,,,intervals
+i160230356,2023-11-09,2023-11-09T17:58:06,workout,Workout,Cross Training,2667,2668,670.2,23.0,0.557,,,,,,,,,intervals
+i160230353,2023-11-10,2023-11-10T06:01:35,workout,Workout,Cross Training,2725,2726,1763.28,49.0,0.805,,,,,,,,,intervals
+i160230310,2023-11-13,2023-11-13T07:15:06,workout,Workout,Cross Training,2687,2688,1521.24,41.0,0.741,,,,,,,,,intervals
+i160230308,2023-11-13,2023-11-13T17:31:21,workout,Workout,Cross Training,2602,2644,696.34,33.0,0.676,,,,,,,,,intervals
+i160230300,2023-11-14,2023-11-14T17:17:01,workout,Workout,Cross Training,3024,3025,1322.16,32.0,0.617,,,,,,,,,intervals
+i160230283,2023-11-15,2023-11-15T18:36:22,workout,Workout,Cross Training,2961,2962,2400.78,37.0,0.671,,,,,,,,,intervals
+i160230281,2023-11-16,2023-11-16T17:32:37,workout,Workout,Cross Training,3181,3182,1326.3,22.0,0.499,,,,,,,,,intervals
+i160230277,2023-11-17,2023-11-17T07:13:35,workout,Workout,Cross Training,2224,2225,897.83,34.0,0.742,,,,,,,,,intervals
+i160230209,2023-11-20,2023-11-20T10:28:51,workout,Workout,Cross Training,2830,2831,958.32,29.0,0.607,,,,,,,,,intervals
+i160230202,2023-11-20,2023-11-20T20:19:32,workout,Workout,Racquet ball,4538,5026,1905.19,11.0,0.295,,,,,,,,,intervals
+i160230168,2023-11-23,2023-11-23T15:51:52,workout,Workout,Cross Training,3000,3001,1477.37,38.0,0.675,,,,,,,,,intervals
+i160230166,2023-11-24,2023-11-24T08:29:33,workout,Workout,Cross Training,2679,2680,1013.14,27.0,0.602,,,,,,,,,intervals
+i160230153,2023-11-25,2023-11-25T14:22:09,workout,Workout,Cross Training,2221,2222,996.56,21.0,0.583,,,,,,,,,intervals
+i160230144,2023-11-25,2023-11-25T16:57:18,workout,Workout,Other,5744,5744,0.0,14.0,0.301,,,,,,,,,intervals
+i160230135,2023-11-27,2023-11-27T14:41:24,workout,Workout,Cross Training,2649,2650,1278.05,28.0,0.617,,,,,,,,,intervals
+i160230128,2023-11-29,2023-11-29T17:37:56,workout,Workout,Cross Training,2583,2584,752.08,20.0,0.528,,,,,,,,,intervals
+i160230117,2023-12-01,2023-12-01T05:55:19,workout,Workout,Cross Training,3524,3525,1204.72,43.0,0.663,,,,,,,,,intervals
+i160230103,2023-12-02,2023-12-02T16:28:36,workout,Workout,Other,5537,5537,0.0,12.0,0.286,,,,,,,,,intervals
+i160230099,2023-12-03,2023-12-03T07:21:17,workout,Workout,Cross Training,2844,2845,1173.81,38.0,0.694,,,,,,,,,intervals
+i160230096,2023-12-04,2023-12-04T15:30:40,workout,Workout,Cross Training,2304,2393,974.05,31.0,0.696,,,,,,,,,intervals
+i160230093,2023-12-05,2023-12-05T14:58:39,workout,Workout,Cross Training,2629,2630,1134.01,40.0,0.74,,,,,,,,,intervals
+i160230054,2023-12-09,2023-12-09T16:00:39,workout,Workout,Cross Training,2299,2300,1088.75,33.0,0.719,,,,,,,,,intervals
+i160230035,2023-12-12,2023-12-12T21:42:13,workout,Workout,Cross Training,2389,2390,984.82,15.0,0.475,,,,,,,,,intervals
+i160230026,2023-12-13,2023-12-13T15:43:44,workout,Workout,Cross Training,2736,2737,1171.31,36.0,0.688,,,,,,,,,intervals
+i160230022,2023-12-13,2023-12-13T20:09:34,workout,Workout,Volleyball,5950,5951,3256.23,38.0,0.479,,,,,,,,,intervals
+i160229988,2023-12-15,2023-12-15T06:00:12,workout,Workout,Cross Training,3527,3528,1876.73,46.0,0.685,,,,,,,,,intervals
+i160229986,2023-12-16,2023-12-16T11:29:51,workout,Workout,Cross Training,2140,2141,1360.34,33.0,0.745,,,,,,,,,intervals
+i160229965,2023-12-18,2023-12-18T12:54:53,workout,Workout,Cross Training,2539,2540,1111.7,29.0,0.641,,,,,,,,,intervals
+i160229961,2023-12-19,2023-12-19T16:57:57,workout,Workout,Cross Training,2634,2635,967.8,30.0,0.64,,,,,,,,,intervals
+i160229946,2023-12-20,2023-12-20T16:22:26,workout,Workout,Cross Training,2639,2640,1059.72,35.0,0.691,,,,,,,,,intervals
+i160229932,2023-12-22,2023-12-22T06:53:39,workout,Workout,Cross Training,4070,4071,1682.26,53.0,0.685,,,,,,,,,intervals
+i160229918,2023-12-22,2023-12-22T10:37:00,workout,Workout,Cardio Dance,1083,1083,0.0,9.0,0.598,,,,,,,,,intervals
+i160229863,2023-12-23,2023-12-23T13:00:19,workout,Workout,Cross Training,2623,2624,864.72,37.0,0.713,,,,,,,,,intervals
+i160229853,2023-12-25,2023-12-25T16:14:16,workout,Workout,Cross Training,2647,2648,1053.42,29.0,0.628,,,,,,,,,intervals
+i160229837,2023-12-28,2023-12-28T15:59:57,workout,Workout,Cross Training,2709,2710,831.53,30.0,0.631,,,,,,,,,intervals
+i160229835,2023-12-29,2023-12-29T05:59:55,workout,Workout,Cross Training,3300,3301,1834.34,35.0,0.618,,,,,,,,,intervals
+i160229815,2023-12-31,2023-12-31T10:34:15,workout,Workout,Cross Training,2767,2768,1212.46,40.0,0.721,,,,,,,,,intervals

@@ -1,0 +1,25 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160226907,2025-01-26,2025-01-26T11:40:55,openwaterswim,OpenWaterSwim,Open Water Swim,310,372,40.96,1.0,,,,,,,,,,intervals
+i160226813,2025-02-08,2025-02-08T09:29:11,openwaterswim,OpenWaterSwim,Open Water Swim,261,523,23.11,6.0,,,,,,,,,,intervals
+i160226763,2025-02-13,2025-02-13T12:10:56,openwaterswim,OpenWaterSwim,Open Water Swim,1443,1461,695.09,3.0,0.272,,,,,,,,,intervals
+i160226663,2025-02-22,2025-02-22T11:24:58,openwaterswim,OpenWaterSwim,Open Water Swim,400,615,63.99,1.0,,,,,,,,,,intervals
+i160226606,2025-03-01,2025-03-01T09:13:41,openwaterswim,OpenWaterSwim,Open Water Swim,538,925,196.27,3.0,0.342,,,,,,,,,intervals
+i160226543,2025-03-08,2025-03-08T10:41:50,openwaterswim,OpenWaterSwim,Open Water Swim,215,432,0.0,1.0,,,,,,,,,,intervals
+i160226237,2025-04-13,2025-04-13T12:26:54,openwaterswim,OpenWaterSwim,Open Water Swim,1565,1612,750.56,4.0,0.299,,,,,,,,,intervals
+i160226114,2025-04-20,2025-04-20T08:31:12,openwaterswim,OpenWaterSwim,"Pionki, Ostoja Kozienicka",1157,1201,814.55,0.0,,,,,,,,,,intervals
+i160225817,2025-05-10,2025-05-10T10:53:18,openwaterswim,OpenWaterSwim,"Strand Deutsch Ossig, Görlitz",1202,1236,640.06,0.0,,,,,,,,,,intervals
+i160225806,2025-05-11,2025-05-11T09:28:41,openwaterswim,OpenWaterSwim,"Błękitna Laguna W Siechnicach, Siechnice",1236,1245,733.45,2.0,0.241,,,,,,,,,intervals
+i160225731,2025-05-16,2025-05-16T13:36:27,openwaterswim,OpenWaterSwim,"Kąpielisko Znajdujące Się W Zalewie W Starej Morawie, Stronie Śląskie",711,760,627.59,2.0,0.308,,,,,,,,,intervals
+i160225640,2025-05-22,2025-05-22T18:03:22,openwaterswim,OpenWaterSwim,"福隆國際沙雕藝術季, Gongliao District",352,371,223.12,1.0,,,,,,,,,,intervals
+i160225553,2025-05-31,2025-05-31T10:30:37,openwaterswim,OpenWaterSwim,"Pionki, Ostoja Kozienicka",4216,4237,3034.09,0.0,,,,,,,,,,intervals
+i160225461,2025-06-07,2025-06-07T10:24:02,openwaterswim,OpenWaterSwim,Mokrsko,1563,1598,1010.7,0.0,,,,,,,,,,intervals
+i160225369,2025-06-14,2025-06-14T13:42:41,openwaterswim,OpenWaterSwim,"Zagórze Śląskie, Bystrzycki Las",1071,1099,509.14,6.0,0.444,,,,,,,,,intervals
+i160225038,2025-07-19,2025-07-19T12:27:40,openwaterswim,OpenWaterSwim,"Plaża Borzygniew, Borzygniew",3120,3154,1984.05,0.0,,,,,,,,,,intervals
+i160224833,2025-08-01,2025-08-01T12:36:18,openwaterswim,OpenWaterSwim,Easy Sea Swim,1898,1912,1104.38,0.0,,,,,,,,,,intervals
+i160224341,2025-09-03,2025-09-03T06:15:41,openwaterswim,OpenWaterSwim,Morning Swim,2952,2967,2116.61,33.0,0.633,,,,,,,,,intervals
+i160224247,2025-09-07,2025-09-07T06:02:23,openwaterswim,OpenWaterSwim,Castle Triathlon Malbork Run,4807,4808,3746.57,60.0,0.67,,,,,,,,,intervals
+i160224158,2025-09-20,2025-09-20T08:53:23,openwaterswim,OpenWaterSwim,Morning Swim,1240,1284,790.72,14.0,0.635,,,,,,,,,intervals
+i160224069,2025-09-30,2025-09-30T15:47:43,openwaterswim,OpenWaterSwim,Afternoon Swim,879,939,551.1,10.0,0.634,,,,,,,,,intervals
+i160224064,2025-10-01,2025-10-01T16:26:59,openwaterswim,OpenWaterSwim,Afternoon Swim,1274,1340,906.22,11.0,0.55,,,,,,,,,intervals
+i160224045,2025-10-03,2025-10-03T12:01:04,openwaterswim,OpenWaterSwim,Lunch Swim,528,598,405.65,4.0,,,,,,,,,,intervals
+i160224033,2025-10-07,2025-10-07T13:24:18,openwaterswim,OpenWaterSwim,Afternoon Swim,699,700,441.84,4.0,0.454,,,,,,,,,intervals

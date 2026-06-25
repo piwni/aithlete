@@ -1,0 +1,19 @@
+{
+  "weight_kg": 72.0,
+  "bike": {
+    "ftp_w": 280,
+    "eftp_w": 280,
+    "lthr_bpm": 165,
+    "max_hr_bpm": 182
+  },
+  "run": {
+    "lthr_bpm": 165,
+    "max_hr_bpm": 182
+  },
+  "swim": {
+    "lthr_bpm": 165,
+    "max_hr_bpm": 182,
+    "css_s_per_100m": 120.0
+  },
+  "vo2max_bike": null
+}

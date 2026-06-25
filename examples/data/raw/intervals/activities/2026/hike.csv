@@ -1,0 +1,2 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160221066,2026-05-22,2026-05-22T15:08:24,hike,Hike,Afternoon Hike,5677,6415,7298.07,24.0,0.368,,,,,,,,,intervals

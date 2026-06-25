@@ -1,0 +1,2 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160231684,2023-07-13,2023-07-13T14:59:14,stairstepper,StairStepper,Stair Stepper,185,185,0.0,3.0,,,,,,,,,,intervals

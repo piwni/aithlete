@@ -1,0 +1,5 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i154916738,2026-06-05,2026-06-05T16:47:53,walk,Walk,Mobility,3707,3707,0.0,11.0,0.327,,,,,,,,,intervals
+i156475952,2026-06-11,2026-06-11T19:55:13,walk,Walk,Mobility,3152,3152,0.0,5.0,0.239,,,,,,,,,intervals
+i156586666,2026-06-12,2026-06-12T08:26:35,walk,Walk,Mobility,3495,3495,0.0,3.0,0.176,,,,,,,,,intervals
+i157542511,2026-06-14,2026-06-14T20:37:35,walk,Walk,Mobility,2054,2054,0.0,3.0,0.23,,,,,,,,,intervals

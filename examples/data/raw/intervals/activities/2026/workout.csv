@@ -1,0 +1,15 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160223105,2026-01-08,2026-01-08T15:04:06,workout,Workout,Afternoon Workout,2555,2555,0.0,7.0,0.314,,,,,,,,,intervals
+i160222963,2026-01-19,2026-01-19T14:49:36,workout,Workout,Afternoon Workout,2405,2405,0.0,4.0,0.245,,,,,,,,,intervals
+i160222725,2026-02-02,2026-02-02T15:29:19,workout,Workout,Afternoon Workout,2165,2165,0.0,5.0,0.288,,,,,,,,,intervals
+i160222579,2026-02-13,2026-02-13T12:44:59,workout,Workout,Lunch Workout,2224,3174,0.0,10.0,0.403,,,,,,,,,intervals
+i160222568,2026-02-16,2026-02-16T14:24:13,workout,Workout,Afternoon Workout,3047,3047,0.0,7.0,0.288,,,,,,,,,intervals
+i160222501,2026-02-20,2026-02-20T05:51:07,workout,Workout,Mobility,3454,3454,0.0,10.0,0.323,,,,,,,,,intervals
+i160222282,2026-03-09,2026-03-09T08:09:29,workout,Workout,Morning Workout,3251,3255,0.0,7.0,0.278,,,,,,,,,intervals
+i160222174,2026-03-16,2026-03-16T13:56:11,workout,Workout,Afternoon Workout,1834,1834,0.0,4.0,0.28,,,,,,,,,intervals
+i160221960,2026-03-30,2026-03-30T17:27:35,workout,Workout,Afternoon Workout,1786,1786,0.0,5.0,0.318,,,,,,,,,intervals
+i160221860,2026-04-04,2026-04-04T09:58:08,workout,Workout,Morning Workout,4263,4264,0.0,17.0,0.379,,,,,,,,,intervals
+i160221549,2026-04-23,2026-04-23T19:50:08,workout,Workout,Evening Workout,1851,1851,0.0,7.0,0.369,,,,,,,,,intervals
+i160221383,2026-05-04,2026-05-04T11:12:01,workout,Workout,Mobility,2531,2531,0.0,6.0,0.292,,,,,,,,,intervals
+i160221204,2026-05-16,2026-05-16T15:16:36,workout,Workout,Flexibility,4107,4107,0.0,0.0,,,,,,,,,,intervals
+i160221048,2026-05-25,2026-05-25T14:37:56,workout,Workout,Afternoon Physical Therapy,2064,2064,0.0,5.0,0.295,,,,,,,,,intervals

@@ -1,0 +1,21 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160229808,2024-01-01,2024-01-01T01:19:17,openwaterswim,OpenWaterSwim,Open Water Swim,153,308,9.86,2.0,,,,,,,,,,intervals
+i160229477,2024-02-03,2024-02-03T08:29:40,openwaterswim,OpenWaterSwim,Open Water Swim,886,934,193.9,4.0,0.393,,,,,,,,,intervals
+i160229254,2024-03-02,2024-03-02T07:46:21,openwaterswim,OpenWaterSwim,Open Water Swim,1085,1110,336.54,2.0,0.255,,,,,,,,,intervals
+i160229152,2024-03-21,2024-03-21T15:44:06,openwaterswim,OpenWaterSwim,Open Water Swim,1811,1828,820.0,3.0,0.243,,,,,,,,,intervals
+i160229135,2024-03-22,2024-03-22T13:29:46,openwaterswim,OpenWaterSwim,Open Water Swim,1021,1036,304.89,5.0,0.417,,,,,,,,,intervals
+i160229008,2024-04-06,2024-04-06T09:18:34,openwaterswim,OpenWaterSwim,Open Water Swim,1596,1658,523.21,0.0,,,,,,,,,,intervals
+i160228871,2024-05-02,2024-05-02T14:01:13,openwaterswim,OpenWaterSwim,Open Water Swim,655,947,66.45,5.0,0.524,,,,,,,,,intervals
+i160228836,2024-05-11,2024-05-11T07:53:06,openwaterswim,OpenWaterSwim,Open Water Swim,1192,1226,533.96,1.0,0.171,,,,,,,,,intervals
+i160228698,2024-05-31,2024-05-31T10:20:53,openwaterswim,OpenWaterSwim,Open Water Swim,1345,1349,824.26,13.0,0.589,,,,,,,,,intervals
+i160228637,2024-06-08,2024-06-08T10:02:17,openwaterswim,OpenWaterSwim,Multisport,1140,1141,650.94,6.0,0.435,,,,,,,,,intervals
+i160228345,2024-07-21,2024-07-21T11:08:08,openwaterswim,OpenWaterSwim,Open Water Swim,2380,2401,1407.91,1.0,0.122,,,,,,,,,intervals
+i160228272,2024-07-25,2024-07-25T10:37:33,openwaterswim,OpenWaterSwim,Open Water Swim,1402,1441,726.86,14.0,0.592,,,,,,,,,intervals
+i160228259,2024-07-25,2024-07-25T14:23:47,openwaterswim,OpenWaterSwim,Open Water Swim,863,871,371.51,2.0,0.288,,,,,,,,,intervals
+i160228097,2024-08-16,2024-08-16T14:08:03,openwaterswim,OpenWaterSwim,Open Water Swim,1588,1598,861.76,5.0,0.336,,,,,,,,,intervals
+i160227910,2024-09-14,2024-09-14T11:52:21,openwaterswim,OpenWaterSwim,Open Water Swim,1451,1489,729.78,10.0,0.492,,,,,,,,,intervals
+i160227757,2024-09-29,2024-09-29T05:52:08,openwaterswim,OpenWaterSwim,Multisport,1176,1185,693.64,1.0,0.174,,,,,,,,,intervals
+i160227529,2024-11-02,2024-11-02T10:31:01,openwaterswim,OpenWaterSwim,Open Water Swim,293,363,114.1,0.0,,,,,,,,,,intervals
+i160227423,2024-11-09,2024-11-09T16:49:40,openwaterswim,OpenWaterSwim,Open Water Swim,465,483,126.9,2.0,,,,,,,,,,intervals
+i160227127,2024-12-22,2024-12-22T14:29:08,openwaterswim,OpenWaterSwim,Open Water Swim,558,575,133.16,2.0,,,,,,,,,,intervals
+i160227074,2024-12-27,2024-12-27T10:31:24,openwaterswim,OpenWaterSwim,Open Water Swim,819,828,220.22,4.0,0.417,,,,,,,,,intervals

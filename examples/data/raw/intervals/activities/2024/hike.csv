@@ -1,0 +1,3 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160229680,2024-01-20,2024-01-20T13:36:49,hike,Hike,Outdoor Walking,1879,1887,2099.96,3.0,0.239,,,,,,,,,intervals
+i160228941,2024-04-21,2024-04-21T05:00:02,hike,Hike,Outdoor Walking,3881,3916,4927.45,7.0,0.254,,,,,,,,,intervals

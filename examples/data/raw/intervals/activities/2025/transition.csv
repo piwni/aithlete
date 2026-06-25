@@ -1,0 +1,3 @@
+id,date,start_time,sport,type,name,duration_s,elapsed_s,distance_m,tss,intensity_factor,np_w,avg_w,ftp_w,avg_pace_s_per_km,avg_pace_s_per_100m,decoupling_pct,efficiency_factor,intensity_class,source
+i160224256,2025-09-07,2025-09-07T07:22:31,transition,Transition,Castle Triathlon Malbork Run,176,265,382.77,2.0,,,,,,,,,,intervals
+i160224274,2025-09-07,2025-09-07T12:46:25,transition,Transition,Castle Triathlon Malbork Run,119,302,260.75,1.0,,,,,,,,,,intervals
