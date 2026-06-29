@@ -84,6 +84,56 @@ def test_import_writes_partition(tmp_path, monkeypatch):
         get_config.cache_clear()
 
 
+def test_reimport_merges_and_supersedes_without_data_loss(tmp_path, monkeypatch):
+    """A second import extends the store (B1) and updates overlapping dates by
+    keep-last instead of summing or dropping prior months."""
+    monkeypatch.setenv("AITHLETE_DATA_DIR", str(tmp_path))
+    from aithlete.analysis.loaders import load_nutrition
+    from aithlete.config import get_config
+    get_config.cache_clear()
+    try:
+        a = tmp_path / "a.csv"
+        a.write_text(
+            'Date,Meal,"Products and dishes","calories (kcal)"\n'
+            '2026-01-01,Breakfast,Oats,300\n'
+        )
+        fitatu.import_exports([a])
+        b = tmp_path / "b.csv"
+        b.write_text(
+            'Date,Meal,"Products and dishes","calories (kcal)"\n'
+            '2026-01-02,Breakfast,Toast,200\n'
+            '2026-01-01,Breakfast,"Bigger breakfast",500\n'  # supersedes the first import
+        )
+        fitatu.import_exports([b])
+        get_config.cache_clear()
+        stored = load_nutrition().set_index("date")
+        assert len(stored) == 2                                   # Jan-01 not lost (B1)
+        assert stored.loc[dt.date(2026, 1, 1), "calories_kcal"] == 500.0  # superseded, not summed (B2)
+        assert stored.loc[dt.date(2026, 1, 2), "calories_kcal"] == 200.0
+    finally:
+        get_config.cache_clear()
+
+
+def test_overlapping_dates_across_files_are_not_summed(tmp_path, monkeypatch):
+    """Two files in one import containing the same day -> keep-last, not summed (B2)."""
+    monkeypatch.setenv("AITHLETE_DATA_DIR", str(tmp_path))
+    from aithlete.analysis.loaders import load_nutrition
+    from aithlete.config import get_config
+    get_config.cache_clear()
+    try:
+        f1 = tmp_path / "f1.csv"
+        f1.write_text('Date,Meal,"Products and dishes","calories (kcal)"\n2026-01-01,B,x,100\n')
+        f2 = tmp_path / "f2.csv"
+        f2.write_text('Date,Meal,"Products and dishes","calories (kcal)"\n2026-01-01,B,y,400\n')
+        fitatu.import_exports([f1, f2])
+        get_config.cache_clear()
+        stored = load_nutrition()
+        assert len(stored) == 1
+        assert stored.iloc[0]["calories_kcal"] == 400.0  # later file wins, not 500.0
+    finally:
+        get_config.cache_clear()
+
+
 # --- energy availability ---------------------------------------------------
 def test_low_energy_availability_flags_red():
     dates = [dt.date(2026, 4, 1) + dt.timedelta(days=i) for i in range(20)]
@@ -154,6 +204,22 @@ def test_recovery_correlation_detected():
     assert finding is not None
     assert finding.n >= 14
     assert finding.r > 0.9 and finding.notable
+
+
+def test_wellness_missing_column_does_not_crash():
+    """A non-empty wellness frame missing a column (e.g. sleep_hours) must not
+    raise (S1) — correlations needing it are simply skipped."""
+    dates = [dt.date(2026, 4, 1) + dt.timedelta(days=i) for i in range(20)]
+    nutrition = _daily(dates, calories_kcal=3000.0, carbs_g=400.0, protein_g=120.0)
+    well = pd.DataFrame({
+        "date": [d + dt.timedelta(days=1) for d in dates],
+        "hrv_rmssd_ms": [60.0] * 20,
+        # no resting_hr_bpm, no sleep_hours, no weight_kg
+    })
+    digest = nut.build_digest(nutrition, EMPTY_ACTS, well, profile=_profile(70))
+    assert digest.days_logged == 20
+    # sleep-based correlations are absent, but the build still succeeds
+    assert all("sleep_hours" not in c.outcome for c in digest.recovery_correlations)
 
 
 def test_empty_nutrition_is_safe():

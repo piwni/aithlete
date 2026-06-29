@@ -88,12 +88,13 @@ def bmr_kcal(profile: AthleteProfile | None, weight: float) -> tuple[float, str]
 
 
 def exercise_energy_by_day(activities: pd.DataFrame, weight: float) -> pd.DataFrame:
-    """Estimate exercise kcal per day. Cycling with power uses kJ work
-    (~1 kJ work ≈ 1 kcal expended at ~24% gross efficiency); everything else
+    """Estimate exercise kcal (and hours) per day. CYCLING with power uses kJ
+    work (~1 kJ work ≈ 1 kcal expended at ~24% gross efficiency); every other
+    sport — including running/other activities that may carry a power field —
     uses MET * weight * hours.
     """
     if activities.empty:
-        return pd.DataFrame(columns=["date", "exercise_kcal"])
+        return pd.DataFrame(columns=["date", "exercise_kcal", "exercise_hours"])
     df = activities.copy()
     dur_h = df["duration_s"].fillna(0) / 3600.0
     fam = df["sport"].map(_sport_family)
@@ -108,14 +109,15 @@ def exercise_energy_by_day(activities: pd.DataFrame, weight: float) -> pd.DataFr
     ]
     met_kcal = pd.Series(met, index=df.index) * weight * dur_h
 
-    has_power = ("avg_w" in df.columns) & df.get("avg_w", pd.Series(index=df.index)).notna()
-    power_kcal = pd.Series(0.0, index=df.index)
-    if "avg_w" in df.columns:
-        power_kcal = df["avg_w"].fillna(0) * df["duration_s"].fillna(0) / 1000.0  # kJ ≈ kcal
+    # Power-based energy is a CYCLING approximation only (running/other power
+    # meters don't share the ~24% efficiency identity), so gate on bike family.
+    avgw = df["avg_w"] if "avg_w" in df.columns else pd.Series([pd.NA] * len(df), index=df.index)
+    has_power = (fam == "bike") & avgw.notna()
+    power_kcal = avgw.fillna(0) * df["duration_s"].fillna(0) / 1000.0  # kJ ≈ kcal
 
     kcal = met_kcal.where(~has_power, power_kcal)
-    out = pd.DataFrame({"date": df["date"], "exercise_kcal": kcal})
-    return out.groupby("date", as_index=False)["exercise_kcal"].sum()
+    out = pd.DataFrame({"date": df["date"], "exercise_kcal": kcal, "exercise_hours": dur_h})
+    return out.groupby("date", as_index=False)[["exercise_kcal", "exercise_hours"]].sum()
 
 
 def _carb_tier(tss: float, tiers: dict) -> tuple[str, float, float]:
@@ -184,6 +186,9 @@ def build_digest(
     eee = exercise_energy_by_day(activities, weight)
     n = n.merge(eee, on="date", how="left")
     n["exercise_kcal"] = n["exercise_kcal"].fillna(0.0)
+    if "exercise_hours" not in n.columns:
+        n["exercise_hours"] = 0.0
+    n["exercise_hours"] = n["exercise_hours"].fillna(0.0)
 
     tss = metrics.daily_tss(activities)
     if not tss.empty:
@@ -196,7 +201,11 @@ def build_digest(
     n["energy_availability"] = (n["calories_kcal"] - n["exercise_kcal"]) / ffm
     tef = rules["energy_balance"]["thermic_effect_of_food_pct"] / 100.0
     raf = rules["energy_balance"]["bmr_resting_activity_factor"]
-    n["tdee"] = bmr * raf + n["exercise_kcal"] + n["calories_kcal"] * tef
+    # bmr * raf already covers a full day's resting + non-exercise activity, so
+    # subtract the resting cost of the exercise hours before adding gross
+    # exercise kcal (otherwise resting energy during training is double-counted).
+    resting_during_exercise = (bmr / 24.0) * n["exercise_hours"]
+    n["tdee"] = bmr * raf + n["exercise_kcal"] - resting_during_exercise + n["calories_kcal"] * tef
     n["energy_balance"] = n["calories_kcal"] - n["tdee"]
 
     ea = rules["energy_availability"]
@@ -221,7 +230,20 @@ def build_digest(
                                           date_from=window_from, date_to=window_to,
                                           source="intake - estimated TDEE")
     digest.low_ea_days_pct = _dv(low_ea_pct, "% of days", samples=len(n),
-                                 date_from=window_from, date_to=window_to, source="EA < 30 kcal/kg")
+                                 date_from=window_from, date_to=window_to,
+                                 source=f"EA < {ea['low_below']} kcal/kg")
+
+    # Under-logging plausibility: a day logged below BMR is almost certainly an
+    # incomplete log, which understates intake and biases EA low. Surface this so
+    # a RED EA flag isn't read as confirmed LEA without checking logging.
+    under_logged_pct = float((n["calories_kcal"] < bmr).mean() * 100)
+    if under_logged_pct > 0:
+        assumptions.append(
+            f"{under_logged_pct:.0f}% of days logged below BMR (~{bmr:.0f} kcal) -> likely "
+            "incomplete logs; intake and EA read artificially low on those days")
+    if digest.energy_availability_flag is ReadinessFlag.RED:
+        missing.append("low energy-availability flag may be logging-driven; confirm intake "
+                       "completeness and body-weight trend before treating it as RED-S risk")
 
     # --- macros per kg ---
     n["carbs_g_per_kg"] = n["carbs_g"] / weight
@@ -350,8 +372,9 @@ def _recovery_correlations(n: pd.DataFrame, wellness: pd.DataFrame, rules: dict)
         return []
     min_n = rules["correlation"]["min_samples"]
     notable = rules["correlation"]["notable_abs_r"]
-    well = wellness.copy()
-    well = well[["date", "hrv_rmssd_ms", "resting_hr_bpm", "sleep_hours"]]
+    # reindex (not hard-index) so a wellness frame missing a column yields NaN
+    # rather than a KeyError; _corr then skips it via dropna + min_n.
+    well = wellness.reindex(columns=["date", "hrv_rmssd_ms", "resting_hr_bpm", "sleep_hours"])
 
     # Next-day join: nutrition day d -> wellness day d+1.
     nxt = n.copy()

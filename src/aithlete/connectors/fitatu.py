@@ -20,7 +20,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from aithlete.storage.io import write_csv
+from aithlete.storage.io import read_csv, write_csv
 from aithlete.storage.paths import raw_partition_path
 
 # Output field -> source column header in the Fitatu export. Source headers are
@@ -122,32 +122,45 @@ def daily_totals(rows: pd.DataFrame) -> pd.DataFrame:
 
 
 def import_exports(paths: list[Path]) -> dict:
-    """Parse + aggregate Fitatu exports and write year-partitioned daily CSVs.
+    """Parse + aggregate Fitatu exports and MERGE them into the year-partitioned
+    daily store.
 
-    Re-import is idempotent per year: a year partition is fully rewritten from
-    every day seen for that year across the supplied files (later files win on
-    duplicate dates).
+    Re-import is genuinely incremental: each file is aggregated to daily totals
+    first (so a day's products within a file are summed once), then overlapping
+    dates *across* files or against the existing on-disk partition are resolved
+    by keep-last (incoming supersedes existing) — never summed. Importing a new
+    month therefore extends the store without dropping or double-counting prior
+    months.
     """
-    frames = [parse_export(p) for p in paths]
-    rows = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
-    daily = daily_totals(rows)
-    if daily.empty:
+    # Aggregate each file independently so overlapping calendar days across
+    # exports are deduped (keep-last), not double-counted (B2).
+    per_file = [daily_totals(parse_export(p)) for p in paths]
+    per_file = [d for d in per_file if not d.empty]
+    if not per_file:
         return {"files": len(paths), "days": 0, "years": [], "window": None}
 
-    # Last occurrence of a date wins (later export supersedes earlier one).
-    daily = daily.drop_duplicates(subset="date", keep="last").sort_values("date")
+    incoming = pd.concat(per_file, ignore_index=True)
+    incoming = incoming.drop_duplicates(subset="date", keep="last")  # later file wins
 
     years_written: list[int] = []
-    for year, part in daily.groupby(daily["date"].map(lambda d: d.year)):
+    for year, part in incoming.groupby(incoming["date"].map(lambda d: d.year)):
         out = raw_partition_path("fitatu", "nutrition", int(year))
-        write_csv(out, part.reset_index(drop=True))
+        existing = read_csv(out)
+        if not existing.empty:
+            existing["date"] = pd.to_datetime(existing["date"]).dt.date
+            merged = pd.concat([existing[OUTPUT_COLUMNS], part[OUTPUT_COLUMNS]], ignore_index=True)
+            merged = merged.drop_duplicates(subset="date", keep="last")  # incoming supersedes disk
+        else:
+            merged = part
+        merged = merged.sort_values("date").reset_index(drop=True)
+        write_csv(out, merged)
         years_written.append(int(year))
 
     return {
         "files": len(paths),
-        "days": int(len(daily)),
+        "days": int(len(incoming)),
         "years": sorted(years_written),
-        "window": (str(daily["date"].min()), str(daily["date"].max())),
+        "window": (str(incoming["date"].min()), str(incoming["date"].max())),
     }
 
 
