@@ -43,7 +43,7 @@ uv run python scripts/build_report.py examples/season-2026-malbork.yaml
 ```
 
 The plan passes the deterministic validator (0 errors) with a projected race-day
-TSB of +19.2 (inside the A-race +10..+25 band).
+TSB of +20.5 (inside the A-race +10..+25 band).
 
 ## Using your own data
 

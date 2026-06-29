@@ -85,17 +85,20 @@ def session_from_spec(monday: dt.date, spec: dict) -> PlannedSession:
 
 
 def build_microcycle(monday: dt.date, *, target_h: float, key: IntensityClass,
-                     long_ride_h: float, long_run_h: float,
+                     long_ride_h: float, long_run_h: float, brick_run_h: float = 0.5,
                      half_focus: bool = False) -> list[PlannedSession]:
-    """Swim-heavy build week (Mon-Sun). Fixed long ride/run anchor endurance; the
-    support sessions scale so weekly hours land near target_h. Keeps swim>=3/wk."""
+    """Swim-heavy build week (Mon-Sun). Fixed long ride/brick/long run anchor
+    endurance; support sessions scale so weekly hours land near target_h. Keeps
+    swim>=3/wk. Set long_run_h=0 to drop the standalone long run (e.g. when the
+    long brick run already covers run-endurance that week)."""
     def S(off, sport, name, inten, mins, **kw):
         return mk_session(monday + dt.timedelta(days=off), sport=sport, name=name,
                           intensity=inten, minutes=mins, **kw)
 
     bike_key_h = 0.95 if target_h >= 15 else 0.8
     bike_tempo_h = 1.1 if target_h >= 15 else 0.9
-    brick_run_h = 0.5
+    brick_desc = ("First 10' @ IM/half race pace off the bike, then Z2." if brick_run_h <= 0.75
+                  else "IM-pace brick run off the long ride: rehearse race legs, pacing and fuel.")
     E, M = IntensityClass.EASY, IntensityClass.MODERATE
     out = [
         S(0, Sport.SWIM, "Swim technique + aerobic", E, 50,
@@ -117,12 +120,12 @@ def build_microcycle(monday: dt.date, *, target_h: float, key: IntensityClass,
         S(5, Sport.BIKE, "Long ride (Z2) + brick", E, long_ride_h * 60,
           desc=("On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. "
                 "New disc/aero setup -> validate position + power-speed.")),
-        S(5, Sport.RUN, "Brick run off bike", E, brick_run_h * 60, brick=True,
-          desc="First 10' @ IM/half race pace off the bike, then Z2. Trains the transition."),
-        S(6, Sport.RUN, "Long run (Z2)", E, long_run_h * 60,
-          desc="Aerobic long run; last 15-20' @ race effort when fresh enough."),
+        S(5, Sport.RUN, "Brick run off bike", E, brick_run_h * 60, brick=True, desc=brick_desc),
     ]
-    anchor = long_ride_h + long_run_h + brick_run_h
+    if long_run_h > 0:
+        out.append(S(6, Sport.RUN, "Long run (Z2)", E, long_run_h * 60,
+                     desc="Aerobic long run; last 15-20' @ race effort when fresh enough."))
+    anchor = long_ride_h + max(long_run_h, 0.0) + brick_run_h
     flex = sum(x.planned_duration_s for x in out) / 3600 - anchor
     want_flex = max(target_h - anchor, flex * 0.5)
     factor = want_flex / flex if flex > 0 else 1.0
