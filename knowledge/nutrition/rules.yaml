@@ -1,0 +1,90 @@
+# Aithlete nutrition rulebook — PARAMETERIZED.
+#
+# `analysis/nutrition.py` loads this to turn daily Fitatu totals + training load
+# into provenance-tagged adequacy flags. Like the training/readiness rulebooks,
+# every threshold is a concrete number so the math stays deterministic and the
+# agent (nutritionist skill) only does judgment on top of the computed digest.
+#
+# Numbers are conservative, endurance-athlete-aware defaults with sources cited.
+# Sex/age-specific values: where the athlete's sex is unknown we apply the male
+# default and say so in the digest `missing` list.
+schema_version: 1
+
+# --- Energy availability (EA) — the RED-S / LEA gold-standard screen ----------
+# EA = (energy intake kcal - exercise energy expenditure kcal) / fat-free mass.
+# Ref: Loucks; Mountjoy et al., IOC consensus on Relative Energy Deficiency in
+# Sport (RED-S). Bands are kcal per kg FFM per day.
+energy_availability:
+  optimal_min: 45        # >=45 supports adaptation + health
+  reduced_min: 30        # 30-45 = reduced (subclinical), amber
+  low_below: 30          # <30 = clinically low EA, red (RED-S risk)
+  # When FFM is unknown we use body weight as the denominator (over-estimates
+  # FFM, so EA reads slightly LOW vs the true per-FFM figure). Flagged as a caveat.
+
+# --- Energy balance (intake vs total daily expenditure) ----------------------
+# TDEE = BMR * resting_activity_factor + exercise kcal + thermic effect of food.
+energy_balance:
+  bmr_resting_activity_factor: 1.2   # non-exercise daily living (exercise added separately)
+  thermic_effect_of_food_pct: 10     # ~10% of intake
+  surplus_amber_pct: 15              # chronic >|15%| off balance worth noting
+  deficit_amber_pct: 15
+
+# --- Carbohydrate periodization by that day's training load (g/kg body mass) --
+# Ref: Burke et al., "Carbohydrates for training and competition"; ACSM/IOC.
+# Tier is chosen by the day's COMBINED TSS (falls back to training hours).
+carbohydrate:
+  tiers:
+    rest:       { max_tss: 30,  min_g_per_kg: 3,  max_g_per_kg: 5 }   # rest / recovery
+    moderate:   { max_tss: 80,  min_g_per_kg: 5,  max_g_per_kg: 7 }   # ~1h moderate
+    high:       { max_tss: 150, min_g_per_kg: 6,  max_g_per_kg: 10 }  # intense / ~1-3h
+    very_high:  { max_tss: null, min_g_per_kg: 8, max_g_per_kg: 12 }  # >3h / race-like
+  # "Hard/long" fueling check: on key-session days carbs must reach the tier min.
+  key_session_tss: 80
+
+# --- Protein (g/kg body mass/day) --------------------------------------------
+# Ref: Morton et al. meta-analysis; ISSN position stand. Endurance + strength.
+protein:
+  min_g_per_kg: 1.6
+  optimal_min: 1.6
+  optimal_max: 2.2
+  per_meal_g_per_kg: 0.3   # informational; meal timing not in Fitatu export
+
+# --- Fat (floor for hormonal health) -----------------------------------------
+fat:
+  min_g_per_kg: 0.8
+  saturated_pct_energy_max: 10   # WHO/AHA
+
+# --- Diet quality / health caps ----------------------------------------------
+diet_quality:
+  sugars_pct_energy_max: 10      # WHO free-sugars guidance (proxy: total sugars)
+  fibre_g_min: 30                # adult adequate intake
+  alcohol_drinks_per_day_amber: 2
+  alcohol_drinks_per_week_amber: 7
+
+# --- Caffeine ----------------------------------------------------------------
+caffeine:
+  daily_mg_amber: 400            # EFSA adult upper habitual
+  daily_mg_red: 600
+  # Timing vs sleep can't be computed (no clock times in export) — noted, not flagged.
+
+# --- Micronutrient reference daily intakes (sums averaged over the window) ----
+# male adult RDA/AI defaults, athlete targets noted where higher. Ref: US DRI / EFSA.
+micronutrients:
+  iron_mg:      { target: 8,    athlete_target: 11,   unit: mg }   # female RDA 18 (note)
+  calcium_mg:   { target: 1000, athlete_target: 1000, unit: mg }
+  magnesium_mg: { target: 400,  athlete_target: 400,  unit: mg }
+  potassium_mg: { target: 3500, athlete_target: 3500, unit: mg }
+  zinc_mg:      { target: 11,   athlete_target: 11,   unit: mg }
+  vitamin_c_mg: { target: 90,   athlete_target: 90,   unit: mg }
+  vitamin_d_ug: { target: 15,   athlete_target: 25,   unit: ug }
+  sodium_mg:    { target: 1500, athlete_target: 1500, unit: mg, upper: 2300 }
+  omega3_g:     { target: 1.6,  athlete_target: 1.6,  unit: g }
+  # flag a micronutrient when window mean < this fraction of the (athlete) target.
+  deficiency_fraction: 0.7
+
+# --- Recovery-correlation reporting ------------------------------------------
+# Associations between prior-day nutrition and next-day recovery (HRV/RHR/sleep)
+# and same-day caffeine/alcohol. Observational only — never causal.
+correlation:
+  min_samples: 14                # below this we don't report an association
+  notable_abs_r: 0.25            # |r| at/above this is surfaced as "notable"

@@ -12,13 +12,13 @@ import yaml
 from aithlete.config import get_config
 
 
-def _path(name: str) -> Path:
-    return get_config().knowledge_dir / "triathlon" / name
+def _path(name: str, subdir: str = "triathlon") -> Path:
+    return get_config().knowledge_dir / subdir / name
 
 
-@lru_cache(maxsize=8)
-def _load(name: str) -> dict[str, Any]:
-    path = _path(name)
+@lru_cache(maxsize=16)
+def _load(name: str, subdir: str = "triathlon") -> dict[str, Any]:
+    path = _path(name, subdir)
     if not path.exists():
         raise FileNotFoundError(f"knowledge file missing: {path}")
     with path.open("r", encoding="utf-8") as fh:
@@ -35,6 +35,10 @@ def load_readiness_rules() -> dict[str, Any]:
 
 def load_zones() -> dict[str, Any]:
     return _load("zones.yaml")
+
+
+def load_nutrition_rules() -> dict[str, Any]:
+    return _load("rules.yaml", subdir="nutrition")
 
 
 def file_sha256(name: str) -> str:
