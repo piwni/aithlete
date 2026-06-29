@@ -122,7 +122,7 @@ weeks:
       - { day: 4, sport: swim,  name: "Swim aerobic endurance", intensity: easy, minutes: 45, desc: "2500-3000m steady; third swim = needle-mover." }
       - { day: 4, sport: other, name: "Mobility / core", intensity: easy, minutes: 30, desc: "Optional; keep easy." }
       - { day: 5, sport: bike,  name: "Half-IM race-sim ride", intensity: moderate, minutes: 155, desc: "TT bike in aero: 2x30' @ 90-95% FTP (~252-266 W = Syców target power), rest Z2. Fuel 70-90g carbs/h." }
-      - { day: 5, sport: run,   name: "Half-IM pace brick run", intensity: moderate, minutes: 30, brick: true, desc: "Off the bike @ 4:25-4:35/km = Syców target run pace. The key race rehearsal." }
+      - { day: 5, sport: run,   name: "Half-IM pace brick run", intensity: moderate, minutes: 30, brick: true, desc: "Off the bike @ ~4:00/km = Syców target run pace. The key race rehearsal." }
       - { day: 6, sport: run,   name: "Long run (Z2)", intensity: easy, minutes: 105, desc: "Aerobic long run; separate day from the brick. Last 15-20' @ race effort if fresh." }
 
   - index: 3
@@ -133,13 +133,13 @@ weeks:
     sessions:
       - { day: 0, sport: swim, name: "Swim easy + 4x50 fast", intensity: easy, minutes: 40, desc: "Openers, stay sharp." }
       - { day: 1, sport: bike, name: "Bike openers", intensity: moderate, minutes: 60, desc: "3x3' @ race power + 3x30s fast." }
-      - { day: 1, sport: run,  name: "Brick run short", intensity: easy, minutes: 20, brick: true, desc: "10' off bike @ race pace." }
+      - { day: 1, sport: run,  name: "Brick run short", intensity: easy, minutes: 20, brick: true, desc: "10' off bike @ ~4:00/km race pace." }
       - { day: 2, sport: swim, name: "Swim race-pace feel", intensity: moderate, minutes: 35, desc: "6x100 @ race pace, long rests." }
       - { day: 3, sport: run,  name: "Run easy + strides", intensity: easy, minutes: 35, desc: "4x20s strides; legs snappy." }
       - { day: 4, sport: bike, name: "Spin + openers", intensity: easy, minutes: 40, desc: "Few 30s efforts, otherwise easy." }
       - { day: 5, sport: swim, name: "Swim shakeout", intensity: easy, minutes: 20, desc: "Short, pre-race feel." }
       - { day: 5, sport: run,  name: "Shakeout jog", intensity: easy, minutes: 20, desc: "15-20' easy + 3 strides." }
-      - { day: 6, sport: other, name: "RACE: Syców 1/2 IM", intensity: moderate, minutes: 260, category: race, tss: 305, desc: "Target 4:20. Swim 35-36' / T1 / bike ~2:20 @ 250-265 W / T2 / run ~1:25 @ 4:25-4:35/km." }
+      - { day: 6, sport: other, name: "RACE: Syców 1/2 IM", intensity: moderate, minutes: 260, category: race, tss: 305, desc: "Target 4:20. Swim 35-36' / T1 / bike ~2:20 @ 250-265 W / T2 / run ~1:25 @ ~4:00/km." }
 
   - index: 4
     start: 2026-07-13
