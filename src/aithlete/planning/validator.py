@@ -19,6 +19,7 @@ import pandas as pd
 from pydantic import BaseModel, ConfigDict, Field
 
 from aithlete.knowledge import load_rules
+from aithlete.models.common import Sport
 from aithlete.models.plan import EventCategory, IntensityClass, Phase, TrainingPlan
 
 TAU_CTL = 42
@@ -115,6 +116,7 @@ def validate_plan(
     _check_volume_tolerance(plan, weekly_hours_tolerance, rules, report)
     _check_frequency(plan, rules, report)
     _check_hard_limits(plan, rules, report)
+    _check_daily_stacking(plan, rules, report)
     _check_taper(plan, ctl_series, atl_series, rules, report)
 
     report.ok = len(report.errors) == 0
@@ -290,6 +292,46 @@ def _check_hard_limits(plan, rules, report):
                 and not any(s.is_brick for s in wk.sessions)):
             _add(report, "missing_brick", Severity.WARNING,
                  f"Build week {wk.week_index} has no brick session", wk.week_index)
+
+
+def _check_daily_stacking(plan, rules, report):
+    """Flag days that stack more than one long/key endurance effort. A bike->run
+    brick is one intended unit; a standalone long run or long ride on top of it
+    (the exact bug where a Sunday carried a long run AND a brick) is an overload +
+    scheduling smell. The big-weekend pattern (long ride one day, long run the
+    next) is fine because this is a *per-day* check."""
+    cfg = rules.get("daily_load", {})
+    lr_min = cfg.get("long_run_minutes", 75)
+    lride_h = cfg.get("long_ride_hours", 2.5)
+    max_anchors = cfg.get("max_endurance_anchors_per_day", 1)
+
+    by_day: dict[dt.date, list] = {}
+    week_of: dict[dt.date, int] = {}
+    for wk in plan.weeks:
+        for s in wk.sessions:
+            by_day.setdefault(s.date, []).append(s)
+            week_of[s.date] = wk.week_index
+
+    for day in sorted(by_day):
+        ss = by_day[day]
+        if any(s.category is EventCategory.RACE for s in ss):
+            continue
+        has_brick = any(s.is_brick for s in ss)
+        long_runs = [s for s in ss if s.sport is Sport.RUN and not s.is_brick
+                     and s.planned_duration_s >= lr_min * 60]
+        long_rides = [s for s in ss if s.sport is Sport.BIKE
+                      and s.planned_duration_s >= lride_h * 3600]
+        # The brick's own ride is part of the brick unit; only count standalone
+        # long rides when there is no brick that day.
+        anchors = (1 if has_brick else len(long_rides)) + len(long_runs)
+        if anchors > max_anchors:
+            pieces = ["a brick"] if has_brick else [
+                f"long ride {s.planned_duration_s / 3600:.1f}h" for s in long_rides]
+            pieces += [f"long run {round(s.planned_duration_s / 60)}min" for s in long_runs]
+            _add(report, "stacked_long_day", Severity.WARNING,
+                 f"Week {week_of[day]} {day:%a %Y-%m-%d}: {anchors} long/key efforts "
+                 f"on one day ({', '.join(pieces)}) — spread across days to protect "
+                 f"key-session quality and recovery", week_of[day])
 
 
 def _check_taper(plan, ctl_series, atl_series, rules, report):

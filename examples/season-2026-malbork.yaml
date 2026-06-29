@@ -70,7 +70,7 @@ races:
     splits:
       - { leg: "Swim 3.8 km", target: "1:15:00", detail: "1:58/100m -> your 75' target" }
       - { leg: "T1",          target: "3:30",  detail: "" }
-      - { leg: "Bike 180 km", target: "5:02:00", detail: "~35.8 km/h @ 215-225 W (disc/aero)" }
+      - { leg: "Bike 180 km", target: "5:02:00", detail: "~35.8 km/h @ ~200 W NP (disc/aero)" }
       - { leg: "T2",          target: "2:30",  detail: "" }
       - { leg: "Run 42.2 km", target: "3:07:00", detail: "4:26/km" }
 
@@ -110,12 +110,20 @@ weeks:
   - index: 2
     start: 2026-06-29
     phase: build
-    focus: "Pre-Syców peak: half-IM race-pace brick"
-    type: microcycle
-    microcycle: { target_h: 10.2, key: hard, long_ride_h: 2.75, long_run_h: 1.5, half_focus: true }
-    extra_sessions:
-      - { day: 6, sport: bike, name: "Half-IM pace brick (bike)", intensity: moderate, minutes: 50, desc: "50' with 2x15' @ 90-95% FTP (~252-266 W) = Syców target power." }
-      - { day: 6, sport: run,  name: "Half-IM pace brick (run)", intensity: moderate, minutes: 25, brick: true, desc: "25' off the bike @ 4:25-4:35/km = Syców target run pace." }
+    focus: "Pre-Syców peak: Sat half-IM race-sim brick, Sun long run"
+    type: explicit
+    sessions:
+      - { day: 0, sport: swim,  name: "Swim technique + aerobic", intensity: easy, minutes: 50, desc: "Drills + 8-12x100 @ CSS+5s. Limiter focus." }
+      - { day: 0, sport: other, name: "Strength (lower + core)", intensity: easy, minutes: 45, desc: "Posterior chain + core; injury prevention." }
+      - { day: 1, sport: bike,  name: "Bike key set", intensity: hard, minutes: 45, desc: "VO2/threshold sharpener: 5x4' @ 110-118% FTP or 3x12' @ 95-100%." }
+      - { day: 2, sport: swim,  name: "Swim threshold", intensity: moderate, minutes: 55, desc: "~2000m @ CSS (1:50-1:55/100m)." }
+      - { day: 2, sport: run,   name: "Run easy + strides", intensity: easy, minutes: 40, desc: "Z2 + 6x20s strides." }
+      - { day: 3, sport: bike,  name: "Bike Z2 endurance", intensity: easy, minutes: 75, desc: "Aerobic spin; keep it easy — the quality this week is Tue key + Sat race-sim." }
+      - { day: 4, sport: swim,  name: "Swim aerobic endurance", intensity: easy, minutes: 45, desc: "2500-3000m steady; third swim = needle-mover." }
+      - { day: 4, sport: other, name: "Mobility / core", intensity: easy, minutes: 30, desc: "Optional; keep easy." }
+      - { day: 5, sport: bike,  name: "Half-IM race-sim ride", intensity: moderate, minutes: 155, desc: "TT bike in aero: 2x30' @ 90-95% FTP (~252-266 W = Syców target power), rest Z2. Fuel 70-90g carbs/h." }
+      - { day: 5, sport: run,   name: "Half-IM pace brick run", intensity: moderate, minutes: 30, brick: true, desc: "Off the bike @ 4:25-4:35/km = Syców target run pace. The key race rehearsal." }
+      - { day: 6, sport: run,   name: "Long run (Z2)", intensity: easy, minutes: 105, desc: "Aerobic long run; separate day from the brick. Last 15-20' @ race effort if fresh." }
 
   - index: 3
     start: 2026-07-06
@@ -152,45 +160,47 @@ weeks:
   - index: 5
     start: 2026-07-20
     phase: build
-    focus: "IM build 1 — volume up, TT-bike aero, intro brick"
+    focus: "IM build 1 — volume up, TT-bike aero, intro IM-pace"
     type: microcycle
-    microcycle: { target_h: 13.0, key: hard, long_ride_h: 3.0, long_run_h: 1.5, brick_run_h: 0.75 }
+    microcycle: { target_h: 13.0, key: hard, long_ride_h: 3.0, long_run_h: 1.5, brick_run_h: 0.75, long_ride_blocks: "3x20' @ 200 W" }
 
   - index: 6
     start: 2026-07-27
     phase: build
-    focus: "IM build 2 — first 4h+2h race-sim brick"
+    focus: "IM build 2 — first 4h+2h race-sim brick, IM-pace bike"
     type: microcycle
-    microcycle: { target_h: 14.3, key: moderate, long_ride_h: 4.0, long_run_h: 0, brick_run_h: 2.0 }
+    microcycle: { target_h: 14.3, key: moderate, long_ride_h: 4.0, long_run_h: 0, brick_run_h: 2.0, long_ride_blocks: "4x30' @ 200 W" }
 
   - index: 7
     start: 2026-08-03
     phase: build
     is_recovery: true
-    focus: "Recovery valley (absorb the block)"
+    focus: "Lighter down-week — cut volume, keep sharpness (not a rest week)"
     type: explicit
     sessions:
-      - { day: 0, sport: swim, name: "Swim technique", intensity: easy, minutes: 45, desc: "Easy, form." }
-      - { day: 1, sport: bike, name: "Bike short tempo", intensity: moderate, minutes: 60, desc: "2x12' @ 88-92% FTP, otherwise easy." }
-      - { day: 2, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 45, desc: "Steady." }
-      - { day: 2, sport: run,  name: "Run easy", intensity: easy, minutes: 40, desc: "Z2." }
-      - { day: 4, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 40, desc: "Keep frequency." }
-      - { day: 5, sport: bike, name: "Ride moderate", intensity: easy, minutes: 120, desc: "Z2 only; absorb the block." }
-      - { day: 6, sport: run,  name: "Long run (easy)", intensity: easy, minutes: 80, desc: "Cut volume; stay aerobic." }
+      - { day: 0, sport: swim, name: "Swim technique + speed", intensity: easy, minutes: 50, desc: "Drills + 6x50 fast; form + a little snap." }
+      - { day: 1, sport: bike, name: "Bike sharpener (short)", intensity: moderate, minutes: 55, desc: "3x8' @ 90-95% FTP (~250 W). Hold sharpness on low volume." }
+      - { day: 2, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 45, desc: "Steady; keep frequency." }
+      - { day: 2, sport: run,  name: "Run easy + strides", intensity: easy, minutes: 40, desc: "Z2 + 6x20s strides." }
+      - { day: 3, sport: bike, name: "Easy spin", intensity: easy, minutes: 50, desc: "Z1-2 flush; legs open." }
+      - { day: 4, sport: swim, name: "Swim race-pace", intensity: moderate, minutes: 40, desc: "8x100 @ CSS, long rests; keep race feel." }
+      - { day: 5, sport: bike, name: "IM-pace ride (reduced)", intensity: easy, minutes: 110, desc: "2x20' @ 200 W inside a Z2 ride; race position + fuel." }
+      - { day: 5, sport: run,  name: "Brick run (short)", intensity: easy, minutes: 20, brick: true, desc: "Short brick @ IM pace off the ride." }
+      - { day: 6, sport: run,  name: "Long run (reduced)", intensity: easy, minutes: 80, desc: "Cut volume; stay aerobic." }
 
   - index: 8
     start: 2026-08-10
     phase: build
-    focus: "IM build 3 — 4h+2h race-sim brick"
+    focus: "IM build 3 — 4h+2h race-sim brick, big IM-pace volume"
     type: microcycle
-    microcycle: { target_h: 15.0, key: moderate, long_ride_h: 4.0, long_run_h: 0, brick_run_h: 2.0 }
+    microcycle: { target_h: 15.0, key: moderate, long_ride_h: 4.0, long_run_h: 0, brick_run_h: 2.0, long_ride_blocks: "6x30' @ 200 W" }
 
   - index: 9
     start: 2026-08-17
     phase: build
-    focus: "IM peak — biggest week, 4.5h+2h brick"
+    focus: "IM peak — biggest week, 4.5h+2h brick at IM pace"
     type: microcycle
-    microcycle: { target_h: 16.0, key: moderate, long_ride_h: 4.5, long_run_h: 0, brick_run_h: 2.0 }
+    microcycle: { target_h: 16.0, key: moderate, long_ride_h: 4.5, long_run_h: 0, brick_run_h: 2.0, long_ride_blocks: "3x40' @ 200 W" }
 
   - index: 10
     start: 2026-08-24
@@ -199,12 +209,12 @@ weeks:
     type: explicit
     sessions:
       - { day: 0, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 45, desc: "Volume coming down." }
-      - { day: 1, sport: bike, name: "Bike race-power touches", intensity: moderate, minutes: 75, desc: "3x10' @ IM power (~215-230 W)." }
+      - { day: 1, sport: bike, name: "Bike race-power touches", intensity: moderate, minutes: 75, desc: "3x10' @ IM power (~200 W)." }
       - { day: 2, sport: swim, name: "Swim race-pace", intensity: moderate, minutes: 40, desc: "IM swim pace feel." }
       - { day: 2, sport: run,  name: "Run easy + strides", intensity: easy, minutes: 40, desc: "Sharpen." }
       - { day: 3, sport: bike, name: "Bike tempo (light)", intensity: moderate, minutes: 60, desc: "2x12' @ sweet spot." }
       - { day: 4, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 40, desc: "Keep feel." }
-      - { day: 5, sport: bike, name: "Last long ride", intensity: easy, minutes: 150, desc: "2.5h @ IM power, dress-rehearse fuel + position." }
+      - { day: 5, sport: bike, name: "Last long ride", intensity: easy, minutes: 150, desc: "2.5h with blocks @ IM power (~200 W), dress-rehearse fuel + position." }
       - { day: 5, sport: run,  name: "Brick run", intensity: easy, minutes: 20, brick: true, desc: "Short brick @ IM run pace." }
       - { day: 6, sport: run,  name: "Long run (reduced)", intensity: easy, minutes: 80, desc: "Last longer run; easy." }
 
@@ -215,11 +225,11 @@ weeks:
     type: explicit
     sessions:
       - { day: 0, sport: swim, name: "Swim easy + pace", intensity: easy, minutes: 35, desc: "Short, 4x100 @ IM pace." }
-      - { day: 1, sport: bike, name: "Bike openers", intensity: moderate, minutes: 50, desc: "3x5' @ IM power + 3x30s." }
+      - { day: 1, sport: bike, name: "Bike openers", intensity: moderate, minutes: 50, desc: "3x5' @ IM power (~200 W) + 3x30s." }
       - { day: 2, sport: run,  name: "Run easy + strides", intensity: easy, minutes: 30, desc: "4x20s strides." }
       - { day: 3, sport: swim, name: "Swim shakeout", intensity: easy, minutes: 25, desc: "Feel for the water." }
       - { day: 3, sport: bike, name: "Spin", intensity: easy, minutes: 30, desc: "Legs open." }
       - { day: 4, sport: bike, name: "Pre-race openers", intensity: moderate, minutes: 30, desc: "A few race-power touches." }
       - { day: 4, sport: run,  name: "Shakeout", intensity: easy, minutes: 15, desc: "10-15' + strides." }
       - { day: 5, sport: swim, name: "Swim shakeout", intensity: easy, minutes: 15, desc: "Pre-race; very short." }
-      - { day: 6, sport: other, name: "RACE: Malbork Full IM", intensity: easy, minutes: 570, category: race, tss: 465, desc: "Target 9:30 (stretch 9:20). Swim 75' / bike ~5:00-5:10 @ 210-230 W (disc/aero) / run ~3:05-3:15." }
+      - { day: 6, sport: other, name: "RACE: Malbork Full IM", intensity: easy, minutes: 570, category: race, tss: 465, desc: "Target 9:30 (stretch 9:20). Swim 75' / bike ~5:00-5:10 @ ~200 W NP (disc/aero) / run ~3:05-3:15." }

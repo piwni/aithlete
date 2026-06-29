@@ -109,12 +109,27 @@ hard_session_spacing_hours:
   bike: 24
   run: 48
 
+# Single-day stacking guardrail. A bike->run brick is ONE intended unit; but
+# piling an extra long/key endurance session onto the same day (e.g. a standalone
+# long run on top of a brick, or a long ride + long run that aren't a brick) is an
+# overload + scheduling smell: it concentrates injury risk and dilutes the quality
+# of the key session. The classic long-course "big weekend" (long ride one day,
+# long run the next) is GOOD and explicitly allowed -- this only flags same-day
+# stacking. Ref: Friel (key-session quality), brick-day specificity.
+daily_load:
+  long_run_minutes: 75       # a non-brick run >= this counts as a "long run" anchor
+  long_ride_hours: 2.5       # a ride >= this counts as a "long ride" anchor
+  max_endurance_anchors_per_day: 1   # brick = 1 anchor; each standalone long adds 1
+
 # Absolute sanity bounds the validator always enforces regardless of phase.
 hard_limits:
   max_single_session_hours: 8
   max_weekly_hours: 25            # beyond this is pro-only; flag for amateurs
   min_rest_days_per_week: 0       # 0 allowed but flagged if CTL rising fast
-  no_back_to_back_long_run_long_ride: true
+  # Back-to-back long ride + long run on consecutive days is the standard
+  # long-course "big weekend" and is intentionally allowed; the real risk is
+  # same-day stacking, enforced via daily_load above.
+  allow_back_to_back_long_run_long_ride: true
 
 # Per-athlete overrides: the profile may set weekly_volume_tolerance and
 # training_age which the validator reads to pick the right band above.

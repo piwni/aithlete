@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import datetime as dt
 
-from _helpers import build_week, good_plan, steep_plan
-from aithlete.models.plan import Phase, TrainingPlan
+from _helpers import build_week, good_plan, session, steep_plan
+from aithlete.models.common import Sport
+from aithlete.models.plan import IntensityClass, Phase, TrainingPlan
 from aithlete.planning.validator import validate_plan
 
 
@@ -50,6 +51,27 @@ def test_fake_recovery_flag_cannot_bypass_ramp():
     assert not rep.ok, "rising load disguised as recovery weeks must be blocked"
     codes = {i.code for i in rep.errors}
     assert codes & {"ramp_too_steep", "weekly_tss_jump", "fake_recovery_week", "projected_acwr_spike"}
+
+
+def test_big_weekend_is_allowed():
+    """Long ride one day + long run the next (the standard long-course big
+    weekend) must NOT trip the same-day stacking guardrail."""
+    rep = validate_plan(good_plan(), starting_ctl=80.0)
+    assert "stacked_long_day" not in {i.code for i in rep.issues}
+
+
+def test_long_run_stacked_on_brick_day_is_flagged():
+    """Regression: a standalone long run on the same day as a brick (the exact
+    Sunday bug) must surface as a stacked_long_day warning."""
+    plan = good_plan()
+    brick_day = plan.weeks[0].sessions[5].date  # the long-ride+brick day
+    plan.weeks[0].sessions.append(
+        session(brick_day, Sport.RUN, "Long run (stacked)", 70, 95, IntensityClass.EASY)
+    )
+    rep = validate_plan(plan, starting_ctl=80.0)
+    hits = [i for i in rep.issues if i.code == "stacked_long_day"]
+    assert hits, "a long run stacked on a brick day must be flagged"
+    assert hits[0].week_index == 1
 
 
 def test_taper_peak_without_goal_race_is_blocked():

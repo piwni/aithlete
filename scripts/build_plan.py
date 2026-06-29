@@ -86,11 +86,13 @@ def session_from_spec(monday: dt.date, spec: dict) -> PlannedSession:
 
 def build_microcycle(monday: dt.date, *, target_h: float, key: IntensityClass,
                      long_ride_h: float, long_run_h: float, brick_run_h: float = 0.5,
+                     long_ride_blocks: str | None = None,
                      half_focus: bool = False) -> list[PlannedSession]:
     """Swim-heavy build week (Mon-Sun). Fixed long ride/brick/long run anchor
     endurance; support sessions scale so weekly hours land near target_h. Keeps
     swim>=3/wk. Set long_run_h=0 to drop the standalone long run (e.g. when the
-    long brick run already covers run-endurance that week)."""
+    long brick run already covers run-endurance that week). long_ride_blocks, if
+    given (e.g. "4x30' @ 200 W"), prescribes IM-pace work inside the long ride."""
     def S(off, sport, name, inten, mins, **kw):
         return mk_session(monday + dt.timedelta(days=off), sport=sport, name=name,
                           intensity=inten, minutes=mins, **kw)
@@ -99,6 +101,12 @@ def build_microcycle(monday: dt.date, *, target_h: float, key: IntensityClass,
     bike_tempo_h = 1.1 if target_h >= 15 else 0.9
     brick_desc = ("First 10' @ IM/half race pace off the bike, then Z2." if brick_run_h <= 0.75
                   else "IM-pace brick run off the long ride: rehearse race legs, pacing and fuel.")
+    long_ride_desc = ("On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. "
+                      "New disc/aero setup -> validate position + power-speed.")
+    if long_ride_blocks:
+        long_ride_desc = (f"On the TT bike in aero. IM-pace work: {long_ride_blocks} "
+                          "(rest of ride steady Z2). Hold race position; fuel 70-90g carbs/h. "
+                          "Convert the new disc/aero setup into free IM speed.")
     E, M = IntensityClass.EASY, IntensityClass.MODERATE
     out = [
         S(0, Sport.SWIM, "Swim technique + aerobic", E, 50,
@@ -117,9 +125,7 @@ def build_microcycle(monday: dt.date, *, target_h: float, key: IntensityClass,
         S(4, Sport.SWIM, "Swim aerobic endurance", E, 50,
           desc="Continuous + pull/paddles; 2500-3000m steady. Third swim = the needle-mover."),
         S(4, Sport.OTHER, "Mobility / core", E, 30, desc="Optional; keep easy."),
-        S(5, Sport.BIKE, "Long ride (Z2) + brick", E, long_ride_h * 60,
-          desc=("On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. "
-                "New disc/aero setup -> validate position + power-speed.")),
+        S(5, Sport.BIKE, "Long ride (Z2) + brick", E, long_ride_h * 60, desc=long_ride_desc),
         S(5, Sport.RUN, "Brick run off bike", E, brick_run_h * 60, brick=True, desc=brick_desc),
     ]
     if long_run_h > 0:

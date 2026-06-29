@@ -2,7 +2,7 @@
   "schema_version": 1,
   "athlete_id": "athlete",
   "plan_id": "goal-2026-malbork",
-  "generated_at": "2026-06-29T10:12:27.796026Z",
+  "generated_at": "2026-06-29T12:47:27.303474Z",
   "start_date": "2026-06-22",
   "goal_race": {
     "name": "Malbork Castle Triathlon (Full IM)",
@@ -173,12 +173,12 @@
           "name": "Swim technique + aerobic",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 23.1,
-          "planned_duration_s": 2602,
+          "planned_tss": 26.7,
+          "planned_duration_s": 3000,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Drills + 8-12x100 aerobic @ CSS+5s. Limiter focus: form under low fatigue.",
+          "description": "Drills + 8-12x100 @ CSS+5s. Limiter focus.",
           "external_id": "aithlete-2026-06-29-swim-Swim_techniq"
         },
         {
@@ -187,12 +187,12 @@
           "name": "Strength (lower + core)",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 14.3,
-          "planned_duration_s": 2342,
+          "planned_tss": 16.5,
+          "planned_duration_s": 2700,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Heavy-ish posterior chain + core; injury prevention, not fatigue.",
+          "description": "Posterior chain + core; injury prevention.",
           "external_id": "aithlete-2026-06-29-other-Strength_(lo"
         },
         {
@@ -201,12 +201,12 @@
           "name": "Bike key set",
           "category": "WORKOUT",
           "intensity_class": "hard",
-          "planned_tss": 61.1,
-          "planned_duration_s": 2498,
+          "planned_tss": 66.0,
+          "planned_duration_s": 2700,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Half-IM race-power over/unders 3x10' @ 95-102% FTP",
+          "description": "VO2/threshold sharpener: 5x4' @ 110-118% FTP or 3x12' @ 95-100%.",
           "external_id": "aithlete-2026-06-30-bike-Bike_key_set"
         },
         {
@@ -215,12 +215,12 @@
           "name": "Swim threshold",
           "category": "WORKOUT",
           "intensity_class": "moderate",
-          "planned_tss": 38.2,
-          "planned_duration_s": 2862,
+          "planned_tss": 44.0,
+          "planned_duration_s": 3300,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.",
+          "description": "~2000m @ CSS (1:50-1:55/100m).",
           "external_id": "aithlete-2026-07-01-swim-Swim_thresho"
         },
         {
@@ -229,27 +229,27 @@
           "name": "Run easy + strides",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 35.8,
-          "planned_duration_s": 2342,
+          "planned_tss": 36.7,
+          "planned_duration_s": 2400,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Z2 aerobic + 6x20s strides. Off-feet recovery from bike key day.",
+          "description": "Z2 + 6x20s strides.",
           "external_id": "aithlete-2026-07-01-run-Run_easy_+_s"
         },
         {
           "date": "2026-07-02",
           "sport": "bike",
-          "name": "Bike tempo/sweet-spot",
+          "name": "Bike Z2 endurance",
           "category": "WORKOUT",
-          "intensity_class": "moderate",
-          "planned_tss": 54.6,
-          "planned_duration_s": 2810,
+          "intensity_class": "easy",
+          "planned_tss": 57.5,
+          "planned_duration_s": 4500,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "2-3x20' @ 88-94% FTP (sweet spot). Aerobic-power durability.",
-          "external_id": "aithlete-2026-07-02-bike-Bike_tempo/s"
+          "description": "Aerobic spin; keep it easy — the quality this week is Tue key + Sat race-sim.",
+          "external_id": "aithlete-2026-07-02-bike-Bike_Z2_endu"
         },
         {
           "date": "2026-07-03",
@@ -257,12 +257,12 @@
           "name": "Swim aerobic endurance",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 23.1,
-          "planned_duration_s": 2602,
+          "planned_tss": 24.0,
+          "planned_duration_s": 2700,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Continuous + pull/paddles; 2500-3000m steady. Third swim = the needle-mover.",
+          "description": "2500-3000m steady; third swim = needle-mover.",
           "external_id": "aithlete-2026-07-03-swim-Swim_aerobic"
         },
         {
@@ -271,8 +271,8 @@
           "name": "Mobility / core",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 9.5,
-          "planned_duration_s": 1561,
+          "planned_tss": 11.0,
+          "planned_duration_s": 1800,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
@@ -282,30 +282,30 @@
         {
           "date": "2026-07-04",
           "sport": "bike",
-          "name": "Long ride (Z2) + brick",
+          "name": "Half-IM race-sim ride",
           "category": "WORKOUT",
-          "intensity_class": "easy",
-          "planned_tss": 126.5,
-          "planned_duration_s": 9900,
+          "intensity_class": "moderate",
+          "planned_tss": 180.8,
+          "planned_duration_s": 9300,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -> validate position + power-speed.",
-          "external_id": "aithlete-2026-07-04-bike-Long_ride_(Z"
+          "description": "TT bike in aero: 2x30' @ 90-95% FTP (~252-266 W = Syców target power), rest Z2. Fuel 70-90g carbs/h.",
+          "external_id": "aithlete-2026-07-04-bike-Half-IM_race"
         },
         {
           "date": "2026-07-04",
           "sport": "run",
-          "name": "Brick run off bike",
+          "name": "Half-IM pace brick run",
           "category": "WORKOUT",
-          "intensity_class": "easy",
-          "planned_tss": 27.5,
+          "intensity_class": "moderate",
+          "planned_tss": 37.5,
           "planned_duration_s": 1800,
           "is_brick": true,
           "target_type": "open",
           "structure": [],
-          "description": "First 10' @ IM/half race pace off the bike, then Z2.",
-          "external_id": "aithlete-2026-07-04-run-Brick_run_of"
+          "description": "Off the bike @ 4:25-4:35/km = Syców target run pace. The key race rehearsal.",
+          "external_id": "aithlete-2026-07-04-run-Half-IM_pace"
         },
         {
           "date": "2026-07-05",
@@ -313,41 +313,13 @@
           "name": "Long run (Z2)",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 82.5,
-          "planned_duration_s": 5400,
+          "planned_tss": 96.2,
+          "planned_duration_s": 6300,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Aerobic long run; last 15-20' @ race effort when fresh enough.",
+          "description": "Aerobic long run; separate day from the brick. Last 15-20' @ race effort if fresh.",
           "external_id": "aithlete-2026-07-05-run-Long_run_(Z2"
-        },
-        {
-          "date": "2026-07-05",
-          "sport": "bike",
-          "name": "Half-IM pace brick (bike)",
-          "category": "WORKOUT",
-          "intensity_class": "moderate",
-          "planned_tss": 58.3,
-          "planned_duration_s": 3000,
-          "is_brick": false,
-          "target_type": "open",
-          "structure": [],
-          "description": "50' with 2x15' @ 90-95% FTP (~252-266 W) = Syców target power.",
-          "external_id": "aithlete-2026-07-05-bike-Half-IM_pace"
-        },
-        {
-          "date": "2026-07-05",
-          "sport": "run",
-          "name": "Half-IM pace brick (run)",
-          "category": "WORKOUT",
-          "intensity_class": "moderate",
-          "planned_tss": 31.2,
-          "planned_duration_s": 1500,
-          "is_brick": true,
-          "target_type": "open",
-          "structure": [],
-          "description": "25' off the bike @ 4:25-4:35/km = Syców target run pace.",
-          "external_id": "aithlete-2026-07-05-run-Half-IM_pace"
         }
       ],
       "projected_ctl_end": null
@@ -751,7 +723,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -> validate position + power-speed.",
+          "description": "On the TT bike in aero. IM-pace work: 3x20' @ 200 W (rest of ride steady Z2). Hold race position; fuel 70-90g carbs/h. Convert the new disc/aero setup into free IM speed.",
           "external_id": "aithlete-2026-07-25-bike-Long_ride_(Z"
         },
         {
@@ -914,7 +886,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -> validate position + power-speed.",
+          "description": "On the TT bike in aero. IM-pace work: 4x30' @ 200 W (rest of ride steady Z2). Hold race position; fuel 70-90g carbs/h. Convert the new disc/aero setup into free IM speed.",
           "external_id": "aithlete-2026-08-01-bike-Long_ride_(Z"
         },
         {
@@ -943,30 +915,30 @@
         {
           "date": "2026-08-03",
           "sport": "swim",
-          "name": "Swim technique",
+          "name": "Swim technique + speed",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 24.0,
-          "planned_duration_s": 2700,
+          "planned_tss": 26.7,
+          "planned_duration_s": 3000,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Easy, form.",
+          "description": "Drills + 6x50 fast; form + a little snap.",
           "external_id": "aithlete-2026-08-03-swim-Swim_techniq"
         },
         {
           "date": "2026-08-04",
           "sport": "bike",
-          "name": "Bike short tempo",
+          "name": "Bike sharpener (short)",
           "category": "WORKOUT",
           "intensity_class": "moderate",
-          "planned_tss": 70.0,
-          "planned_duration_s": 3600,
+          "planned_tss": 64.2,
+          "planned_duration_s": 3300,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "2x12' @ 88-92% FTP, otherwise easy.",
-          "external_id": "aithlete-2026-08-04-bike-Bike_short_t"
+          "description": "3x8' @ 90-95% FTP (~250 W). Hold sharpness on low volume.",
+          "external_id": "aithlete-2026-08-04-bike-Bike_sharpen"
         },
         {
           "date": "2026-08-05",
@@ -979,13 +951,13 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Steady.",
+          "description": "Steady; keep frequency.",
           "external_id": "aithlete-2026-08-05-swim-Swim_aerobic"
         },
         {
           "date": "2026-08-05",
           "sport": "run",
-          "name": "Run easy",
+          "name": "Run easy + strides",
           "category": "WORKOUT",
           "intensity_class": "easy",
           "planned_tss": 36.7,
@@ -993,41 +965,69 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Z2.",
-          "external_id": "aithlete-2026-08-05-run-Run_easy"
+          "description": "Z2 + 6x20s strides.",
+          "external_id": "aithlete-2026-08-05-run-Run_easy_+_s"
+        },
+        {
+          "date": "2026-08-06",
+          "sport": "bike",
+          "name": "Easy spin",
+          "category": "WORKOUT",
+          "intensity_class": "easy",
+          "planned_tss": 38.3,
+          "planned_duration_s": 3000,
+          "is_brick": false,
+          "target_type": "open",
+          "structure": [],
+          "description": "Z1-2 flush; legs open.",
+          "external_id": "aithlete-2026-08-06-bike-Easy_spin"
         },
         {
           "date": "2026-08-07",
           "sport": "swim",
-          "name": "Swim aerobic",
+          "name": "Swim race-pace",
           "category": "WORKOUT",
-          "intensity_class": "easy",
-          "planned_tss": 21.3,
+          "intensity_class": "moderate",
+          "planned_tss": 32.0,
           "planned_duration_s": 2400,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Keep frequency.",
-          "external_id": "aithlete-2026-08-07-swim-Swim_aerobic"
+          "description": "8x100 @ CSS, long rests; keep race feel.",
+          "external_id": "aithlete-2026-08-07-swim-Swim_race-pa"
         },
         {
           "date": "2026-08-08",
           "sport": "bike",
-          "name": "Ride moderate",
+          "name": "IM-pace ride (reduced)",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 92.0,
-          "planned_duration_s": 7200,
+          "planned_tss": 84.3,
+          "planned_duration_s": 6600,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Z2 only; absorb the block.",
-          "external_id": "aithlete-2026-08-08-bike-Ride_moderat"
+          "description": "2x20' @ 200 W inside a Z2 ride; race position + fuel.",
+          "external_id": "aithlete-2026-08-08-bike-IM-pace_ride"
+        },
+        {
+          "date": "2026-08-08",
+          "sport": "run",
+          "name": "Brick run (short)",
+          "category": "WORKOUT",
+          "intensity_class": "easy",
+          "planned_tss": 18.3,
+          "planned_duration_s": 1200,
+          "is_brick": true,
+          "target_type": "open",
+          "structure": [],
+          "description": "Short brick @ IM pace off the ride.",
+          "external_id": "aithlete-2026-08-08-run-Brick_run_(s"
         },
         {
           "date": "2026-08-09",
           "sport": "run",
-          "name": "Long run (easy)",
+          "name": "Long run (reduced)",
           "category": "WORKOUT",
           "intensity_class": "easy",
           "planned_tss": 73.3,
@@ -1036,7 +1036,7 @@
           "target_type": "open",
           "structure": [],
           "description": "Cut volume; stay aerobic.",
-          "external_id": "aithlete-2026-08-09-run-Long_run_(ea"
+          "external_id": "aithlete-2026-08-09-run-Long_run_(re"
         }
       ],
       "projected_ctl_end": null
@@ -1170,7 +1170,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -> validate position + power-speed.",
+          "description": "On the TT bike in aero. IM-pace work: 6x30' @ 200 W (rest of ride steady Z2). Hold race position; fuel 70-90g carbs/h. Convert the new disc/aero setup into free IM speed.",
           "external_id": "aithlete-2026-08-15-bike-Long_ride_(Z"
         },
         {
@@ -1319,7 +1319,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "On the TT bike in aero. Hold race position; fuel 70-90g carbs/h. New disc/aero setup -> validate position + power-speed.",
+          "description": "On the TT bike in aero. IM-pace work: 3x40' @ 200 W (rest of ride steady Z2). Hold race position; fuel 70-90g carbs/h. Convert the new disc/aero setup into free IM speed.",
           "external_id": "aithlete-2026-08-22-bike-Long_ride_(Z"
         },
         {
@@ -1370,7 +1370,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "3x10' @ IM power (~215-230 W).",
+          "description": "3x10' @ IM power (~200 W).",
           "external_id": "aithlete-2026-08-25-bike-Bike_race-po"
         },
         {
@@ -1440,7 +1440,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "2.5h @ IM power, dress-rehearse fuel + position.",
+          "description": "2.5h with blocks @ IM power (~200 W), dress-rehearse fuel + position.",
           "external_id": "aithlete-2026-08-29-bike-Last_long_ri"
         },
         {
@@ -1505,7 +1505,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "3x5' @ IM power + 3x30s.",
+          "description": "3x5' @ IM power (~200 W) + 3x30s.",
           "external_id": "aithlete-2026-09-01-bike-Bike_openers"
         },
         {
@@ -1603,7 +1603,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Target 9:30 (stretch 9:20). Swim 75' / bike ~5:00-5:10 @ 210-230 W (disc/aero) / run ~3:05-3:15.",
+          "description": "Target 9:30 (stretch 9:20). Swim 75' / bike ~5:00-5:10 @ ~200 W NP (disc/aero) / run ~3:05-3:15.",
           "external_id": "aithlete-2026-09-06-other-RACE:_Malbor"
         }
       ],
