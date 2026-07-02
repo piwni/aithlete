@@ -86,13 +86,14 @@ def session_from_spec(monday: dt.date, spec: dict) -> PlannedSession:
 
 def build_microcycle(monday: dt.date, *, target_h: float, key: IntensityClass,
                      long_ride_h: float, long_run_h: float, brick_run_h: float = 0.5,
-                     long_ride_blocks: str | None = None,
+                     long_ride_blocks: str | None = None, swim_css: str | None = None,
                      half_focus: bool = False) -> list[PlannedSession]:
     """Swim-heavy build week (Mon-Sun). Fixed long ride/brick/long run anchor
     endurance; support sessions scale so weekly hours land near target_h. Keeps
     swim>=3/wk. Set long_run_h=0 to drop the standalone long run (e.g. when the
     long brick run already covers run-endurance that week). long_ride_blocks, if
-    given (e.g. "4x30' @ 200 W"), prescribes IM-pace work inside the long ride."""
+    given (e.g. "4x30' @ 200 W"), prescribes IM-pace work inside the long ride.
+    swim_css (e.g. "1:45-1:48/100m") comes from the spec's meta, not hardcoded."""
     def S(off, sport, name, inten, mins, **kw):
         return mk_session(monday + dt.timedelta(days=off), sport=sport, name=name,
                           intensity=inten, minutes=mins, **kw)
@@ -117,7 +118,8 @@ def build_microcycle(monday: dt.date, *, target_h: float, key: IntensityClass,
           desc=("Half-IM race-power over/unders 3x10' @ 95-102% FTP" if half_focus
                 else "VO2/threshold 5x4' @ 110-118% FTP or 3x12' @ 95-100% FTP")),
         S(2, Sport.SWIM, "Swim threshold", M, 55,
-          desc="Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness."),
+          desc=(f"Main set ~2000m @ CSS (target {swim_css}). Build swim-specific fitness."
+                if swim_css else "Main set ~2000m @ CSS. Build swim-specific fitness.")),
         S(2, Sport.RUN, "Run easy + strides", E, 45,
           desc="Z2 aerobic + 6x20s strides. Off-feet recovery from bike key day."),
         S(3, Sport.BIKE, "Bike tempo/sweet-spot", M, bike_tempo_h * 60,
@@ -166,6 +168,7 @@ def build_plan(spec: dict) -> TrainingPlan:
         if w["type"] == "microcycle":
             mc = dict(w["microcycle"])
             mc["key"] = INTENSITY[mc["key"]]
+            mc.setdefault("swim_css", meta.get("swim_css"))
             sessions = build_microcycle(monday, **mc)
             sessions += [session_from_spec(monday, s) for s in w.get("extra_sessions", [])]
         else:

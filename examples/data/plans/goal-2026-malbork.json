@@ -2,7 +2,7 @@
   "schema_version": 1,
   "athlete_id": "athlete",
   "plan_id": "goal-2026-malbork",
-  "generated_at": "2026-06-29T13:04:19.921459Z",
+  "generated_at": "2026-07-02T08:36:23.857363Z",
   "start_date": "2026-06-22",
   "goal_race": {
     "name": "Malbork Castle Triathlon (Full IM)",
@@ -76,30 +76,30 @@
         },
         {
           "date": "2026-06-25",
-          "sport": "swim",
-          "name": "Swim aerobic",
+          "sport": "run",
+          "name": "Threshold run 4x8' (completed)",
           "category": "WORKOUT",
-          "intensity_class": "easy",
-          "planned_tss": 24.0,
-          "planned_duration_s": 2700,
+          "intensity_class": "moderate",
+          "planned_tss": 72.5,
+          "planned_duration_s": 3480,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Establish the 3rd weekly swim immediately.",
-          "external_id": "aithlete-2026-06-25-swim-Swim_aerobic"
+          "description": "As executed: 4x8' threshold (IF 0.90). Replaced the planned 3rd swim.",
+          "external_id": "aithlete-2026-06-25-run-Threshold_ru"
         },
         {
           "date": "2026-06-25",
           "sport": "bike",
-          "name": "Anaerobic bike (planned)",
+          "name": "Anaerobic bike (completed)",
           "category": "WORKOUT",
           "intensity_class": "hard",
-          "planned_tss": 110.0,
-          "planned_duration_s": 4500,
+          "planned_tss": 115.9,
+          "planned_duration_s": 4740,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "As scheduled: anaerobic intervals, e.g. 6-8x1-2' @ 120-150% FTP, full recoveries.",
+          "description": "As executed: 12x25-40s @ ~360-378 W (~130% FTP), sprint/anaerobic-capacity flavor.",
           "external_id": "aithlete-2026-06-25-bike-Anaerobic_bi"
         },
         {
@@ -212,15 +212,15 @@
         {
           "date": "2026-07-01",
           "sport": "swim",
-          "name": "Swim threshold",
+          "name": "Swim threshold (completed)",
           "category": "WORKOUT",
           "intensity_class": "moderate",
-          "planned_tss": 44.0,
-          "planned_duration_s": 3300,
+          "planned_tss": 28.0,
+          "planned_duration_s": 2100,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "~2000m @ CSS (1:50-1:55/100m).",
+          "description": "As executed: 20x100 on 2:00 avg 1:43/100 (1:37 -> 1:47). CSS re-baselined to 1:45-1:48.",
           "external_id": "aithlete-2026-07-01-swim-Swim_thresho"
         },
         {
@@ -252,17 +252,31 @@
           "external_id": "aithlete-2026-07-02-bike-Bike_Z2_endu"
         },
         {
+          "date": "2026-07-02",
+          "sport": "run",
+          "name": "Brick run Z2",
+          "category": "WORKOUT",
+          "intensity_class": "easy",
+          "planned_tss": 55.0,
+          "planned_duration_s": 3600,
+          "is_brick": true,
+          "target_type": "open",
+          "structure": [],
+          "description": "1h Z2 straight off the bike. Strictly easy — protect Saturday's race-sim.",
+          "external_id": "aithlete-2026-07-02-run-Brick_run_Z2"
+        },
+        {
           "date": "2026-07-03",
           "sport": "swim",
           "name": "Swim aerobic endurance",
           "category": "WORKOUT",
           "intensity_class": "easy",
-          "planned_tss": 24.0,
-          "planned_duration_s": 2700,
+          "planned_tss": 32.0,
+          "planned_duration_s": 3600,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "2500-3000m steady; third swim = needle-mover.",
+          "description": "15x200 on 4:00 @ ~1:50/100 (3:40/200), longer rest each 600m. One block buoy+snorkel, one snorkel-only, last block free full stroke.",
           "external_id": "aithlete-2026-07-03-swim-Swim_aerobic"
         },
         {
@@ -653,7 +667,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.",
+          "description": "Main set ~2000m @ CSS (target 1:45-1:48/100m). Build swim-specific fitness.",
           "external_id": "aithlete-2026-07-22-swim-Swim_thresho"
         },
         {
@@ -816,7 +830,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.",
+          "description": "Main set ~2000m @ CSS (target 1:45-1:48/100m). Build swim-specific fitness.",
           "external_id": "aithlete-2026-07-29-swim-Swim_thresho"
         },
         {
@@ -1100,7 +1114,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.",
+          "description": "Main set ~2000m @ CSS (target 1:45-1:48/100m). Build swim-specific fitness.",
           "external_id": "aithlete-2026-08-12-swim-Swim_thresho"
         },
         {
@@ -1249,7 +1263,7 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Main set ~2000m @ CSS (target 1:50-1:55/100m). Build swim-specific fitness.",
+          "description": "Main set ~2000m @ CSS (target 1:45-1:48/100m). Build swim-specific fitness.",
           "external_id": "aithlete-2026-08-19-swim-Swim_thresho"
         },
         {

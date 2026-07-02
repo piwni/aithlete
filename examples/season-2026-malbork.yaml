@@ -18,6 +18,10 @@ meta:
   volume_ceiling_hours:
     to_first_race: 14
     after_first_race: 17
+  # Critical swim speed, fed into swim session targets. Re-baselined 2026-07-01:
+  # 20x100 on 2:00 averaged 1:43/100 (1:37 -> 1:47 positive split), so the old
+  # 1:50-1:55 assumption was stale.
+  swim_css: "1:45-1:48/100m"
   equipment_note: >
     New disc rear wheel on the TT bike (bought pre-2025 Castle). Athlete estimate
     20-30 W saved at race speed. At IM power/speed that is ~+1.0-1.3 km/h, i.e.
@@ -100,8 +104,8 @@ weeks:
       - { day: 1, sport: swim, name: "Swim (completed)", intensity: easy, minutes: 45, desc: "Already logged." }
       - { day: 1, sport: run,  name: "Run easy (completed)", intensity: easy, minutes: 45, desc: "Already logged." }
       - { day: 2, sport: bike, name: "Z2 ride (completed)", intensity: easy, minutes: 75, desc: "Already logged." }
-      - { day: 3, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 45, desc: "Establish the 3rd weekly swim immediately." }
-      - { day: 3, sport: bike, name: "Anaerobic bike (planned)", intensity: hard, minutes: 75, desc: "As scheduled: anaerobic intervals, e.g. 6-8x1-2' @ 120-150% FTP, full recoveries." }
+      - { day: 3, sport: run,  name: "Threshold run 4x8' (completed)", intensity: moderate, minutes: 58, desc: "As executed: 4x8' threshold (IF 0.90). Replaced the planned 3rd swim." }
+      - { day: 3, sport: bike, name: "Anaerobic bike (completed)", intensity: hard, minutes: 79, desc: "As executed: 12x25-40s @ ~360-378 W (~130% FTP), sprint/anaerobic-capacity flavor." }
       - { day: 4, sport: bike, name: "Z2 brick ride (planned)", intensity: easy, minutes: 120, desc: "As scheduled." }
       - { day: 4, sport: run,  name: "Brick run (planned)", intensity: easy, minutes: 60, brick: true, desc: "As scheduled, off the bike." }
       - { day: 5, sport: run,  name: "Long run (planned)", intensity: easy, minutes: 90, desc: "As scheduled, Saturday AM." }
@@ -116,10 +120,11 @@ weeks:
       - { day: 0, sport: swim,  name: "Swim technique + aerobic", intensity: easy, minutes: 50, desc: "Drills + 8-12x100 @ CSS+5s. Limiter focus." }
       - { day: 0, sport: other, name: "Strength (lower + core)", intensity: easy, minutes: 45, desc: "Posterior chain + core; injury prevention." }
       - { day: 1, sport: bike,  name: "Bike key set", intensity: hard, minutes: 45, desc: "VO2/threshold sharpener: 5x4' @ 110-118% FTP or 3x12' @ 95-100%." }
-      - { day: 2, sport: swim,  name: "Swim threshold", intensity: moderate, minutes: 55, desc: "~2000m @ CSS (1:50-1:55/100m)." }
+      - { day: 2, sport: swim,  name: "Swim threshold (completed)", intensity: moderate, minutes: 35, desc: "As executed: 20x100 on 2:00 avg 1:43/100 (1:37 -> 1:47). CSS re-baselined to 1:45-1:48." }
       - { day: 2, sport: run,   name: "Run easy + strides", intensity: easy, minutes: 40, desc: "Z2 + 6x20s strides." }
       - { day: 3, sport: bike,  name: "Bike Z2 endurance", intensity: easy, minutes: 75, desc: "Aerobic spin; keep it easy — the quality this week is Tue key + Sat race-sim." }
-      - { day: 4, sport: swim,  name: "Swim aerobic endurance", intensity: easy, minutes: 45, desc: "2500-3000m steady; third swim = needle-mover." }
+      - { day: 3, sport: run,  name: "Brick run Z2", intensity: easy, minutes: 60, brick: true, desc: "1h Z2 straight off the bike. Strictly easy — protect Saturday's race-sim." }
+      - { day: 4, sport: swim,  name: "Swim aerobic endurance", intensity: easy, minutes: 60, desc: "15x200 on 4:00 @ ~1:50/100 (3:40/200), longer rest each 600m. One block buoy+snorkel, one snorkel-only, last block free full stroke." }
       - { day: 4, sport: other, name: "Mobility / core", intensity: easy, minutes: 30, desc: "Optional; keep easy." }
       - { day: 5, sport: bike,  name: "Half-IM race-sim ride", intensity: moderate, minutes: 155, desc: "TT bike in aero: 2x30' @ 90-95% FTP (~252-266 W = Syców target power), rest Z2. Fuel 70-90g carbs/h." }
       - { day: 5, sport: run,   name: "Half-IM pace brick run", intensity: moderate, minutes: 30, brick: true, desc: "Off the bike @ ~4:00/km = Syców target run pace. The key race rehearsal." }
