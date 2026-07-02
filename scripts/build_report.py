@@ -193,6 +193,13 @@ def main() -> None:
 
     # 2. Profile
     A("<h2 class='pb'>2 &middot; Athlete profile</h2><div class='grid2'><div>")
+    swim_css_spec = meta.get("swim_css")
+    if swim_css_spec:
+        swim_css_val = swim_css_spec if "/" in str(swim_css_spec) else f"{swim_css_spec}/100m"
+        swim_css_src = "season spec (pool threshold)"
+    else:
+        swim_css_val = f"{hms(prof['swim']['css_s_per_100m']['value'])}/100m"
+        swim_css_src = "intervals settings"
     A("<h3>Physiology (estimated)</h3><table><tr><th>Metric</th><th class='r'>Value</th>"
       "<th>Source</th></tr>")
     for k, v, src in [
@@ -202,7 +209,7 @@ def main() -> None:
          "intervals settings"),
         ("LTHR", f"{tv(prof['bike']['lthr_bpm'])} bpm", "intervals settings"),
         ("Max HR", f"{tv(prof['bike']['max_hr_bpm'])} bpm", "intervals settings"),
-        ("Swim CSS", f"{hms(prof['swim']['css_s_per_100m']['value'])}/100m", "intervals settings"),
+        ("Swim CSS", swim_css_val, swim_css_src),
         ("Bike decoupling", f"{tv(prof['durability']['bike']['decoupling_pct'])} %", "Pw:Hr"),
     ]:
         A(f"<tr><td>{esc(k)}</td><td class='r mono'>{esc(v)}</td>"

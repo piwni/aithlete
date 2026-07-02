@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "athlete_id": "athlete",
-  "generated_at": "2026-06-25T13:00:51.690309Z",
+  "generated_at": "2026-07-02T09:04:53.859976Z",
   "anthropometrics": {
     "sex": "other",
     "birthdate": null,
@@ -154,7 +154,7 @@
   },
   "swim": {
     "css_s_per_100m": {
-      "value": 120.0,
+      "value": 106.0,
       "provenance": "estimated",
       "source": "intervals.icu sport settings",
       "as_of": "2026-06-25"
