@@ -8,7 +8,8 @@
   },
   "run": {
     "lthr_bpm": 165,
-    "max_hr_bpm": 182
+    "max_hr_bpm": 182,
+    "threshold_pace_s_per_km": 210.0
   },
   "swim": {
     "lthr_bpm": 165,

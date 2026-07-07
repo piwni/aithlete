@@ -22,11 +22,17 @@ def tmp_data_dir(tmp_path, monkeypatch):
 
 
 @pytest.fixture
-def synth_frames():
+def synth_frames(tmp_path, monkeypatch):
     """Normalized (activities, wellness, settings) built in-memory — no disk."""
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    monkeypatch.setenv("AITHLETE_DATA_DIR", str(data_dir))
+    monkeypatch.setenv("AITHLETE_OFFLINE", "true")
+    get_config.cache_clear()
     data = synthetic.generate()
     acts = pd.DataFrame([_normalize_activity(a) for a in data["activities"]])
     acts["date"] = pd.to_datetime(acts["date"]).dt.date
     well = pd.DataFrame(merge_wellness(data["wellness"], []))
     well["date"] = pd.to_datetime(well["date"]).dt.date
-    return acts, well, data["settings"]
+    yield acts, well, data["settings"]
+    get_config.cache_clear()

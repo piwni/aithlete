@@ -74,3 +74,39 @@ def test_brick_without_transition_is_not_a_race():
 
 def test_empty_input():
     assert detect_triathlon_results(pd.DataFrame()) == []
+
+
+def test_split_half_without_transition():
+    """Bike+run at half-IM distances without transition (Gdynia 2023 pattern)."""
+    rows = [
+        _act("2023-08-06", "08:00:00", "bike", 88273, 10399, "Outdoor Cycling"),
+        _act("2023-08-06", "12:00:00", "run", 20748, 7047, "Outdoor Running"),
+    ]
+    results = detect_triathlon_results(pd.DataFrame(rows))
+    assert len(results) == 1
+    r = results[0]
+    assert r.bucket is DistanceBucket.HALF
+    assert r.bike_time_s == 10399 and r.run_time_s == 7047
+    assert r.swim_time_s is None
+
+
+def test_monolithic_workout_half():
+    """Single long Garmin Workout file (Syców 2025 pattern)."""
+    rows = [_act("2025-07-13", "07:00:00", "workout", 0, 18163, "Morning Workout")]
+    results = detect_triathlon_results(pd.DataFrame(rows))
+    assert len(results) == 1
+    assert results[0].bucket is DistanceBucket.HALF
+    assert results[0].total_time_s == 18163
+
+
+def test_merge_manual_races_adds_event_name():
+    from aithlete.analysis.races import merge_manual_races
+
+    auto = detect_triathlon_results(pd.DataFrame([
+        _act("2023-08-06", "08:00:00", "bike", 88273, 10399, "Outdoor Cycling"),
+        _act("2023-08-06", "12:00:00", "run", 20748, 7047, "Outdoor Running"),
+    ]))
+    merged = merge_manual_races(auto, {"races": [{
+        "date": "2023-08-06", "event_name": "Ironman 70.3 Gdynia",
+    }]})
+    assert merged[0].event_name == "Ironman 70.3 Gdynia"

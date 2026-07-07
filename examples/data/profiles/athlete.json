@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "athlete_id": "athlete",
-  "generated_at": "2026-07-02T09:04:53.859976Z",
+  "generated_at": "2026-07-07T05:34:12.952491Z",
   "anthropometrics": {
     "sex": "other",
     "birthdate": null,
@@ -102,10 +102,10 @@
       "as_of": null
     },
     "vo2max": {
-      "value": null,
-      "provenance": "unknown",
-      "source": null,
-      "as_of": null
+      "value": 59.0,
+      "provenance": "estimated",
+      "source": "Firstbeat estimate",
+      "as_of": "2026-06-25"
     },
     "lthr_bpm": {
       "value": 165.0,
@@ -122,10 +122,10 @@
   },
   "run": {
     "threshold_pace_s_per_km": {
-      "value": null,
-      "provenance": "unknown",
-      "source": null,
-      "as_of": null
+      "value": 210.0,
+      "provenance": "estimated",
+      "source": "intervals.icu sport settings",
+      "as_of": "2026-06-25"
     },
     "critical_speed_m_per_s": {
       "value": null,
@@ -134,10 +134,10 @@
       "as_of": null
     },
     "vo2max": {
-      "value": null,
-      "provenance": "unknown",
-      "source": null,
-      "as_of": null
+      "value": 67.0,
+      "provenance": "estimated",
+      "source": "Firstbeat estimate",
+      "as_of": "2026-06-25"
     },
     "lthr_bpm": {
       "value": 165.0,
@@ -324,6 +324,28 @@
       "event_name": null
     },
     {
+      "bucket": "1/2",
+      "date": "2023-08-06",
+      "total_time_s": 17446.0,
+      "swim_time_s": null,
+      "t1_s": null,
+      "bike_time_s": 10399.0,
+      "t2_s": null,
+      "run_time_s": 7047.0,
+      "conditions": {
+        "swim_type": null,
+        "wetsuit": null,
+        "terrain": null,
+        "heat_c": null,
+        "modified_distance": false,
+        "notes": null
+      },
+      "dnf": false,
+      "relay": false,
+      "aquabike": false,
+      "event_name": "Ironman 70.3 Gdynia"
+    },
+    {
       "bucket": "1/4",
       "date": "2024-06-08",
       "total_time_s": 10267.0,
@@ -366,6 +388,28 @@
       "relay": false,
       "aquabike": false,
       "event_name": null
+    },
+    {
+      "bucket": "1/2",
+      "date": "2025-07-13",
+      "total_time_s": 18164.0,
+      "swim_time_s": 2405.0,
+      "t1_s": 256.0,
+      "bike_time_s": 9444.0,
+      "t2_s": 166.0,
+      "run_time_s": 5871.0,
+      "conditions": {
+        "swim_type": null,
+        "wetsuit": null,
+        "terrain": null,
+        "heat_c": null,
+        "modified_distance": false,
+        "notes": null
+      },
+      "dnf": false,
+      "relay": false,
+      "aquabike": false,
+      "event_name": "Garmin Triathlon Tour Syców"
     },
     {
       "bucket": "full",

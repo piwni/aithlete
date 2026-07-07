@@ -6,6 +6,8 @@
 /data/context/*
 /data/reports/*
 /data/calendar-*.json
+/data/manual_metrics.json
+/data/manual_races.json
 !/data/**/.gitkeep
 
 # Keep curated, non-personal fixtures (synthetic athlete) but ignore real cassettes.

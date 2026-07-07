@@ -42,7 +42,43 @@ def load_wellness(config: Config | None = None) -> pd.DataFrame:
 
 def load_settings(config: Config | None = None) -> dict:
     config = config or get_config()
-    return load_json(config.raw_dir / "intervals" / "settings.json", default={})
+    settings = load_json(config.raw_dir / "intervals" / "settings.json", default={})
+    return _merge_manual_metrics(settings, load_manual_metrics(config))
+
+
+def load_manual_metrics(config: Config | None = None) -> dict:
+    """User-authored metrics that no connector provides (e.g. Garmin VO2max).
+
+    Lives at ``<data_dir>/manual_metrics.json`` — OUTSIDE raw/ so `fetch` never
+    overwrites it.
+    """
+    config = config or get_config()
+    return load_json(config.data_dir / "manual_metrics.json", default={})
+
+
+def load_manual_races(config: Config | None = None) -> dict:
+    """User-authored race results / names / leg splits not auto-detected.
+
+    Lives at ``<data_dir>/manual_races.json`` — merged over auto-detection by date.
+    """
+    config = config or get_config()
+    return load_json(config.data_dir / "manual_races.json", default={})
+
+
+def _merge_manual_metrics(settings: dict, manual: dict) -> dict:
+    """Overlay manual values onto fetched settings. Manual wins (it's the value
+    the athlete explicitly supplied); connector nulls never clobber it."""
+    if not manual:
+        return settings
+    out = dict(settings)
+    for key, val in manual.items():
+        if isinstance(val, dict):
+            merged = dict(out.get(key) or {})
+            merged.update({k: v for k, v in val.items() if v is not None})
+            out[key] = merged
+        elif val is not None:
+            out[key] = val
+    return out
 
 
 def data_as_of(activities: pd.DataFrame, wellness: pd.DataFrame) -> dt.date:

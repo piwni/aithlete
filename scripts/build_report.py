@@ -200,6 +200,21 @@ def main() -> None:
     else:
         swim_css_val = f"{hms(prof['swim']['css_s_per_100m']['value'])}/100m"
         swim_css_src = "intervals settings"
+    def _node(*keys):
+        n = prof
+        for k in keys:
+            n = n.get(k, {}) if isinstance(n, dict) else {}
+        return n if isinstance(n, dict) else {}
+
+    def vo2_row(node):
+        v = node.get("value")
+        return ("—", "—") if v is None else (f"{v:g} ml/kg/min", node.get("source") or "—")
+
+    run_thr = _node("run", "threshold_pace_s_per_km")
+    run_thr_val = "—" if run_thr.get("value") is None else f"{hms(run_thr['value'])}/km"
+    vo2_bike_val, vo2_bike_src = vo2_row(_node("bike", "vo2max"))
+    vo2_run_val, vo2_run_src = vo2_row(_node("run", "vo2max"))
+
     A("<h3>Physiology (estimated)</h3><table><tr><th>Metric</th><th class='r'>Value</th>"
       "<th>Source</th></tr>")
     for k, v, src in [
@@ -207,6 +222,9 @@ def main() -> None:
          prof['anthropometrics']['weight_kg'].get('source')),
         ("FTP (bike)", f"{tv(prof['bike']['ftp_w'])} W ({tv(prof['bike']['ftp_w_per_kg'])} W/kg)",
          "intervals settings"),
+        ("VO2max (bike)", vo2_bike_val, vo2_bike_src),
+        ("Run threshold", run_thr_val, run_thr.get("source") or "—"),
+        ("VO2max (run)", vo2_run_val, vo2_run_src),
         ("LTHR", f"{tv(prof['bike']['lthr_bpm'])} bpm", "intervals settings"),
         ("Max HR", f"{tv(prof['bike']['max_hr_bpm'])} bpm", "intervals settings"),
         ("Swim CSS", swim_css_val, swim_css_src),
@@ -251,8 +269,15 @@ def main() -> None:
       "<th class='r'>Swim</th><th class='r'>Bike</th><th class='r'>Run</th><th>Notes</th></tr>")
     for r in results:
         sm, bm, rm = BUCKET_M.get(r["bucket"], (0, 0, 0))
-        note = [pace_100(r["swim_time_s"], sm), kmh(bm, r["bike_time_s"]),
-                pace_km(r["run_time_s"], rm)] if r["bucket"] in BUCKET_M else []
+        note = []
+        if r["bucket"] in BUCKET_M:
+            sm, bm, rm = BUCKET_M[r["bucket"]]
+            if r.get("swim_time_s"):
+                note.append(pace_100(r["swim_time_s"], sm))
+            if r.get("bike_time_s"):
+                note.append(kmh(bm, r["bike_time_s"]))
+            if r.get("run_time_s"):
+                note.append(pace_km(r["run_time_s"], rm))
         A(f"<tr><td class='mono'>{esc(r['date'])}</td><td>{esc(r['event_name'] or '—')}</td>"
           f"<td>{esc(r['bucket'])}</td><td class='r mono'>{hms(r['total_time_s'])}</td>"
           f"<td class='r mono'>{hms(r['swim_time_s'])}</td><td class='r mono'>{hms(r['bike_time_s'])}</td>"

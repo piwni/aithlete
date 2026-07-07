@@ -12,7 +12,8 @@ import datetime as dt
 import pandas as pd
 
 from aithlete.analysis import metrics
-from aithlete.analysis.races import detect_triathlon_results
+from aithlete.analysis.loaders import load_manual_races
+from aithlete.analysis.races import detect_triathlon_results, merge_manual_races
 from aithlete.models.common import Sport, Tracked, Trend
 from aithlete.models.profile import (
     AthleteProfile,
@@ -127,6 +128,8 @@ def build_profile(
     )
 
     # Competition history: reconstruct finished triathlons from activities.
-    p.results = detect_triathlon_results(activities)
+    p.results = merge_manual_races(
+        detect_triathlon_results(activities), load_manual_races(),
+    )
 
     return p.enforce_estimate_only()
