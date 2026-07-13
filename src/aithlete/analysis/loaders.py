@@ -40,6 +40,18 @@ def load_wellness(config: Config | None = None) -> pd.DataFrame:
     return df
 
 
+def load_nutrition(config: Config | None = None) -> pd.DataFrame:
+    """Daily nutrition totals from the Fitatu partitioned store (one row/day)."""
+    config = config or get_config()
+    df = _read_partitions(config.raw_dir / "fitatu" / "nutrition")
+    if df.empty:
+        return df
+    df["date"] = pd.to_datetime(df["date"]).dt.date
+    df = df.drop_duplicates(subset="date", keep="last")
+    df = df.sort_values("date").reset_index(drop=True)
+    return df
+
+
 def load_settings(config: Config | None = None) -> dict:
     config = config or get_config()
     settings = load_json(config.raw_dir / "intervals" / "settings.json", default={})

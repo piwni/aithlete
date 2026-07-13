@@ -5,6 +5,8 @@
     aithlete readiness   compute today's readiness flag (+persist)
     aithlete profile     build a baseline provenance-tagged profile (+persist)
     aithlete context     build the bounded context digest the agent reads (+persist)
+    aithlete fitatu-import  ingest Fitatu nutrition exports -> raw store
+    aithlete nutrition   build the bounded nutrition digest (fueling+recovery) (+persist)
     aithlete validate    run the deterministic guardrails against a plan JSON
     aithlete push        validate then push a plan to intervals.icu (gated)
 """
@@ -21,13 +23,22 @@ from rich.table import Table
 from aithlete import knowledge
 from aithlete.analysis import context as context_mod
 from aithlete.analysis import metrics, profile_builder
+from aithlete.analysis import nutrition as nutrition_mod
 from aithlete.analysis import readiness as readiness_mod
-from aithlete.analysis.loaders import data_as_of, load_activities, load_settings, load_wellness
+from aithlete.analysis.loaders import (
+    data_as_of,
+    load_activities,
+    load_nutrition,
+    load_settings,
+    load_wellness,
+)
 from aithlete.config import get_config
+from aithlete.connectors import fitatu
 from aithlete.connectors.fetch import fetch_all
 from aithlete.connectors.intervals import IntervalsClient
 from aithlete.models.plan import PlanInputs, TrainingPlan
 from aithlete.models.profile import AthleteProfile
+from aithlete.models.readiness import ReadinessFlag
 from aithlete.planning.validator import validate_plan
 from aithlete.planning.workout_builder import garmin_sync_warnings, plan_to_events
 from aithlete.storage.io import load_json, save_json
@@ -173,6 +184,68 @@ def context(athlete: str = typer.Option("athlete", help="Athlete id.")):
     console.print(f"[green]Wrote context digest[/] {context_path(athlete)}")
     console.print(f"  sha256={digest.sha256()[:16]} | readiness={digest.readiness_flag.value} | "
                   f"races={len(digest.upcoming_races)} | missing={digest.missing}")
+
+
+@app.command(name="fitatu-import")
+def fitatu_import(
+    from_: str = typer.Option(
+        None, "--from", help="CSV file, directory, or glob of Fitatu meal_plan exports. "
+        "Defaults to data/raw/fitatu/_inbox/*.csv.",
+    ),
+):
+    """Ingest Fitatu meal-plan exports into the partitioned nutrition store."""
+    inbox = get_config().raw_dir / "fitatu" / "_inbox"
+    paths = fitatu.resolve_inputs(from_, inbox)
+    if not paths:
+        hint = from_ or str(inbox)
+        console.print(f"[yellow]No Fitatu CSVs found at[/] {hint}")
+        raise typer.Exit(1)
+    res = fitatu.import_exports(paths)
+    win = f" window={res['window'][0]}..{res['window'][1]}" if res["window"] else ""
+    console.print(f"[bold green]Imported[/] {res['days']} day(s) of nutrition from "
+                  f"{res['files']} file(s){win} -> years {res['years']}")
+
+
+@app.command()
+def nutrition(athlete: str = typer.Option("athlete", help="Athlete id.")):
+    """Build the bounded nutrition digest (fueling + recovery) and persist it."""
+    nut = load_nutrition()
+    if nut.empty:
+        console.print("[yellow]No nutrition data. Run `aithlete fitatu-import` first.[/]")
+        raise typer.Exit(1)
+    acts, well = _load_frames()
+    prof = None
+    prof_data = load_json(profile_path(athlete))
+    if prof_data:
+        prof = AthleteProfile.model_validate(prof_data)
+    digest = nutrition_mod.build_digest(nut, acts, well, profile=prof, athlete_id=athlete)
+    out = get_config().context_dir / f"nutrition-{athlete}.json"
+    save_json(out, digest.model_dump(mode="json"))
+
+    ea = digest.energy_availability_kcal_per_kg
+    color = {"green": "green", "amber": "yellow", "red": "red"}[digest.energy_availability_flag.value]
+    console.print(f"Energy availability: [bold {color}]{digest.energy_availability_flag.value.upper()}[/] "
+                  f"({ea.value} {ea.unit}) over {digest.days_logged} logged days "
+                  f"[{digest.window_from}..{digest.window_to}]")
+    console.print(f"  intake {digest.mean_intake_kcal.value} kcal/day | "
+                  f"carbs {digest.carbs_g_per_kg.value} g/kg | "
+                  f"protein {digest.protein_g_per_kg.value} g/kg ({digest.protein_flag.value}) | "
+                  f"fat {digest.fat_g_per_kg.value} g/kg")
+    if digest.key_session_fuel_pct.value is not None:
+        console.print(f"  key-session fueling: {digest.key_session_fuel_pct.value}% of hard/long days hit carb target; "
+                      f"under-fuelled {digest.carb_underfuel_days_pct.value}% of all days")
+    low = [m for m in digest.micronutrient_flags if m.flag is not ReadinessFlag.GREEN and m.reliable]
+    if low:
+        cmap = {"amber": "yellow", "red": "red"}
+        console.print("  micronutrient flags: " + ", ".join(
+            f"[{cmap[m.flag.value]}]{m.nutrient} {m.pct_of_target:.0f}%[/]" for m in low))
+    under = [m.nutrient for m in digest.micronutrient_flags if not m.reliable]
+    if under:
+        console.print(f"  [dim]under-logged (intake understated, not assessed): {', '.join(under)}[/]")
+    for c in digest.recovery_correlations:
+        if c.notable:
+            console.print(f"  [dim]assoc[/] {c.driver} -> {c.outcome}: r={c.r} (n={c.n})")
+    console.print(f"[dim]saved {out} | sha256={digest.sha256()[:16]}[/]")
 
 
 @app.command()
