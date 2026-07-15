@@ -152,15 +152,16 @@ weeks:
     focus: "Post-race reset / aerobic rebuild"
     type: explicit
     sessions:
-      - { day: 0, sport: other, name: "Off / walk", intensity: easy, minutes: 30, desc: "Full recovery day after the race." }
-      - { day: 1, sport: swim, name: "Swim recovery", intensity: easy, minutes: 40, desc: "Loosen up, technique only." }
-      - { day: 2, sport: bike, name: "Easy spin", intensity: easy, minutes: 60, desc: "Z1-2 flush." }
-      - { day: 2, sport: run,  name: "Run easy", intensity: easy, minutes: 30, desc: "Short, easy." }
-      - { day: 3, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 50, desc: "Back to swim volume." }
-      - { day: 4, sport: bike, name: "Bike tempo (light)", intensity: moderate, minutes: 60, desc: "2x15' @ 85-90% FTP; re-engage." }
-      - { day: 5, sport: bike, name: "Long ride (Z2)", intensity: easy, minutes: 150, desc: "Rebuild aerobic base on TT bike." }
-      - { day: 5, sport: run,  name: "Brick run", intensity: easy, minutes: 25, brick: true, desc: "Short brick off the ride." }
-      - { day: 6, sport: run,  name: "Long run (Z2)", intensity: easy, minutes: 75, desc: "Easy aerobic; no intensity." }
+      - { day: 0, sport: other, name: "Off / walk (completed)", intensity: easy, minutes: 30, desc: "Full recovery day after the race." }
+      - { day: 1, sport: swim,  name: "Swim recovery (completed)", intensity: easy, minutes: 40, desc: "Loosen up, technique only; swim feeling strong post-Syców." }
+      - { day: 2, sport: bike,  name: "Easy spin (planned)", intensity: easy, minutes: 60, desc: "Z1-2 flush." }
+      - { day: 2, sport: run,   name: "Run easy (planned)", intensity: easy, minutes: 30, desc: "Short, easy." }
+      - { day: 3, sport: other, name: "Gym (planned)", intensity: moderate, minutes: 75, desc: "Harder gym ~75', but not leg-killer — upper/core + light posterior chain so tempo bike stays clean after." }
+      - { day: 3, sport: bike,  name: "Bike tempo (light)", intensity: moderate, minutes: 60, desc: "2x15' @ 85-90% FTP; re-engage after gym." }
+      - { day: 4, sport: swim,  name: "Swim aerobic", intensity: easy, minutes: 50, desc: "Back to swim volume; keep the Tue/Fri swim frequency." }
+      - { day: 5, sport: bike,  name: "Long ride (Z2)", intensity: easy, minutes: 150, desc: "Rebuild aerobic base on TT bike." }
+      - { day: 5, sport: run,   name: "Brick run", intensity: easy, minutes: 25, brick: true, desc: "Short brick off the ride." }
+      - { day: 6, sport: run,   name: "Long run (Z2)", intensity: easy, minutes: 75, desc: "Easy aerobic; no intensity." }
 
   - index: 5
     start: 2026-07-20

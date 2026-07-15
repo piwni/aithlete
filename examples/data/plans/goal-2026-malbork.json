@@ -2,7 +2,7 @@
   "schema_version": 1,
   "athlete_id": "athlete",
   "plan_id": "goal-2026-malbork",
-  "generated_at": "2026-07-02T08:36:23.857363Z",
+  "generated_at": "2026-07-15T05:48:19.507111Z",
   "start_date": "2026-06-22",
   "goal_race": {
     "name": "Malbork Castle Triathlon (Full IM)",
@@ -482,7 +482,7 @@
         {
           "date": "2026-07-13",
           "sport": "other",
-          "name": "Off / walk",
+          "name": "Off / walk (completed)",
           "category": "WORKOUT",
           "intensity_class": "easy",
           "planned_tss": 11.0,
@@ -491,12 +491,12 @@
           "target_type": "open",
           "structure": [],
           "description": "Full recovery day after the race.",
-          "external_id": "aithlete-2026-07-13-other-Off_/_walk"
+          "external_id": "aithlete-2026-07-13-other-Off_/_walk_("
         },
         {
           "date": "2026-07-14",
           "sport": "swim",
-          "name": "Swim recovery",
+          "name": "Swim recovery (completed)",
           "category": "WORKOUT",
           "intensity_class": "easy",
           "planned_tss": 21.3,
@@ -504,13 +504,13 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Loosen up, technique only.",
+          "description": "Loosen up, technique only; swim feeling strong post-Syców.",
           "external_id": "aithlete-2026-07-14-swim-Swim_recover"
         },
         {
           "date": "2026-07-15",
           "sport": "bike",
-          "name": "Easy spin",
+          "name": "Easy spin (planned)",
           "category": "WORKOUT",
           "intensity_class": "easy",
           "planned_tss": 46.0,
@@ -519,12 +519,12 @@
           "target_type": "open",
           "structure": [],
           "description": "Z1-2 flush.",
-          "external_id": "aithlete-2026-07-15-bike-Easy_spin"
+          "external_id": "aithlete-2026-07-15-bike-Easy_spin_(p"
         },
         {
           "date": "2026-07-15",
           "sport": "run",
-          "name": "Run easy",
+          "name": "Run easy (planned)",
           "category": "WORKOUT",
           "intensity_class": "easy",
           "planned_tss": 27.5,
@@ -533,24 +533,24 @@
           "target_type": "open",
           "structure": [],
           "description": "Short, easy.",
-          "external_id": "aithlete-2026-07-15-run-Run_easy"
+          "external_id": "aithlete-2026-07-15-run-Run_easy_(pl"
         },
         {
           "date": "2026-07-16",
-          "sport": "swim",
-          "name": "Swim aerobic",
+          "sport": "other",
+          "name": "Gym (planned)",
           "category": "WORKOUT",
-          "intensity_class": "easy",
-          "planned_tss": 26.7,
-          "planned_duration_s": 3000,
+          "intensity_class": "moderate",
+          "planned_tss": 37.5,
+          "planned_duration_s": 4500,
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "Back to swim volume.",
-          "external_id": "aithlete-2026-07-16-swim-Swim_aerobic"
+          "description": "Harder gym ~75', but not leg-killer — upper/core + light posterior chain so tempo bike stays clean after.",
+          "external_id": "aithlete-2026-07-16-other-Gym_(planned"
         },
         {
-          "date": "2026-07-17",
+          "date": "2026-07-16",
           "sport": "bike",
           "name": "Bike tempo (light)",
           "category": "WORKOUT",
@@ -560,8 +560,22 @@
           "is_brick": false,
           "target_type": "open",
           "structure": [],
-          "description": "2x15' @ 85-90% FTP; re-engage.",
-          "external_id": "aithlete-2026-07-17-bike-Bike_tempo_("
+          "description": "2x15' @ 85-90% FTP; re-engage after gym.",
+          "external_id": "aithlete-2026-07-16-bike-Bike_tempo_("
+        },
+        {
+          "date": "2026-07-17",
+          "sport": "swim",
+          "name": "Swim aerobic",
+          "category": "WORKOUT",
+          "intensity_class": "easy",
+          "planned_tss": 26.7,
+          "planned_duration_s": 3000,
+          "is_brick": false,
+          "target_type": "open",
+          "structure": [],
+          "description": "Back to swim volume; keep the Tue/Fri swim frequency.",
+          "external_id": "aithlete-2026-07-17-swim-Swim_aerobic"
         },
         {
           "date": "2026-07-18",
