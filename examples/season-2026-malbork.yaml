@@ -166,9 +166,20 @@ weeks:
   - index: 5
     start: 2026-07-20
     phase: build
-    focus: "IM build 1 — volume up, TT-bike aero, intro IM-pace"
-    type: microcycle
-    microcycle: { target_h: 13.0, key: hard, long_ride_h: 3.0, long_run_h: 1.5, brick_run_h: 0.75, long_ride_blocks: "3x20' @ 200 W" }
+    focus: "IM build 1 — intro IM-pace; brick Thu, long run Fri (calendar)"
+    type: explicit
+    sessions:
+      - { day: 0, sport: swim,  name: "Swim technique + aerobic (completed)", intensity: easy, minutes: 62, desc: "Drills + 8-12x100 aerobic @ CSS+5s. Done Mon." }
+      - { day: 0, sport: other, name: "Strength (lower + core) (completed)", intensity: easy, minutes: 56, desc: "Posterior chain + core. Done Mon." }
+      - { day: 1, sport: bike,  name: "Bike key set", intensity: hard, minutes: 59, desc: "VO2/threshold 5x4' @ 110-118% FTP or 3x12' @ 95-100% FTP." }
+      - { day: 2, sport: swim,  name: "Swim threshold", intensity: moderate, minutes: 68, desc: "Main set ~2000m @ CSS (target 1:45-1:48/100m)." }
+      - { day: 2, sport: run,   name: "Run easy + strides", intensity: easy, minutes: 56, desc: "Z2 aerobic + 6x20s strides. Off-feet recovery from bike key day." }
+      - { day: 3, sport: bike,  name: "Long ride (Z2) + brick", intensity: easy, minutes: 180, desc: "TT bike in aero. IM-pace work: 3x20' @ 200 W (rest Z2). Fuel 70-90g carbs/h." }
+      - { day: 3, sport: run,   name: "Brick run off bike", intensity: easy, minutes: 45, brick: true, desc: "First 10' @ IM/half race pace off the bike, then Z2." }
+      - { day: 4, sport: run,   name: "Long run (Z2)", intensity: easy, minutes: 90, desc: "Aerobic long run Fri AM; last 15-20' @ race effort if fresh after Thu brick." }
+      - { day: 5, sport: swim,  name: "Swim aerobic endurance", intensity: easy, minutes: 62, desc: "Continuous + pull/paddles; 2500-3000m steady." }
+      - { day: 5, sport: other, name: "Mobility / core", intensity: easy, minutes: 37, desc: "Optional; keep easy." }
+      - { day: 6, sport: bike,  name: "Bike tempo/sweet-spot", intensity: moderate, minutes: 67, desc: "3x20' @ ~230 W (sweet spot). Aerobic-power durability." }
 
   - index: 6
     start: 2026-07-27
