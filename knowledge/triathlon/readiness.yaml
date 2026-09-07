@@ -32,7 +32,7 @@ rules:
   # Resting HR (bpm) elevation vs baseline.
   # Ref: classic overreaching markers; Friel.
   resting_hr:
-    input: "morning RHR vs 30-day baseline"
+    input: "morning RHR vs 60-day baseline"
     amber_elevation_bpm: 5
     red_elevation_bpm: 10
     amber_elevation_pct: 8

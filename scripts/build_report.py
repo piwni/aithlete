@@ -152,8 +152,8 @@ def main() -> None:
     A(kpi(f"{tv(load['combined']['ctl'])}", "CTL (combined)"))
     A(kpi(f"{tv(load['combined']['atl'])}", "ATL"))
     A(kpi(f"{tv(load['combined']['tsb'])}", "TSB (form)"))
-    A(kpi(f"{tv(prof['health']['hrv_rmssd_ms'])} ms", "HRV (rMSSD)"))
-    A(kpi(f"{tv(prof['health']['resting_hr_bpm'])} bpm", "Resting HR"))
+    A(kpi(f"{tv(prof['health']['hrv_baseline_60d_ms'])} ms", "HRV (60d rMSSD)"))
+    A(kpi(f"{tv(prof['health']['resting_hr_baseline_bpm'])} bpm", "Resting HR (60d)"))
     A(kpi(f"{total_h:.0f} h", "Logged"))
     A("</div>")
 
@@ -236,10 +236,10 @@ def main() -> None:
     A("<h3>Health / readiness</h3><table><tr><th>Metric</th><th class='r'>Now</th>"
       "<th class='r'>Baseline</th><th>Trend</th></tr>"
       f"<tr><td>HRV rMSSD</td><td class='r mono'>{tv(prof['health']['hrv_rmssd_ms'])}</td>"
-      f"<td class='r mono'>{tv(prof['health']['hrv_baseline_7d_ms'])} (7d)</td>"
+      f"<td class='r mono'>{tv(prof['health']['hrv_baseline_60d_ms'])} (60d)</td>"
       f"<td>{esc(prof['health']['hrv_trend'])}</td></tr>"
       f"<tr><td>Resting HR</td><td class='r mono'>{tv(prof['health']['resting_hr_bpm'])}</td>"
-      f"<td class='r mono'>{tv(prof['health']['resting_hr_baseline_bpm'])}</td>"
+      f"<td class='r mono'>{tv(prof['health']['resting_hr_baseline_bpm'])} (60d)</td>"
       f"<td>{esc(prof['health']['resting_hr_trend'])}</td></tr>"
       f"<tr><td>Sleep</td><td class='r mono'>{tv(prof['health']['sleep_avg_hours'])} h</td>"
       "<td class='r'>—</td><td>—</td></tr></table></div><div>")

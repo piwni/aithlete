@@ -233,31 +233,32 @@ weeks:
   - index: 10
     start: 2026-08-24
     phase: taper
-    focus: "Taper 1 — volume down, keep sharpness"
+    focus: "Taper 1 — brick Fri PM, long run Sat AM, OW swim Sun (calendar)"
     type: explicit
     sessions:
-      - { day: 0, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 45, desc: "Volume coming down." }
-      - { day: 1, sport: bike, name: "Bike race-power touches", intensity: moderate, minutes: 75, desc: "3x10' @ IM power (~200 W)." }
-      - { day: 2, sport: swim, name: "Swim race-pace", intensity: moderate, minutes: 40, desc: "IM swim pace feel." }
-      - { day: 2, sport: run,  name: "Run easy + strides", intensity: easy, minutes: 40, desc: "Sharpen." }
-      - { day: 3, sport: bike, name: "Bike tempo (light)", intensity: moderate, minutes: 60, desc: "2x12' @ sweet spot." }
-      - { day: 4, sport: swim, name: "Swim aerobic", intensity: easy, minutes: 40, desc: "Keep feel." }
-      - { day: 5, sport: bike, name: "Last long ride", intensity: easy, minutes: 150, desc: "2.5h with blocks @ IM power (~200 W), dress-rehearse fuel + position." }
-      - { day: 5, sport: run,  name: "Brick run", intensity: easy, minutes: 20, brick: true, desc: "Short brick @ IM run pace." }
-      - { day: 6, sport: run,  name: "Long run (reduced)", intensity: easy, minutes: 80, desc: "Last longer run; easy." }
+      - { day: 0, sport: swim, name: "Swim aerobic (completed)", intensity: easy, minutes: 34, desc: "2000m easy. Done Mon." }
+      - { day: 1, sport: bike, name: "Bike race-power touches (completed)", intensity: moderate, minutes: 75, desc: "75' outdoor; NP 165 W. Done Tue." }
+      - { day: 2, sport: swim, name: "Swim race-pace (completed)", intensity: moderate, minutes: 30, desc: "2000m IM-pace feel. Done Wed." }
+      - { day: 2, sport: run,  name: "Run easy + strides (completed)", intensity: easy, minutes: 44, desc: "9.4 km easy. Done Wed." }
+      - { day: 3, sport: bike, name: "Bike tempo (light) (completed)", intensity: moderate, minutes: 60, desc: "Hills around Mieroszów. Done Thu." }
+      - { day: 3, sport: other, name: "Hike (completed)", intensity: easy, minutes: 169, desc: "Easy hike, HR ~75. Extra volume, not a key session." }
+      - { day: 4, sport: bike, name: "Last long ride + brick (completed)", intensity: easy, minutes: 150, desc: "Fri PM. 2:30 / 102 km, NP 162 W. Fuel + position dress-rehearsal." }
+      - { day: 4, sport: run,  name: "Brick run off bike (completed)", intensity: easy, minutes: 21, brick: true, desc: "5 km off the bike ~4:14/km. Done Fri PM." }
+      - { day: 5, sport: run,  name: "Long run (reduced) (completed)", intensity: easy, minutes: 71, desc: "Sat AM. 16.1 km; last longer run." }
+      - { day: 6, sport: swim, name: "OW swim (completed)", intensity: easy, minutes: 31, desc: "Sun. 1600m open water, easy. Moved from Fri." }
 
   - index: 11
     start: 2026-08-31
     phase: taper
-    focus: "Taper 2 -> RACE Malbork (Sun)"
+    focus: "Taper 2 -> RACE Malbork (Sun) — rest Mon, easy Tue"
     type: explicit
     sessions:
-      - { day: 0, sport: swim, name: "Swim easy + pace", intensity: easy, minutes: 35, desc: "Short, 4x100 @ IM pace." }
-      - { day: 1, sport: bike, name: "Bike openers", intensity: moderate, minutes: 50, desc: "3x5' @ IM power (~200 W) + 3x30s." }
+      - { day: 1, sport: swim, name: "Swim easy (light)", intensity: easy, minutes: 30, desc: "Short, keep feel. No fatigue." }
+      - { day: 1, sport: bike, name: "Easy spin", intensity: easy, minutes: 40, desc: "Z1-2 legs open. Race-power openers stay Friday." }
       - { day: 2, sport: run,  name: "Run easy + strides", intensity: easy, minutes: 30, desc: "4x20s strides." }
       - { day: 3, sport: swim, name: "Swim shakeout", intensity: easy, minutes: 25, desc: "Feel for the water." }
       - { day: 3, sport: bike, name: "Spin", intensity: easy, minutes: 30, desc: "Legs open." }
-      - { day: 4, sport: bike, name: "Pre-race openers", intensity: moderate, minutes: 30, desc: "A few race-power touches." }
+      - { day: 4, sport: bike, name: "Pre-race openers", intensity: moderate, minutes: 30, desc: "A few race-power touches @ ~200 W + 3x30s." }
       - { day: 4, sport: run,  name: "Shakeout", intensity: easy, minutes: 15, desc: "10-15' + strides." }
       - { day: 5, sport: swim, name: "Swim shakeout", intensity: easy, minutes: 15, desc: "Pre-race; very short." }
       - { day: 6, sport: other, name: "RACE: Malbork Full IM", intensity: easy, minutes: 570, category: race, tss: 465, desc: "Target 9:30 (stretch 9:20). Swim 75' / bike ~5:00-5:10 @ ~200 W NP (disc/aero) / run ~3:05-3:15." }

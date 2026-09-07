@@ -105,7 +105,7 @@ def analyze():
         console.print(f"Intensity (time): easy {dist.get('easy',0)*100:.0f}% / "
                       f"moderate {dist.get('moderate',0)*100:.0f}% / hard {dist.get('hard',0)*100:.0f}%")
     console.print(f"HRV 60d baseline: {base.get('hrv_baseline_60d_ms')} ms (SWC {base.get('hrv_swc_ms')}) | "
-                  f"RHR baseline: {base.get('resting_hr_baseline_bpm')} bpm")
+                  f"RHR 60d baseline: {base.get('resting_hr_baseline_bpm')} bpm")
     for w in metrics.weekly_summary(acts, weeks=4):
         console.print(f"  week {w['week_start']}: {w['tss']:.0f} TSS / {w['hours']:.1f} h")
 

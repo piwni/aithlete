@@ -122,7 +122,7 @@ def build_profile(
         hrv_swc_ms=Tracked.estimated(baselines["hrv_swc_ms"], "computed 0.5*CV", as_of) if baselines.get("hrv_swc_ms") else Tracked.unknown(),
         hrv_trend=_trend(baselines.get("hrv_trend")),
         resting_hr_bpm=Tracked.estimated(baselines["resting_hr_latest_bpm"], "wearable RHR", as_of) if baselines.get("resting_hr_latest_bpm") else Tracked.unknown(),
-        resting_hr_baseline_bpm=Tracked.estimated(baselines["resting_hr_baseline_bpm"], "computed 30d mean", as_of) if baselines.get("resting_hr_baseline_bpm") else Tracked.unknown(),
+        resting_hr_baseline_bpm=Tracked.estimated(baselines["resting_hr_baseline_bpm"], "computed 60d mean", as_of) if baselines.get("resting_hr_baseline_bpm") else Tracked.unknown(),
         resting_hr_trend=_trend(baselines.get("resting_hr_trend")),
         sleep_avg_hours=Tracked.estimated(baselines["sleep_avg_hours"], "wearable sleep", as_of) if baselines.get("sleep_avg_hours") else Tracked.unknown(),
     )

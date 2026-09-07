@@ -235,14 +235,14 @@
     "value": null
   },
   "resting_hr_bpm": {
-    "date_from": null,
+    "date_from": "2026-04-15",
     "date_to": "2026-06-14",
     "provenance": "estimated",
     "sample_count": 0,
-    "source": "computed 30d mean",
+    "source": "computed 60d mean",
     "trend": "down",
     "unit": "bpm",
-    "value": 49.6
+    "value": 50.8
   },
   "run_threshold_pace_s_per_km": {
     "date_from": null,

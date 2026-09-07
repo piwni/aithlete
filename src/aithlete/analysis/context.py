@@ -86,7 +86,8 @@ def build_digest(
                                      date_from=as_of - dt.timedelta(days=60), date_to=as_of,
                                      trend=profile.health.hrv_trend)
     digest.resting_hr_bpm = _dv(profile.health.resting_hr_baseline_bpm, "bpm",
-                                date_to=as_of, trend=profile.health.resting_hr_trend)
+                                date_from=as_of - dt.timedelta(days=60), date_to=as_of,
+                                trend=profile.health.resting_hr_trend)
 
     # Load.
     load = metrics.latest_load(activities)

@@ -63,8 +63,8 @@ def evaluate(
 
     # --- Resting HR ---
     if not w.empty and w["resting_hr_bpm"].notna().any():
-        last30 = w[w["date"] > as_of - dt.timedelta(days=30)]["resting_hr_bpm"].dropna()
-        base = last30.mean() if len(last30) else None
+        last60 = w[w["date"] > as_of - dt.timedelta(days=60)]["resting_hr_bpm"].dropna()
+        base = last60.mean() if len(last60) else None
         latest = w["resting_hr_bpm"].dropna().iloc[-1]
         flag, msg = ReadinessFlag.GREEN, "Resting HR normal"
         if base is not None:

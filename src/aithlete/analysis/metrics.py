@@ -159,7 +159,6 @@ def hrv_rhr_baselines(wellness: pd.DataFrame, as_of: dt.date | None = None) -> d
     df = df.sort_values("date")
     as_of = as_of or max(df["date"])
     last60 = df[df["date"] > as_of - dt.timedelta(days=60)]
-    last30 = df[df["date"] > as_of - dt.timedelta(days=30)]
     last7 = df[df["date"] > as_of - dt.timedelta(days=7)]
 
     hrv60 = last60["hrv_rmssd_ms"].dropna()
@@ -169,7 +168,7 @@ def hrv_rhr_baselines(wellness: pd.DataFrame, as_of: dt.date | None = None) -> d
         cv = hrv60.std(ddof=1) / hrv60.mean()
         swc = round(0.5 * cv * hrv60.mean(), 2)  # 0.5 * within-person CV, in ms
 
-    rhr30 = last30["resting_hr_bpm"].dropna()
+    rhr60 = last60["resting_hr_bpm"].dropna()
 
     return {
         "hrv_baseline_7d_ms": round(float(hrv7.mean()), 1) if len(hrv7) else None,
@@ -177,7 +176,7 @@ def hrv_rhr_baselines(wellness: pd.DataFrame, as_of: dt.date | None = None) -> d
         "hrv_swc_ms": swc,
         "hrv_latest_ms": float(df["hrv_rmssd_ms"].dropna().iloc[-1]) if df["hrv_rmssd_ms"].notna().any() else None,
         "hrv_trend": _trend(df.set_index("date")["hrv_rmssd_ms"].dropna().reset_index(drop=True), lookback=14, eps=2.0).value,
-        "resting_hr_baseline_bpm": round(float(rhr30.mean()), 1) if len(rhr30) else None,
+        "resting_hr_baseline_bpm": round(float(rhr60.mean()), 1) if len(rhr60) else None,
         "resting_hr_latest_bpm": float(df["resting_hr_bpm"].dropna().iloc[-1]) if df["resting_hr_bpm"].notna().any() else None,
         "resting_hr_trend": _trend(df.set_index("date")["resting_hr_bpm"].dropna().reset_index(drop=True), lookback=14, eps=1.5).value,
         "sleep_avg_hours": round(float(last7["sleep_hours"].dropna().mean()), 2) if last7["sleep_hours"].notna().any() else None,
